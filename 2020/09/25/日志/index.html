@@ -294,6 +294,22 @@
   
 
   
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://example.com/2020/09/25/%E6%97%A5%E5%BF%97/",
+  owner: 'NickLennonLiu',
+  repo: 'blog_comment',
+  oauth: {
+    client_id: '8a771ef22c7928de78b0',
+    client_secret: 'f10b9ec4f4fc16c26c888f009046b3a1d604c4c1',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -469,7 +485,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">Call me River,&lt;br&gt;a tyro to almost everything.</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">Call me River,&lt;br&gt;&lt;br&gt;a tyro to almost everything.</div>
   	  	
     	</section>
     
