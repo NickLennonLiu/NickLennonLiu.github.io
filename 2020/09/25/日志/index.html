@@ -286,30 +286,34 @@
 
 
   
-  
-  
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
 
-  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
 
-  
-
-  
-  <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-  // id: "http://example.com/2020/09/25/%E6%97%A5%E5%BF%97/",
-  id: 'Fri Sep 25 2020 00:13:10 GMT+0800,
-  owner: 'NickLennonLiu',
-  repo: 'nicklennonliu.github.io',
-  oauth: {
-    client_id: '8a771ef22c7928de78b0',
-    client_secret: 'f10b9ec4f4fc16c26c888f009046b3a1d604c4c1',
-  },
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '8a771ef22c7928de78b0',
+  	clientSecret: 'f10b9ec4f4fc16c26c888f009046b3a1d604c4c1',
+  	repo: 'blog_comment',
+  	owner: 'NickLennonLiu',
+  	admin: ['NickLennonLiu'],
+  	id: 'Fri Sep 25 2020 00:13:10 GMT+0800',
+  	distractionFreeMode: 'true'
 })
-gitment.render('gitment-ctn')
+gitalk.render('gitalk-container') 
+}
 </script>
+
+  
+  
+  
+  
+
+  
+
+  
 
   
 
