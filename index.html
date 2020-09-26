@@ -13,7 +13,7 @@
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Hygephile">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="June the River">
+<meta property="article:author" content="Junetheriver@2020 粤ICP备20067892">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hygephile" type="application/atom+xml">
@@ -25,7 +25,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#60c3f7,#e8f3fa);
     }
   </style>
   
@@ -39,7 +39,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #60c3f7"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -53,9 +53,13 @@
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/">主页</a></li>
+				<li><a href="/">Home</a></li>
 	        
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+				<li><a href="/journal">Journal</a></li>
+	        
+				<li><a href="/ctf">CTF</a></li>
+	        
+				<li><a href="/dsa">DSA</a></li>
 	        
 			</ul>
 		</nav>
@@ -83,8 +87,6 @@
 		        
 					<a class="bilibili" target="_blank" href="https://space.bilibili.com/800711" title="bilibili"><i class="icon-bilibili"></i></a>
 		        
-					<a class="mail" target="_blank" href="/nicklennonliu@foxmail.com" title="mail"><i class="icon-mail"></i></a>
-		        
 			</div>
 		</nav>
 	</header>		
@@ -94,7 +96,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #60c3f7"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -113,6 +115,10 @@
 			
 				
 			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -124,18 +130,20 @@
 			        
 						<a class="bilibili" target="_blank" href="https://space.bilibili.com/800711" title="bilibili"><i class="icon-bilibili"></i></a>
 			        
-						<a class="mail" target="_blank" href="/nicklennonliu@foxmail.com" title="mail"><i class="icon-mail"></i></a>
-			        
 				</div>
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">Home</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 25%"><a href="/journal">Journal</a></li>
+		        
+					<li style="width: 25%"><a href="/ctf">CTF</a></li>
+		        
+					<li style="width: 25%"><a href="/dsa">DSA</a></li>
 		        
 				</ul>
 			</nav>
@@ -172,7 +180,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="THUCTF2020-baby-xorrrr解答"><a href="#THUCTF2020-baby-xorrrr解答" class="headerlink" title="THUCTF2020 baby-xorrrr解答"></a>THUCTF2020 baby-xorrrr解答</h1><p>绕了很多远路终于做出这道简单题，菜逼心里十分有成就感</p>
+        <h1 id="THUCTF2020-baby-xorrrr"><a href="#THUCTF2020-baby-xorrrr" class="headerlink" title="THUCTF2020 baby-xorrrr"></a>THUCTF2020 baby-xorrrr</h1><p>绕了很多远路终于做出这道简单题，菜逼心里十分有成就感</p>
 <p><a target="_blank" rel="noopener" href="https://thuctf2020.redbud.info/files/9facf64b3741243ba21902a32c6e5be5/baby-xorrrr_240f40e6f1d35abc0d45f03504913ba2.zip">https://thuctf2020.redbud.info/files/9facf64b3741243ba21902a32c6e5be5/baby-xorrrr_240f40e6f1d35abc0d45f03504913ba2.zip</a></p>
 <p>先看题给代码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.strxor <span class="keyword">import</span> strxor</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">flag = <span class="string">&#x27;********************************************&#x27;</span></span><br><span class="line">secret = cycle(<span class="string">&quot;xoriseasy&quot;</span>)</span><br><span class="line">key = cycle(os.urandom(<span class="number">6</span>))</span><br><span class="line">cipher = <span class="string">&#x27;&#x27;</span>.join(strxor(strxor(m, next(secret)), next(key)) <span class="keyword">for</span> m <span class="keyword">in</span> flag)</span><br><span class="line">open(<span class="string">&quot;output&quot;</span>, <span class="string">&quot;w&quot;</span>).write(cipher.encode(<span class="string">&quot;hex&quot;</span>))</span><br></pre></td></tr></table></figure>
@@ -253,7 +261,7 @@
 
         
         <a href="/2020/09/25/9-25/" class="archive-article-date">
-  	<time datetime="2020-09-25T10:54:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-25</time>
+  	<time datetime="2020-09-25T10:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-25</time>
 </a>
         
       </header>
@@ -326,7 +334,7 @@
 
         
         <a href="/2020/09/25/First%20note/" class="archive-article-date">
-  	<time datetime="2020-09-24T16:13:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-25</time>
+  	<time datetime="2020-09-24T16:13:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-25</time>
 </a>
         
       </header>
@@ -406,7 +414,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 June the River
+    		&copy; 2020 Junetheriver@2020 粤ICP备20067892
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -566,27 +574,7 @@ MathJax.Hub.Queue(function() {
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="https://0xclover.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Hexclover</a>
             </li>
           
         </ul>

@@ -15,9 +15,9 @@
 <meta property="og:site_name" content="Hygephile">
 <meta property="og:description" content="9.25小教员考国赛水平，我是没什么希望的了 数据结构也很难，不知道该怎么学 概率论也很麻烦，总之现在作业也比较多 来梳理下任务吧  dsa 1-4 概率论作业 整理各种论文任务 周六聚餐">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-09-24T16:13:10.000Z">
-<meta property="article:modified_time" content="2020-09-24T16:15:08.113Z">
-<meta property="article:author" content="June the River">
+<meta property="article:published_time" content="2020-09-24T16:13:00.000Z">
+<meta property="article:modified_time" content="2020-09-26T12:56:03.550Z">
+<meta property="article:author" content="Junetheriver@2020 粤ICP备20067892">
 <meta property="article:tag" content="Journal">
 <meta name="twitter:card" content="summary">
   
@@ -30,7 +30,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#60c3f7,#e8f3fa);
     }
   </style>
   
@@ -44,7 +44,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #60c3f7"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -58,9 +58,13 @@
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/">主页</a></li>
+				<li><a href="/">Home</a></li>
 	        
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+				<li><a href="/journal">Journal</a></li>
+	        
+				<li><a href="/ctf">CTF</a></li>
+	        
+				<li><a href="/dsa">DSA</a></li>
 	        
 			</ul>
 		</nav>
@@ -88,8 +92,6 @@
 		        
 					<a class="bilibili" target="_blank" href="https://space.bilibili.com/800711" title="bilibili"><i class="icon-bilibili"></i></a>
 		        
-					<a class="mail" target="_blank" href="/nicklennonliu@foxmail.com" title="mail"><i class="icon-mail"></i></a>
-		        
 			</div>
 		</nav>
 	</header>		
@@ -99,7 +101,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #60c3f7"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -118,6 +120,10 @@
 			
 				
 			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -129,18 +135,20 @@
 			        
 						<a class="bilibili" target="_blank" href="https://space.bilibili.com/800711" title="bilibili"><i class="icon-bilibili"></i></a>
 			        
-						<a class="mail" target="_blank" href="/nicklennonliu@foxmail.com" title="mail"><i class="icon-mail"></i></a>
-			        
 				</div>
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">Home</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 25%"><a href="/journal">Journal</a></li>
+		        
+					<li style="width: 25%"><a href="/ctf">CTF</a></li>
+		        
+					<li style="width: 25%"><a href="/dsa">DSA</a></li>
 		        
 				</ul>
 			</nav>
@@ -168,7 +176,7 @@
 
         
         <a href="/2020/09/25/First%20note/" class="archive-article-date">
-  	<time datetime="2020-09-24T16:13:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-25</time>
+  	<time datetime="2020-09-24T16:13:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-25</time>
 </a>
         
       </header>
@@ -321,7 +329,7 @@ if(true){
   	repo: 'NickLennonLiu.github.io',
   	owner: 'NickLennonLiu',
   	admin: ['NickLennonLiu'],
-  	id: 'Fri Sep 25 2020 00:13:10 GMT+0800',
+  	id: 'Fri Sep 25 2020 00:13:00 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
@@ -339,7 +347,7 @@ gitalk.render('gitalk-container')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 June the River
+    		&copy; 2020 Junetheriver@2020 粤ICP备20067892
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -499,27 +507,7 @@ MathJax.Hub.Queue(function() {
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="https://0xclover.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Hexclover</a>
             </li>
           
         </ul>
