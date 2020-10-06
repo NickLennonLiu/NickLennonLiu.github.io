@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://blog.hygephile.com">
-  <title>THUCTF2020 baby-xorrrr | Hygephile</title>
+  <title>Scholarship9 网站维护日记 | Hygephile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="THUCTF2020 baby-xorrrr绕了很多远路终于做出这道简单题，菜逼心里十分有成就感 https:&#x2F;&#x2F;thuctf2020.redbud.info&#x2F;files&#x2F;9facf64b3741243ba21902a32c6e5be5&#x2F;baby-xorrrr_240f40e6f1d35abc0d45f03504913ba2.zip 先看题给代码： 123456789from itertools">
+  <meta name="description" content="Scholarship9 网站维护日记 网站后端：flask  数据库相关SQLAlchemy在shell里用api更新数据库内容之后需要db.session.flush()和db.session.commit()  flush()将sql语句送到数据库 commit()让数据库保存改变  Linux相关文件操作时要注意owner和group，由于supervisorctl里scholarship">
 <meta property="og:type" content="article">
-<meta property="og:title" content="THUCTF2020 baby-xorrrr">
-<meta property="og:url" content="https://blog.hygephile.com/09/26/ctf/THUCTF2020-baby-xorrrr/index.html">
+<meta property="og:title" content="Scholarship9 网站维护日记">
+<meta property="og:url" content="https://blog.hygephile.com/10/06/web/Scholarship9%20%E7%BD%91%E7%AB%99%E7%BB%B4%E6%8A%A4%E6%97%A5%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hygephile">
-<meta property="og:description" content="THUCTF2020 baby-xorrrr绕了很多远路终于做出这道简单题，菜逼心里十分有成就感 https:&#x2F;&#x2F;thuctf2020.redbud.info&#x2F;files&#x2F;9facf64b3741243ba21902a32c6e5be5&#x2F;baby-xorrrr_240f40e6f1d35abc0d45f03504913ba2.zip 先看题给代码： 123456789from itertools">
+<meta property="og:description" content="Scholarship9 网站维护日记 网站后端：flask  数据库相关SQLAlchemy在shell里用api更新数据库内容之后需要db.session.flush()和db.session.commit()  flush()将sql语句送到数据库 commit()让数据库保存改变  Linux相关文件操作时要注意owner和group，由于supervisorctl里scholarship">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-09-25T16:28:53.000Z">
-<meta property="article:modified_time" content="2020-09-26T13:18:14.420Z">
+<meta property="article:published_time" content="2020-10-06T05:44:20.000Z">
+<meta property="article:modified_time" content="2020-10-06T05:44:38.978Z">
 <meta property="article:author" content="Junetheriver@2020 粤ICP备20067892">
-<meta property="article:tag" content="ctf">
+<meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hygephile" type="application/atom+xml">
@@ -167,41 +167,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ctf/THUCTF2020-baby-xorrrr" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-web/Scholarship9 网站维护日记" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      THUCTF2020 baby-xorrrr
+      Scholarship9 网站维护日记
     </h1>
   
 
         
-        <a href="/09/26/ctf/THUCTF2020-baby-xorrrr/" class="archive-article-date">
-  	<time datetime="2020-09-25T16:28:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-26</time>
+        <a href="/10/06/web/Scholarship9%20%E7%BD%91%E7%AB%99%E7%BB%B4%E6%8A%A4%E6%97%A5%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2020-10-06T05:44:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="THUCTF2020-baby-xorrrr"><a href="#THUCTF2020-baby-xorrrr" class="headerlink" title="THUCTF2020 baby-xorrrr"></a>THUCTF2020 baby-xorrrr</h1><p>绕了很多远路终于做出这道简单题，菜逼心里十分有成就感</p>
-<p><a target="_blank" rel="noopener" href="https://thuctf2020.redbud.info/files/9facf64b3741243ba21902a32c6e5be5/baby-xorrrr_240f40e6f1d35abc0d45f03504913ba2.zip">https://thuctf2020.redbud.info/files/9facf64b3741243ba21902a32c6e5be5/baby-xorrrr_240f40e6f1d35abc0d45f03504913ba2.zip</a></p>
-<p>先看题给代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.strxor <span class="keyword">import</span> strxor</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">flag = <span class="string">&#x27;********************************************&#x27;</span></span><br><span class="line">secret = cycle(<span class="string">&quot;xoriseasy&quot;</span>)</span><br><span class="line">key = cycle(os.urandom(<span class="number">6</span>))</span><br><span class="line">cipher = <span class="string">&#x27;&#x27;</span>.join(strxor(strxor(m, next(secret)), next(key)) <span class="keyword">for</span> m <span class="keyword">in</span> flag)</span><br><span class="line">open(<span class="string">&quot;output&quot;</span>, <span class="string">&quot;w&quot;</span>).write(cipher.encode(<span class="string">&quot;hex&quot;</span>))</span><br></pre></td></tr></table></figure>
-
-<p>不知道为何这是python2的，以至于我为了复现这个过程花了90%的时间</p>
-<p>简而言之这个加密的流程是</p>
-<ol>
-<li>将字符串“xoriseasy”的字符轮流循环地与flag中字符取异或</li>
-<li>随机生成一个长度为6的字符串，再次与1中得到的字符串轮流循环取异或</li>
-</ol>
-<p>所以我们先再用xoriseasy取一次异或来抵消掉第一步的加密</p>
-<p>接下来如何知道那随机生成的加密密码呢？</p>
-<p>从这次比赛的flag的设置我们得知，flag的开头六个字符是THUCTF，因此我们只需要用“THUCTF”来对加密的字符串前六位取异或，就能得到密码啦！</p>
-<p>然后再用密码来对整个字符串取异或，就能得到完整的flag了。</p>
+        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3><span id="scholarship9-网站维护日记">Scholarship9 网站维护日记</span></h3><blockquote>
+<p>网站后端：flask</p>
+</blockquote>
+<h5><span id="数据库相关">数据库相关</span></h5><h6><span id="sqlalchemy">SQLAlchemy</span></h6><p>在shell里用api更新数据库内容之后需要db.session.flush()和db.session.commit()</p>
+<blockquote>
+<p><code>flush()</code>将sql语句送到数据库</p>
+<p><code>commit()</code>让数据库保存改变</p>
+</blockquote>
+<h5><span id="linux相关">Linux相关</span></h5><p>文件操作时要注意owner和group，由于supervisorctl里scholarship9的配置文件里启动的用户是icpc，所以服务器运行中所有与读写相关的操作需要让icpc可操作，我备份database的时候重新创建了一个，导致它的用户权限变成了root，导致无法读写数据库。</p>
 
       
 
@@ -215,7 +209,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ctf</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
         		</li>
       		
 		</ul>
@@ -271,7 +265,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://blog.hygephile.com/09/26/ctf/THUCTF2020-baby-xorrrr/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://blog.hygephile.com/10/06/web/Scholarship9%20%E7%BD%91%E7%AB%99%E7%BB%B4%E6%8A%A4%E6%97%A5%E8%AE%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -285,18 +279,9 @@
   
 <nav id="article-nav">
   
-    <a href="/09/27/dsa/CST-DSA-PA1-4-%E6%80%BB%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          CST-DSA PA1-4 总结
-        
-      </div>
-    </a>
   
-  
-    <a href="/09/25/journal/First%20note/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">日志</div>
+    <a href="/09/28/journal/%E6%95%B4%E7%90%86%E4%B8%80%E4%B8%8B%E5%BF%83%E6%83%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">整理一下心情</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -343,7 +328,7 @@ if(true){
   	repo: 'NickLennonLiu.github.io',
   	owner: 'NickLennonLiu',
   	admin: ['NickLennonLiu'],
-  	id: 'Sat Sep 26 2020 00:28:53 GMT+0800',
+  	id: 'Tue Oct 06 2020 13:44:20 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 

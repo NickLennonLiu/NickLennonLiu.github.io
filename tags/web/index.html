@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://blog.hygephile.com">
-  <title>THUCTF2020 baby-xorrrr | Hygephile</title>
+  <title>Tag: web | Hygephile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="THUCTF2020 baby-xorrrr绕了很多远路终于做出这道简单题，菜逼心里十分有成就感 https:&#x2F;&#x2F;thuctf2020.redbud.info&#x2F;files&#x2F;9facf64b3741243ba21902a32c6e5be5&#x2F;baby-xorrrr_240f40e6f1d35abc0d45f03504913ba2.zip 先看题给代码： 123456789from itertools">
-<meta property="og:type" content="article">
-<meta property="og:title" content="THUCTF2020 baby-xorrrr">
-<meta property="og:url" content="https://blog.hygephile.com/09/26/ctf/THUCTF2020-baby-xorrrr/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hygephile">
+<meta property="og:url" content="https://blog.hygephile.com/tags/web/index.html">
 <meta property="og:site_name" content="Hygephile">
-<meta property="og:description" content="THUCTF2020 baby-xorrrr绕了很多远路终于做出这道简单题，菜逼心里十分有成就感 https:&#x2F;&#x2F;thuctf2020.redbud.info&#x2F;files&#x2F;9facf64b3741243ba21902a32c6e5be5&#x2F;baby-xorrrr_240f40e6f1d35abc0d45f03504913ba2.zip 先看题给代码： 123456789from itertools">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-09-25T16:28:53.000Z">
-<meta property="article:modified_time" content="2020-09-26T13:18:14.420Z">
 <meta property="article:author" content="Junetheriver@2020 粤ICP备20067892">
-<meta property="article:tag" content="ctf">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hygephile" type="application/atom+xml">
@@ -167,191 +162,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ctf/THUCTF2020-baby-xorrrr" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      THUCTF2020 baby-xorrrr
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/10/06/web/Scholarship9%20%E7%BD%91%E7%AB%99%E7%BB%B4%E6%8A%A4%E6%97%A5%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2020-10-06T05:44:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-06</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/10/06/web/Scholarship9%20%E7%BD%91%E7%AB%99%E7%BB%B4%E6%8A%A4%E6%97%A5%E8%AE%B0/">Scholarship9 网站维护日记</a>
     </h1>
   
 
-        
-        <a href="/09/26/ctf/THUCTF2020-baby-xorrrr/" class="archive-article-date">
-  	<time datetime="2020-09-25T16:28:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="THUCTF2020-baby-xorrrr"><a href="#THUCTF2020-baby-xorrrr" class="headerlink" title="THUCTF2020 baby-xorrrr"></a>THUCTF2020 baby-xorrrr</h1><p>绕了很多远路终于做出这道简单题，菜逼心里十分有成就感</p>
-<p><a target="_blank" rel="noopener" href="https://thuctf2020.redbud.info/files/9facf64b3741243ba21902a32c6e5be5/baby-xorrrr_240f40e6f1d35abc0d45f03504913ba2.zip">https://thuctf2020.redbud.info/files/9facf64b3741243ba21902a32c6e5be5/baby-xorrrr_240f40e6f1d35abc0d45f03504913ba2.zip</a></p>
-<p>先看题给代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.strxor <span class="keyword">import</span> strxor</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">flag = <span class="string">&#x27;********************************************&#x27;</span></span><br><span class="line">secret = cycle(<span class="string">&quot;xoriseasy&quot;</span>)</span><br><span class="line">key = cycle(os.urandom(<span class="number">6</span>))</span><br><span class="line">cipher = <span class="string">&#x27;&#x27;</span>.join(strxor(strxor(m, next(secret)), next(key)) <span class="keyword">for</span> m <span class="keyword">in</span> flag)</span><br><span class="line">open(<span class="string">&quot;output&quot;</span>, <span class="string">&quot;w&quot;</span>).write(cipher.encode(<span class="string">&quot;hex&quot;</span>))</span><br></pre></td></tr></table></figure>
-
-<p>不知道为何这是python2的，以至于我为了复现这个过程花了90%的时间</p>
-<p>简而言之这个加密的流程是</p>
-<ol>
-<li>将字符串“xoriseasy”的字符轮流循环地与flag中字符取异或</li>
-<li>随机生成一个长度为6的字符串，再次与1中得到的字符串轮流循环取异或</li>
-</ol>
-<p>所以我们先再用xoriseasy取一次异或来抵消掉第一步的加密</p>
-<p>接下来如何知道那随机生成的加密密码呢？</p>
-<p>从这次比赛的flag的设置我们得知，flag的开头六个字符是THUCTF，因此我们只需要用“THUCTF”来对加密的字符串前六位取异或，就能得到密码啦！</p>
-<p>然后再用密码来对整个字符串取异或，就能得到完整的flag了。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ctf</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://blog.hygephile.com/09/26/ctf/THUCTF2020-baby-xorrrr/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/09/27/dsa/CST-DSA-PA1-4-%E6%80%BB%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          CST-DSA PA1-4 总结
-        
-      </div>
-    </a>
   
   
-    <a href="/09/25/journal/First%20note/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">日志</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '8a771ef22c7928de78b0',
-  	clientSecret: 'f10b9ec4f4fc16c26c888f009046b3a1d604c4c1',
-  	repo: 'NickLennonLiu.github.io',
-  	owner: 'NickLennonLiu',
-  	admin: ['NickLennonLiu'],
-  	id: 'Sat Sep 26 2020 00:28:53 GMT+0800',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-
-  
-  
+    
 
 
           </div>
@@ -374,9 +238,9 @@ gitalk.render('gitalk-container')
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
