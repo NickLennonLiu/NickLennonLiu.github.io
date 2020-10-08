@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://blog.hygephile.com">
   <title>Scholarship9 网站维护日记 | Hygephile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Scholarship9 网站维护日记 网站后端：flask  数据库相关SQLAlchemy在shell里用api更新数据库内容之后需要db.session.flush()和db.session.commit()  flush()将sql语句送到数据库 commit()让数据库保存改变  Linux相关文件操作时要注意owner和group，由于supervisorctl里scholarship">
+  <meta name="description" content="Scholarship9 网站维护日记 网站后端：flask  数据库相关SQLAlchemy在shell里用api更新数据库内容之后需要db.session.flush()和db.session.commit()  flush()将sql语句送到数据库 commit()让数据库保存改变  Linux相关 文件操作时要注意owner和group，由于supervisorctl里scholarshi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Scholarship9 网站维护日记">
 <meta property="og:url" content="https://blog.hygephile.com/10/06/web/Scholarship9%20%E7%BD%91%E7%AB%99%E7%BB%B4%E6%8A%A4%E6%97%A5%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hygephile">
-<meta property="og:description" content="Scholarship9 网站维护日记 网站后端：flask  数据库相关SQLAlchemy在shell里用api更新数据库内容之后需要db.session.flush()和db.session.commit()  flush()将sql语句送到数据库 commit()让数据库保存改变  Linux相关文件操作时要注意owner和group，由于supervisorctl里scholarship">
+<meta property="og:description" content="Scholarship9 网站维护日记 网站后端：flask  数据库相关SQLAlchemy在shell里用api更新数据库内容之后需要db.session.flush()和db.session.commit()  flush()将sql语句送到数据库 commit()让数据库保存改变  Linux相关 文件操作时要注意owner和group，由于supervisorctl里scholarshi">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-06T05:44:20.000Z">
-<meta property="article:modified_time" content="2020-10-06T05:44:38.978Z">
+<meta property="article:modified_time" content="2020-10-08T00:48:28.951Z">
 <meta property="article:author" content="Junetheriver@2020 粤ICP备20067892">
 <meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
@@ -195,7 +195,15 @@
 <p><code>flush()</code>将sql语句送到数据库</p>
 <p><code>commit()</code>让数据库保存改变</p>
 </blockquote>
-<h5><span id="linux相关">Linux相关</span></h5><p>文件操作时要注意owner和group，由于supervisorctl里scholarship9的配置文件里启动的用户是icpc，所以服务器运行中所有与读写相关的操作需要让icpc可操作，我备份database的时候重新创建了一个，导致它的用户权限变成了root，导致无法读写数据库。</p>
+<h5><span id="linux相关">Linux相关</span></h5><ul>
+<li><p>文件操作时要注意owner和group，由于supervisorctl里scholarship9的配置文件里启动的用户是icpc，所以服务器运行中所有与读写相关的操作需要让icpc可操作，我备份database的时候重新创建了一个，导致它的用户权限变成了root，导致无法读写数据库。</p>
+</li>
+<li><p>在python终端进行数据库api时，发现用中文会有问题，无论是<code>&#39;琪露诺&#39;</code>还是<code>&#39;琪露诺&#39;.encoding(&#39;utf-8&#39;)</code>，后者会反映ASCII无法转成utf-8什么的，记不大清楚了</p>
+</li>
+</ul>
+<h5><span id="碎碎念">碎碎念</span></h5><p>2020.10.8   </p>
+<p>前一天晚上部长发来有同学反映提交之后改不了的问题，我用自己的测试了一下没有问题，部长也没回我，搞得我一整夜做梦都在烦恼这个问题……就怕还有其他同学反映，那就很麻烦了。要不要问一问同班同学？</p>
+<p>算了，还是等部长反馈吧，毕竟我自己测试得都可以了，不要想那么多……</p>
 
       
 

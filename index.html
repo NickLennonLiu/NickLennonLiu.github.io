@@ -192,7 +192,15 @@
 <p><code>flush()</code>将sql语句送到数据库</p>
 <p><code>commit()</code>让数据库保存改变</p>
 </blockquote>
-<h5><span id="linux相关">Linux相关</span></h5><p>文件操作时要注意owner和group，由于supervisorctl里scholarship9的配置文件里启动的用户是icpc，所以服务器运行中所有与读写相关的操作需要让icpc可操作，我备份database的时候重新创建了一个，导致它的用户权限变成了root，导致无法读写数据库。</p>
+<h5><span id="linux相关">Linux相关</span></h5><ul>
+<li><p>文件操作时要注意owner和group，由于supervisorctl里scholarship9的配置文件里启动的用户是icpc，所以服务器运行中所有与读写相关的操作需要让icpc可操作，我备份database的时候重新创建了一个，导致它的用户权限变成了root，导致无法读写数据库。</p>
+</li>
+<li><p>在python终端进行数据库api时，发现用中文会有问题，无论是<code>&#39;琪露诺&#39;</code>还是<code>&#39;琪露诺&#39;.encoding(&#39;utf-8&#39;)</code>，后者会反映ASCII无法转成utf-8什么的，记不大清楚了</p>
+</li>
+</ul>
+<h5><span id="碎碎念">碎碎念</span></h5><p>2020.10.8   </p>
+<p>前一天晚上部长发来有同学反映提交之后改不了的问题，我用自己的测试了一下没有问题，部长也没回我，搞得我一整夜做梦都在烦恼这个问题……就怕还有其他同学反映，那就很麻烦了。要不要问一问同班同学？</p>
+<p>算了，还是等部长反馈吧，毕竟我自己测试得都可以了，不要想那么多……</p>
 
       
 
