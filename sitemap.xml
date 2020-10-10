@@ -46,7 +46,7 @@
 
   
   <url>
-    <loc>https://blog.hygephile.com/tags/Journal/</loc>
+    <loc>https://blog.hygephile.com/tags/ctf/</loc>
     <lastmod>2020-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -60,14 +60,14 @@
   </url>
   
   <url>
-    <loc>https://blog.hygephile.com/tags/web/</loc>
+    <loc>https://blog.hygephile.com/tags/Journal/</loc>
     <lastmod>2020-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.hygephile.com/tags/ctf/</loc>
+    <loc>https://blog.hygephile.com/tags/web/</loc>
     <lastmod>2020-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
