@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.hygephile.com/10/16/journal/1016/</loc>
+    
+    <lastmod>2020-10-15</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.hygephile.com/10/10/journal/10-10-Journal/</loc>
     
     <lastmod>2020-10-10</lastmod>
@@ -46,7 +53,7 @@
 
   <url>
     <loc>https://blog.hygephile.com/</loc>
-    <lastmod>2020-10-10</lastmod>
+    <lastmod>2020-10-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -54,28 +61,28 @@
   
   <url>
     <loc>https://blog.hygephile.com/tags/ctf/</loc>
-    <lastmod>2020-10-10</lastmod>
+    <lastmod>2020-10-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.hygephile.com/tags/dsa/</loc>
-    <lastmod>2020-10-10</lastmod>
+    <lastmod>2020-10-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.hygephile.com/tags/Journal/</loc>
-    <lastmod>2020-10-10</lastmod>
+    <lastmod>2020-10-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.hygephile.com/tags/web/</loc>
-    <lastmod>2020-10-10</lastmod>
+    <lastmod>2020-10-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
