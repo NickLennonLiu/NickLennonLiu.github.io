@@ -164,6 +164,368 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-dm/Note-Chap1-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/10/20/dm/Note-Chap1-3/">离散数学 Chap.1-3</a>
+    </h1>
+  
+
+        
+        <a href="/10/20/dm/Note-Chap1-3/" class="archive-article-date">
+  	<time datetime="2020-10-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h5><span id="基本等值公式">基本等值公式</span></h5><ul>
+<li><p>双重否定律</p>
+</li>
+<li><p>结合律（单蕴含不满足）</p>
+</li>
+<li><p>交换律（同上）</p>
+</li>
+<li><p>分配律</p>
+<p>  注意单蕴含满足分配律$P\to(Q \to R) = (P\to Q)\to(P\to R)$</p>
+<p>  但双蕴含不满足</p>
+</li>
+<li><p>等幂律</p>
+</li>
+<li><p>吸收律</p>
+</li>
+<li><p>摩根律</p>
+</li>
+<li><p>同一律</p>
+</li>
+<li><p>零律</p>
+</li>
+<li><p>补余律</p>
+</li>
+</ul>
+<p>蕴含等值式</p>
+<p>前提合取合并</p>
+<p>等价等值式</p>
+<p>假言易位</p>
+<p>等价否定等值式</p>
+<p>归谬论</p>
+<p>前提交换</p>
+<p>前提析取合并</p>
+<h5><span id="推理系统">推理系统</span></h5><h6><span id="代入规则">代入规则</span></h6><p>重言式经过代入规则之后仍然是重言式</p>
+<h6><span id="置换规则">置换规则</span></h6><p>公式A中的<strong>子公式代换为与其等值的公式</strong>后得到的公式B与原来的公式A等值</p>
+<h6><span id="推理规则">推理规则</span></h6><ol>
+<li>前提引入规则</li>
+<li>结论引用规则</li>
+<li>代入规则</li>
+<li>置换规则</li>
+<li>分离规则</li>
+<li>条件证明规则（附加前提引入）</li>
+</ol>
+<h6><span id="归结推理规则">归结推理规则</span></h6><p>$C_1 \wedge C_2  = (L\vee C_1’) \wedge (\neg L\vee C_2’)\implies R(C_1,C_2) = C_1’\vee C_2’$</p>
+<h5><span id="命题逻辑公理系统">命题逻辑公理系统</span></h5><ul>
+<li><h6><span id="初始符号">初始符号</span></h6></li>
+<li><h6><span id="形成规则">形成规则</span></h6></li>
+<li><h6><span id="定义">定义</span></h6><ol>
+<li>$(A\to B):=(\neg A \vee B)$</li>
+<li>$(A \wedge B):=\neg(\neg A \vee \neg B)$</li>
+<li>$(A\leftrightarrow B):=((A\to B)\wedge(B\to A))$</li>
+</ol>
+</li>
+<li><h6><span id="公理">公理</span></h6><ol>
+<li>$\vdash ((P\vee P)\to P)$   重言律</li>
+<li>$\vdash (P\to(P\vee Q))$ 析取引入律</li>
+<li>$\vdash ((P\vee Q)\to(Q \vee P))$ 析取交换律</li>
+<li>$\vdash ((Q\to R)\to((P\vee Q)\to(P\vee R)))$ <strong>析取参与蕴含</strong></li>
+</ol>
+</li>
+<li><h6><span id="变形推理规则">变形（推理）规则</span></h6><ol>
+<li>代入规则</li>
+<li>分离规则</li>
+<li>置换规则：<strong>定义</strong>的左右两方可以相互替换（<strong>不是等值式！！</strong>）</li>
+</ol>
+</li>
+<li><h6><span id="常用定理">常用定理</span></h6><ul>
+<li><p>3.2.1 $\vdash (Q\to R)\to((P\to Q)\to (P\to R))$  </p>
+<blockquote>
+<p>公理4的直接代换</p>
+<p>这个定理使我们能够对蕴含号后面的部分作置换</p>
+</blockquote>
+</li>
+<li><p>3.2.2 $\vdash P\to P$ 自身蕴含</p>
+</li>
+<li><p>3.2.3 $\vdash \neg P \vee P$</p>
+</li>
+<li><p>3.2.4 $\vdash P \vee \neg P$</p>
+</li>
+<li><p>3.2.5 $\vdash P \to \neg\neg P$ 双重否定</p>
+</li>
+<li><p>3.2.6 $\vdash \neg\neg P \to P$</p>
+</li>
+<li><p>3.2.7 $\vdash (P\to Q)\to(\neg Q\to \neg P)$ 假言易位</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5><span id="命题逻辑自然演绎系统">命题逻辑自然演绎系统</span></h5><h6><span id="变形规则">变形规则</span></h6><ol>
+<li><p>肯定前提律</p>
+<p> $A_1,\cdots,A_n \vdash A_i(i=1,\cdots,n)$</p>
+</li>
+<li><p>传递律</p>
+<p> $\Gamma\vdash A,\ 且A\vdash B, 则\Gamma \vdash B$</p>
+</li>
+<li><p>反证律</p>
+<p> $\Gamma ,\neg A\vdash B,且\ \Gamma, \neg A \vdash \neg B,则 \Gamma \vdash A$</p>
+</li>
+<li><p>蕴含词消去律</p>
+<p> $A\to B, A\vdash B$</p>
+</li>
+<li><p>蕴含词引入律</p>
+<p> $\Gamma, A\vdash B, 则\Gamma\vdash A\to B$</p>
+</li>
+</ol>
+<h5><span id="命题逻辑公理系统">命题逻辑公理系统</span></h5><h6><span id="公理系统的结构">公理系统的结构</span></h6><ul>
+<li>初始符号：公理系统<strong>所允许出现的全体符号</strong>的<strong>集合</strong></li>
+<li>形成规则：<strong>合法的符号序列</strong>的定义</li>
+<li>公理</li>
+<li>变形规则（推理规则）</li>
+<li>建立定理</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">dm</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/10/20/dm/Note-Chap1-3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-dm/Note-Chap4-5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/10/20/dm/Note-Chap4-5/">离散数学 Chap.4-5</a>
+    </h1>
+  
+
+        
+        <a href="/10/20/dm/Note-Chap4-5/" class="archive-article-date">
+  	<time datetime="2020-10-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4><span id="谓词逻辑">谓词逻辑</span></h4><blockquote>
+<p>谓词逻辑 = 命题逻辑 + {个体词, 谓词, 量词, 函数}</p>
+</blockquote>
+<p>三要素：</p>
+<ul>
+<li><p>个体词、谓词和量词</p>
+</li>
+<li><p>函数</p>
+</li>
+</ul>
+<h6><span id="辖域">辖域</span></h6><p>量词所约束的变元</p>
+<p>一个谓词公式如果没有自由变元，那么它就是一个命题。</p>
+<h6><span id="合式公式谓词公式">合式公式（谓词公式）</span></h6><p>合式公式的定义</p>
+<h4><span id="谓词逻辑的等值和推理演算">谓词逻辑的等值和推理演算</span></h4><h6><span id="等值式">等值式</span></h6><p>将命题逻辑中的等值式，直接<strong>以谓词公式代入命题变项</strong>即可得到谓词等值式</p>
+<h6><span id="否定型等值式">否定型等值式</span></h6><p>$\neg(\forall x)P(x) = (\exist x)\neg P(x)\\neg(\exist x)P(x) = (\forall x)\neg P(x)$</p>
+<h6><span id="量词分配等值式">量词分配等值式</span></h6><ul>
+<li>对析取词和合取词的分配律</li>
+</ul>
+<p>$$<br>\begin{align}<br>(\forall x)(P(x)\vee q) &amp;= (\forall x)P(x)\vee q\<br>(\exist x)(P(x)\vee q) &amp;= (\exist x)P(x)\vee q\<br>(\forall x)(P(x)\wedge q) &amp;= (\forall x)P(x)\wedge q\<br>(\exist x)(P(x)\wedge q) &amp;= (\exist x)P(x)\wedge q\<br>\end{align}<br>$$</p>
+<ul>
+<li>对蕴含词的分配律</li>
+</ul>
+<p>$$<br>\begin{align}<br>(\forall x)(P(x)\to q) &amp;= (\exist x)P(x) \to q\<br>(\exist x)(P(x) \to q) &amp;= (\forall x)P(x) \to q\<br>这里\forall 与\exists的交换来&amp;源于\to 中\neg的外移。\<br>(\forall x)(p\to Q(x)) &amp;= p\to(\forall x)P(x)\<br>(\exist x)(p\to Q(x)) &amp;= p\to(\exist x)P(x)\<br>\end{align}<br>$$</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">dm</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/10/20/dm/Note-Chap4-5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2020/DSA-分摊复杂度" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/10/16/2020/DSA-%E5%88%86%E6%91%8A%E5%A4%8D%E6%9D%82%E5%BA%A6/">DSA 分摊复杂度</a>
+    </h1>
+  
+
+        
+        <a href="/10/16/2020/DSA-%E5%88%86%E6%91%8A%E5%A4%8D%E6%9D%82%E5%BA%A6/" class="archive-article-date">
+  	<time datetime="2020-10-16T01:50:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2><span id="amortization-分摊分析">Amortization 分摊分析</span></h2><blockquote>
+<p>平摊分析中几种常用的技术:</p>
+<ul>
+<li>聚合分析决定 <em>n</em> 个操作序列的耗费上界<em>T</em>(<em>n</em>)，然后计算平均耗费为 <em>T</em>(<em>n</em>) / <em>n</em>。[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%B9%B3%E6%91%8A%E5%88%86%E6%9E%90#cite_note-Lecture_20-1">1]</a></li>
+<li>记账方法确定每个操作的耗费，结合它的直接执行时间及它在对运行时中未来操作的影响。通常来说，许多短操作增量累加成“债”，而通过减少长操作的次数来“偿还”。[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%B9%B3%E6%91%8A%E5%88%86%E6%9E%90#cite_note-Lecture_20-1">1]</a></li>
+<li>势能方法类似记账方法，但通过预先储蓄“势能”而在需要的时候释放。[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%B9%B3%E6%91%8A%E5%88%86%E6%9E%90#cite_note-Lecture_20-1">1]</a></li>
+</ul>
+</blockquote>
+<h6><span id="聚合-aggregate">聚合 Aggregate</span></h6><p>个人理解就是根据一些<strong>已知信息</strong>（e.g. 每个元素只进一次）决定<strong>全体</strong>操作的耗费上界，然后再除以操作次数</p>
+<h6><span id="记账-account">记账 Account</span></h6><h6><span id="势能-potential">势能 Potential</span></h6>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DSA</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/10/16/2020/DSA-%E5%88%86%E6%91%8A%E5%A4%8D%E6%9D%82%E5%BA%A6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-journal/1016" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -211,6 +573,119 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/10/16/journal/1016/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ML/ML_01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4><span id="绪论">绪论</span></h4><p>术语</p>
+<ul>
+<li><p>数据集</p>
+<ul>
+<li>示例/样本/特征向量<ul>
+<li>属性/特征</li>
+<li>属性值 张成 属性空间/样本空间/输入空间</li>
+<li>样本的维数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>训练集</p>
+<ul>
+<li>训练样本</li>
+</ul>
+</li>
+<li><p>模型/假设/学习器</p>
+</li>
+<li><p>标记空间/输出空间</p>
+<ul>
+<li>有 标记 的示例称为 样例</li>
+</ul>
+</li>
+<li><p>学习任务</p>
+<ul>
+<li>按类型<ul>
+<li>分类</li>
+<li>回归</li>
+<li>聚类</li>
+</ul>
+</li>
+<li>按是否有标记<ul>
+<li>监督学习</li>
+<li>无监督学习</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>测试</p>
+<ul>
+<li>测试样本</li>
+</ul>
+</li>
+<li><p>假设空间</p>
+<ul>
+<li>利用通配符、合取式等符号来表示假设</li>
+</ul>
+</li>
+<li><p>版本空间：与训练集一致的假设集合</p>
+</li>
+<li><p>归纳偏好</p>
+<blockquote>
+<p>对某种类型假设的偏好</p>
+</blockquote>
+<ul>
+<li><p>奥卡姆剃刀</p>
+</li>
+<li><p>NFL theorem</p>
+<blockquote>
+<p>学习算法的期望性能是相同的</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/10/13/ML/ML_01/">展开全文 >></a>
         </p>
       
 
@@ -701,82 +1176,10 @@
 
 
   
-    <article id="post-journal/First note" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/09/25/journal/First%20note/">日志</a>
-    </h1>
-  
-
-        
-        <a href="/09/25/journal/First%20note/" class="archive-article-date">
-  	<time datetime="2020-09-24T16:13:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        日记
-        
-          <a class="article-more-a" href="/09/25/journal/First%20note/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Journal</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/09/25/journal/First%20note/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
@@ -904,6 +1307,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DSA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">dm</a>
               </li>
             
             <div class="clearfix"></div>
