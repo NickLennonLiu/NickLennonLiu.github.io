@@ -2,37 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.hygephile.com/11/01/2020/Dear-Diary/</loc>
+    <loc>https://blog.hygephile.com/11/01/journal/Dear-Diary/</loc>
     
-    <lastmod>2020-10-31</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.hygephile.com/10/31/journal/1031/</loc>
-    
-    <lastmod>2020-10-30</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.hygephile.com/10/30/journal/1030/</loc>
-    
-    <lastmod>2020-10-30</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.hygephile.com/10/26/journal/1026/</loc>
-    
-    <lastmod>2020-10-26</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.hygephile.com/10/22/journal/10-22/</loc>
-    
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-11-01</lastmod>
     
   </url>
   
@@ -58,13 +30,6 @@
   </url>
   
   <url>
-    <loc>https://blog.hygephile.com/10/16/journal/1016/</loc>
-    
-    <lastmod>2020-10-15</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.hygephile.com/10/13/ML/ML_01/</loc>
     
     <lastmod>2020-10-12</lastmod>
@@ -72,21 +37,7 @@
   </url>
   
   <url>
-    <loc>https://blog.hygephile.com/10/10/journal/10-10-Journal/</loc>
-    
-    <lastmod>2020-10-10</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.hygephile.com/09/28/journal/%E6%95%B4%E7%90%86%E4%B8%80%E4%B8%8B%E5%BF%83%E6%83%85/</loc>
-    
-    <lastmod>2020-10-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.hygephile.com/09/25/journal/First%20note/</loc>
     
     <lastmod>2020-10-10</lastmod>
     
@@ -116,7 +67,7 @@
 
   <url>
     <loc>https://blog.hygephile.com/</loc>
-    <lastmod>2020-10-31</lastmod>
+    <lastmod>2020-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -124,42 +75,42 @@
   
   <url>
     <loc>https://blog.hygephile.com/tags/ctf/</loc>
-    <lastmod>2020-10-31</lastmod>
+    <lastmod>2020-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.hygephile.com/tags/dsa/</loc>
-    <lastmod>2020-10-31</lastmod>
+    <lastmod>2020-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.hygephile.com/tags/Journal/</loc>
-    <lastmod>2020-10-31</lastmod>
+    <lastmod>2020-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.hygephile.com/tags/web/</loc>
-    <lastmod>2020-10-31</lastmod>
+    <lastmod>2020-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.hygephile.com/tags/DSA/</loc>
-    <lastmod>2020-10-31</lastmod>
+    <lastmod>2020-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://blog.hygephile.com/tags/dm/</loc>
-    <lastmod>2020-10-31</lastmod>
+    <lastmod>2020-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

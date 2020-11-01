@@ -1,16 +1,9 @@
-https://blog.hygephile.com/11/01/2020/Dear-Diary/
-https://blog.hygephile.com/10/31/journal/1031/
-https://blog.hygephile.com/10/30/journal/1030/
-https://blog.hygephile.com/10/26/journal/1026/
-https://blog.hygephile.com/10/22/journal/10-22/
+https://blog.hygephile.com/11/01/journal/Dear-Diary/
 https://blog.hygephile.com/10/20/dm/Note-Chap1-3/
 https://blog.hygephile.com/10/20/dm/Note-Chap4-5/
 https://blog.hygephile.com/10/16/dsa/DSA-%E5%88%86%E6%91%8A%E5%A4%8D%E6%9D%82%E5%BA%A6/
-https://blog.hygephile.com/10/16/journal/1016/
 https://blog.hygephile.com/10/13/ML/ML_01/
-https://blog.hygephile.com/10/10/journal/10-10-Journal/
 https://blog.hygephile.com/10/06/web/Scholarship9%20%E7%BD%91%E7%AB%99%E7%BB%B4%E6%8A%A4%E6%97%A5%E8%AE%B0/
 https://blog.hygephile.com/09/28/journal/%E6%95%B4%E7%90%86%E4%B8%80%E4%B8%8B%E5%BF%83%E6%83%85/
 https://blog.hygephile.com/09/27/dsa/CST-DSA-PA1-4-%E6%80%BB%E7%BB%93/
 https://blog.hygephile.com/09/26/ctf/THUCTF2020-baby-xorrrr/
-https://blog.hygephile.com/09/25/journal/First%20note/
