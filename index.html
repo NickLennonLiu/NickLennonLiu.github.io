@@ -164,6 +164,147 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-dsa/BBST性能测试报告" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/12/13/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/">BBST性能测试报告</a>
+    </h1>
+  
+
+        
+        <a href="/12/13/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/" class="archive-article-date">
+  	<time datetime="2020-12-13T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1><span id="pa2b-bbst-performance-analysis-报告">PA2b BBST Performance Analysis 报告</span></h1><p>计95 刘玉河 2019011560</p>
+<h3><span id="数据结构">数据结构</span></h3><h4><span id="基类bst">基类BST</span></h4><p>作为高级平衡树的基类BST,应当实现以下基本功能：</p>
+<ul>
+<li><p>高度维护updateHeight与updateHeightAbove</p>
+</li>
+<li><p>节点查找search</p>
+</li>
+<li><p>节点移除removeAt</p>
+</li>
+<li><p>3-4重构connect34</p>
+</li>
+<li><p>节点旋转rotateAt</p>
+</li>
+</ul>
+<p>以及相关的宏定义，如IsRChild、stature等，此处不一一列举</p>
+<h4><span id="avl">AVL</span></h4><p>在BST的基础上，AVL树</p>
+<ul>
+<li>新增了节点高度平衡的判断AvlBalanced</li>
+<li>实现了节点的插入insert与删除remove</li>
+</ul>
+<p>具体实现参考了课件与示例代码。</p>
+<h4><span id="splay">Splay</span></h4><p>在BST的基础上，Splay树</p>
+<ul>
+<li>新增了跨两代的旋转操作splay</li>
+<li>重载了节点查找search</li>
+<li>实现了节点插入insert与删除remove</li>
+</ul>
+<p>具体实现参考了课件与示例代码。</p>
+<h3><span id="复杂度分析">复杂度分析</span></h3><p>AVL与Splay树的三种操作的分摊复杂度均为$O(\log n)$,但在不同特点的操作序列下表现不尽相同。</p>
+<p><strong>AVL:</strong></p>
+<p>查找、插入与删除的最坏情况复杂度均为$O(\log n)$，其中删除所涉及到的旋转数量较多。</p>
+<p><strong>Splay:</strong></p>
+<p>当操作的节点局部性强、缓存命中率极高时能够达到更高的效率$O(\log k)$(k为局部规模)，任何连续的m次查找，都可以在$O(m\log k + n\log n)$时间内完成</p>
+<p>若反复地顺序访问任一个子集，此时分摊成本仅为常数</p>
+<h3><span id="测例生成">测例生成</span></h3><p>为了让测例生成器能够涉及绝大多数情况，并提高测例的可定制性，定义了如下的一系列函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 按照ins:del:que的多项分布随机决定一个操作类型（插入/删除/查找）</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> <span class="title">random_operation</span><span class="params">(<span class="keyword">int</span> ins, <span class="keyword">int</span> del, <span class="keyword">int</span> que)</span></span>;</span><br><span class="line"><span class="comment">// 按照正态分布/均匀分布随机确定一个操作序列的长度(最大值为total)</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">random_length</span><span class="params">(<span class="keyword">int</span> total, <span class="keyword">bool</span> normal)</span></span>;</span><br><span class="line"><span class="comment">// 生成一个有序的操作序列，区间[lo,hi]，可定制三种操作的占比</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sorted_sequence</span><span class="params">(<span class="keyword">int</span> length, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi, <span class="keyword">int</span> ins, <span class="keyword">int</span> del, <span class="keyword">int</span> que)</span></span>;</span><br><span class="line"><span class="comment">// 生成一个无序的操作序列，区间[lo,hi]，可定制三种操作的占比</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">random_sequence</span><span class="params">(<span class="keyword">int</span> length, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi, <span class="keyword">int</span> ins, <span class="keyword">int</span> del, <span class="keyword">int</span> que)</span></span>;</span><br><span class="line"><span class="comment">// 生成一个无序的操作序列,相邻的元素之间相差不超过10，区间[lo,hi]，可定制三种操作的占比</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">neighbor_sequence</span><span class="params">(<span class="keyword">int</span> length, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi, <span class="keyword">int</span> ins, <span class="keyword">int</span> del, <span class="keyword">int</span> que)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>所有的测例生成都根据以上函数的调用进行。通过调整参数即可获得不同情况的测例。</p>
+<h3><span id="测例设计">测例设计</span></h3><ol>
+<li><p>随机无序插入</p>
+</li>
+<li><p><strong>分段局部</strong>无序插入</p>
+</li>
+<li><p><strong>分段局部有序</strong>插入</p>
+</li>
+<li><p>前三分之一随机插入，后三分之二随机插入/删除</p>
+</li>
+<li><p>前三分之一随机插入，后三分之二<strong>分段局部</strong>随机插入/删除</p>
+</li>
+<li><p>前三分之一随机插入，后三分之二<strong>分段局部有序</strong>随机插入/删除</p>
+</li>
+<li><p>操作类型随机（1:1:1），操作区间完全随机</p>
+</li>
+<li><p>操作类型随机（1:1:1），操作区间分段</p>
+</li>
+<li><p>操作类型随机（1:1:1），操作区间分段，邻近操作（相邻元素不超过10）</p>
+</li>
+</ol>
+<h3><span id="性能测试">性能测试</span></h3><p><img src="images/PA2b.jpg" alt="性能测试结果（如无法查看请见pdf版本）"></p>
+<p>将前述9个测试点分为纯插入、插入+删除、随机操作三组，每组内调整操作区间的局域性与有序性，可以得到如上的测试结果。</p>
+<h4><span id="结果总结">结果总结</span></h4><ol>
+<li>在同一个测试点下，AVL树的性能普遍高于Splay树</li>
+<li>操作区间的局域性与有序性对AVL的性能没有显著的影响，但对Splay树性能影响巨大</li>
+</ol>
+<h4><span id="原因分析">原因分析</span></h4><h6><span id="为何局域性与有序性对splay树影响巨大">为何局域性与有序性对Splay树影响巨大？</span></h6><p>由前面的复杂度分析可知，Splay树每次访问某个节点后，都会将其旋转至根部。这样一来，Splay树在局部性强的测例下表现的性能必然更好，而有序性则保证了树的高度能够趋于平衡。</p>
+<h6><span id="为何avl树始终比splay树表现得好">为何AVL树始终比Splay树表现得好？</span></h6><p>经过分析和与同学讨论，发现根本原因在于，要想Splay的局部操作凸显出优势，局部操作的长度不能大于AVL所能达到的树高$O(\log n)$，</p>
+<p>后者根据测例的范围nmax = 1000000，最多也只有20左右，这个远小于测例中预设的局部区间大小（约100）。</p>
+<p>由此结果可以知道，当总体树高$O(\log n)$较小时，即便是局部性和有序性较强的测例也无法完全凸显Splay的优势；但根据组内的结果对比，可以看到Splay对局部性和有序性的提升空间要远大于AVL。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">dsa</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/12/13/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-dsa/BBST性能测试的测例设计思路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1045,140 +1186,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/09/28/journal/%E6%95%B4%E7%90%86%E4%B8%80%E4%B8%8B%E5%BF%83%E6%83%85/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-dsa/CST-DSA-PA1-4-总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/09/27/dsa/CST-DSA-PA1-4-%E6%80%BB%E7%BB%93/">CST-DSA PA1-4 总结</a>
-    </h1>
-  
-
-        
-        <a href="/09/27/dsa/CST-DSA-PA1-4-%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-09-27T10:24:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
-<h1><span id="cst2020-1-4-risk">CST2020 1-4 Risk</span></h1><hr>
-<h3><span id="描述"><strong>描述</strong></span></h3><p>从公元34世纪到72世纪，月球城处于新型呼吸道疾病DIVOC-34疫情期间，月球城每一天都是低风险、中风险、高风险三种状态之一。</p>
-<p>DIVOC-34是一种病毒性疾病，但得病之后不会产生永久抗体，甚至一个人可能今天确诊之后痊愈了，明天又确诊一次。当然，每个人一天之内最多确诊一次。幸运的是， DIVOC-34不致死，人们得了这个病之后，唯一的症状是不停打嗝。当然，这对人们的日常生活还是有很大的影响！</p>
-<p>月球城人口<strong>200万整</strong>，人们 不老不死，城里也没有人出生或被克隆出来。且为防止DIVOC-34疫情扩散，太阳系安理会决定实行极端封城，月球城内外之间不存在任何人口流动。</p>
-<p>我们现在研究从月球城第一次出现确诊病例那一天开始的连续nn天。第ii天确诊病例为xixi人。</p>
-<p>月球城安理会决定了两个用于评估风险的阈值p和q(0≤p&lt;q)</p>
-<p>在第ii天，我们这样判断月球城的风险程度：考虑第ii天之前的mimi天(也就是第i−mii−mi天到第i−1i−1天，注意第ii天的时候当天的确诊数据还没有统计出来)的疫情数据，设这mimi天中单日确诊病例数的最大值为kk, 则如果0≤k&lt;p0≤k&lt;p, 月球城为低风险；p≤k&lt;qp≤k&lt;q, 月球城为中风险；q≤kq≤k, 月球城为高风险。</p>
-<p>现在月球城安理会想知道，如果我们改变阈值p,qp,q的值，那么这nn天里低风险、中风险、高风险天数会如何变化。</p>
-<h3><span id="输入格式"><strong>输入格式</strong></span></h3><p>第一行为一个正整数nn，表示天数。n≤106n≤106。</p>
-<p>第二行依次是nn个空格隔开的非负整数xi(1≤i≤n)xi(1≤i≤n)，依次表示每一天的确诊人数。</p>
-<p>第三行依次是nn个空格隔开的正整数mimi, 表示第ii天评估风险时往前追溯的天数。出于一个自然的考虑，第ii天向前追溯到的最早天数，不会比第 i−1i−1天向前追溯到的最早天数更早。也就是，如果第i−1i−1天评估风险最早向前追溯到第uu天，第ii天评估风险最早向前追溯到第vv天，我们有v≥uv≥u。</p>
-<p>第四行是一个正整数TT, 表示我们询问的不同的p,qp,q的组数。T≤105T≤105。</p>
-<p>接下来TT行，每行两个数字pi,qipi,qi, 表示第ii组询问的p,qp,q。pi,qipi,qi均为非负数，且不超过232-1232−1。</p>
-<h3><span id="输出"><strong>输出</strong></span></h3><p>输出TT行，每行两个空格隔开的整数，依次表示低风险天数和中风险天数。这里面自然包含了高风险天数的信息，因此我们不再要求输出高风险天数。</p>
-<h3><span id="输入样例"><strong>输入样例</strong></span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;7</span><br><span class="line">&gt;1 2 3 4 1000 100 20</span><br><span class="line">&gt;1 2 3 3 3 4 3</span><br><span class="line">&gt;2</span><br><span class="line">&gt;3 5</span><br><span class="line">&gt;100 200</span><br></pre></td></tr></table></figure>
-
-<h3><span id="输出样例"><strong>输出样例</strong></span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;3 2</span><br><span class="line">&gt;5 0</span><br></pre></td></tr></table></figure>
-
-<h3><span id="样例解释"><strong>样例解释</strong></span></h3><p>第1天前1天的确诊病例最大值为0，</p>
-<p>第2天前2天的确诊病例最大值为1，</p>
-<p>第3天前3天的确诊病例最大值为2，</p>
-<p>第4天前3天的确诊病例最大值为3，</p>
-<p>第5天前3天的确诊病例最大值为4，</p>
-<p>第6天前4天的确诊病例最大值为1000，</p>
-<p>第7天前3天的确诊病例最大值为1000。</p>
-<p>取p = 3, q = 5, 低风险有3天，中风险有2天。</p>
-<p>取p=100, q=200, 低风险有5天，中风险有0天。</p>
-<h3><span id="数据范围"><strong>数据范围</strong></span></h3><p>1≤n≤1061≤n≤106</p>
-<p>每日确诊人数xi≤2×106xi≤2×106</p>
-<p>1≤mi&lt;2321≤mi&lt;232, 且 {i-mi}{i−mi}是一个单调不下降的数列</p>
-<p>T≤105T≤105</p>
-<p>0≤pi&lt;qi&lt;2320≤pi&lt;qi&lt;232</p>
-</blockquote>
-<h2><span id="题目分析">题目分析</span></h2><ul>
-<li>获得区间段最大值</li>
-<li>将各区间的最大值排序后对于每个p,q进行二分查找，获得低、中风险天数</li>
-</ul>
-<h2><span id="维护区间最大值">维护区间最大值</span></h2><p>为什么要写这篇文章呢，因为做到最后几乎完全是按照jql大佬给的思路去做了，如果自己再不作一点总结和分析的话，我就没资格说做出这道题了。下面先看看我一开始的做法</p>
-<h3><span id="dumb-queap">Dumb queap</span></h3><p><img src="/images/dsa/PA1-4-1.png"></p>
-<p>maxque存储当前区间的最大值队列，返回队头的值即是该区间的最大值</p>
-<p>每次获得区间左端点（i-mi)时，该队列的队头有可能处于左端点的左边，这时就利用dequeue(n)把不满足的区段都出队丢掉</p>
-<p>从队尾进入新的感染人数（enqueue(e))，然后逐步往前和已有的最大值比较，如果比原来的大则更新，直到遇到更大的最大值</p>
-<h4><span id="problem">Problem</span></h4><p>由于maxqueue的每一个元素储存的是<strong>某一天</strong>对应的<strong>当前区段</strong>的最大值，而一个区段内事实上只需要一个元素就能代表信息，因此即浪费了空间，也浪费了时间（进队时需要遍历更新）</p>
-<h3><span id="riskqueue第一次听取大佬思路后的实现">riskQueue(第一次听取大佬思路后的实现)</span></h3><p><img src="/images/dsa/PA1-4-2.png"></p>
-<p>用infected储存每一天的新感染数，maxindex存放最大值所对应的的天序号</p>
-<p>同样是队头返回当前区段的最大值</p>
-<p>每次获得左端点i - mi时，从队头开始遍历，去掉序号小于i - mi的元素</p>
-<p>进队时从队头开始遍历，直到找到对应感染数小于等于此时感染数的序号，将其更新为今天的序号，同时将队尾拉回到此处（相当于后面的元素都出队）</p>
-<h4><span id="problem">Problem</span></h4><p>事实上，由于询问最大值和出队是相关联的，我们完全可以在问最大值的时候顺便把小于左端点的值去掉，不过这个在时间上两者的应该复杂度是一样的。</p>
-<h3><span id="risk_2第二次听大佬思路后的实现">risk_2（第二次听大佬思路后的实现）</span></h3><p><img src="/images/dsa/PA1-4-3.png"></p>
-<p>与前一种方法的不同点：</p>
-<ol>
-<li>getMax(L)集成了询问最大值和出队两个步骤</li>
-<li>入队从队尾开始遍历，小于等于自己的出队，直到比自己大的时候再进队</li>
-</ol>
-<hr>
-<h2><span id="其他">其他</span></h2><ol>
-<li>排序算法应当选择归并，保证最坏情况下不会TLE</li>
-<li>p,q是unsigned int，而且当p = 0时，要注意二分查找的结果为-1，此时需要把它改为0</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">dsa</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/09/27/dsa/CST-DSA-PA1-4-%E6%80%BB%E7%BB%93/">展开全文 >></a>
         </p>
       
 

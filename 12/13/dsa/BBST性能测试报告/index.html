@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://blog.hygephile.com">
-  <title>Archives: 2020/12 | Hygephile</title>
+  <title>BBST性能测试报告 | Hygephile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hygephile">
-<meta property="og:url" content="https://blog.hygephile.com/archives/2020/12/index.html">
+  <meta name="description" content="PA2b BBST Performance Analysis 报告计95 刘玉河 2019011560 数据结构基类BST作为高级平衡树的基类BST,应当实现以下基本功能：  高度维护updateHeight与updateHeightAbove  节点查找search  节点移除removeAt  3-4重构connect34  节点旋转rotateAt   以及相关的宏定义，如IsRChild、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BBST性能测试报告">
+<meta property="og:url" content="https://blog.hygephile.com/12/13/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/index.html">
 <meta property="og:site_name" content="Hygephile">
+<meta property="og:description" content="PA2b BBST Performance Analysis 报告计95 刘玉河 2019011560 数据结构基类BST作为高级平衡树的基类BST,应当实现以下基本功能：  高度维护updateHeight与updateHeightAbove  节点查找search  节点移除removeAt  3-4重构connect34  节点旋转rotateAt   以及相关的宏定义，如IsRChild、">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog.hygephile.com/12/13/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/images/PA2b.jpg">
+<meta property="article:published_time" content="2020-12-13T07:00:00.000Z">
+<meta property="article:modified_time" content="2020-12-14T07:00:38.861Z">
 <meta property="article:author" content="Junetheriver@2020 粤ICP备20067892">
+<meta property="article:tag" content="dsa">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.hygephile.com/12/13/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/images/PA2b.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Hygephile" type="application/atom+xml">
   
@@ -162,36 +169,102 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-dsa/BBST性能测试报告" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/12/13/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/" class="archive-article-date">
-  	<time datetime="2020-12-13T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/12/13/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/">BBST性能测试报告</a>
+    <h1 class="article-title" itemprop="name">
+      BBST性能测试报告
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/12/13/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/" class="archive-article-date">
+  	<time datetime="2020-12-13T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1><span id="pa2b-bbst-performance-analysis-报告">PA2b BBST Performance Analysis 报告</span></h1><p>计95 刘玉河 2019011560</p>
+<h3><span id="数据结构">数据结构</span></h3><h4><span id="基类bst">基类BST</span></h4><p>作为高级平衡树的基类BST,应当实现以下基本功能：</p>
+<ul>
+<li><p>高度维护updateHeight与updateHeightAbove</p>
+</li>
+<li><p>节点查找search</p>
+</li>
+<li><p>节点移除removeAt</p>
+</li>
+<li><p>3-4重构connect34</p>
+</li>
+<li><p>节点旋转rotateAt</p>
+</li>
+</ul>
+<p>以及相关的宏定义，如IsRChild、stature等，此处不一一列举</p>
+<h4><span id="avl">AVL</span></h4><p>在BST的基础上，AVL树</p>
+<ul>
+<li>新增了节点高度平衡的判断AvlBalanced</li>
+<li>实现了节点的插入insert与删除remove</li>
+</ul>
+<p>具体实现参考了课件与示例代码。</p>
+<h4><span id="splay">Splay</span></h4><p>在BST的基础上，Splay树</p>
+<ul>
+<li>新增了跨两代的旋转操作splay</li>
+<li>重载了节点查找search</li>
+<li>实现了节点插入insert与删除remove</li>
+</ul>
+<p>具体实现参考了课件与示例代码。</p>
+<h3><span id="复杂度分析">复杂度分析</span></h3><p>AVL与Splay树的三种操作的分摊复杂度均为$O(\log n)$,但在不同特点的操作序列下表现不尽相同。</p>
+<p><strong>AVL:</strong></p>
+<p>查找、插入与删除的最坏情况复杂度均为$O(\log n)$，其中删除所涉及到的旋转数量较多。</p>
+<p><strong>Splay:</strong></p>
+<p>当操作的节点局部性强、缓存命中率极高时能够达到更高的效率$O(\log k)$(k为局部规模)，任何连续的m次查找，都可以在$O(m\log k + n\log n)$时间内完成</p>
+<p>若反复地顺序访问任一个子集，此时分摊成本仅为常数</p>
+<h3><span id="测例生成">测例生成</span></h3><p>为了让测例生成器能够涉及绝大多数情况，并提高测例的可定制性，定义了如下的一系列函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 按照ins:del:que的多项分布随机决定一个操作类型（插入/删除/查找）</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> <span class="title">random_operation</span><span class="params">(<span class="keyword">int</span> ins, <span class="keyword">int</span> del, <span class="keyword">int</span> que)</span></span>;</span><br><span class="line"><span class="comment">// 按照正态分布/均匀分布随机确定一个操作序列的长度(最大值为total)</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">random_length</span><span class="params">(<span class="keyword">int</span> total, <span class="keyword">bool</span> normal)</span></span>;</span><br><span class="line"><span class="comment">// 生成一个有序的操作序列，区间[lo,hi]，可定制三种操作的占比</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sorted_sequence</span><span class="params">(<span class="keyword">int</span> length, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi, <span class="keyword">int</span> ins, <span class="keyword">int</span> del, <span class="keyword">int</span> que)</span></span>;</span><br><span class="line"><span class="comment">// 生成一个无序的操作序列，区间[lo,hi]，可定制三种操作的占比</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">random_sequence</span><span class="params">(<span class="keyword">int</span> length, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi, <span class="keyword">int</span> ins, <span class="keyword">int</span> del, <span class="keyword">int</span> que)</span></span>;</span><br><span class="line"><span class="comment">// 生成一个无序的操作序列,相邻的元素之间相差不超过10，区间[lo,hi]，可定制三种操作的占比</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">neighbor_sequence</span><span class="params">(<span class="keyword">int</span> length, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi, <span class="keyword">int</span> ins, <span class="keyword">int</span> del, <span class="keyword">int</span> que)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>所有的测例生成都根据以上函数的调用进行。通过调整参数即可获得不同情况的测例。</p>
+<h3><span id="测例设计">测例设计</span></h3><ol>
+<li><p>随机无序插入</p>
+</li>
+<li><p><strong>分段局部</strong>无序插入</p>
+</li>
+<li><p><strong>分段局部有序</strong>插入</p>
+</li>
+<li><p>前三分之一随机插入，后三分之二随机插入/删除</p>
+</li>
+<li><p>前三分之一随机插入，后三分之二<strong>分段局部</strong>随机插入/删除</p>
+</li>
+<li><p>前三分之一随机插入，后三分之二<strong>分段局部有序</strong>随机插入/删除</p>
+</li>
+<li><p>操作类型随机（1:1:1），操作区间完全随机</p>
+</li>
+<li><p>操作类型随机（1:1:1），操作区间分段</p>
+</li>
+<li><p>操作类型随机（1:1:1），操作区间分段，邻近操作（相邻元素不超过10）</p>
+</li>
+</ol>
+<h3><span id="性能测试">性能测试</span></h3><p><img src="images/PA2b.jpg" alt="性能测试结果（如无法查看请见pdf版本）"></p>
+<p>将前述9个测试点分为纯插入、插入+删除、随机操作三组，每组内调整操作区间的局域性与有序性，可以得到如上的测试结果。</p>
+<h4><span id="结果总结">结果总结</span></h4><ol>
+<li>在同一个测试点下，AVL树的性能普遍高于Splay树</li>
+<li>操作区间的局域性与有序性对AVL的性能没有显著的影响，但对Splay树性能影响巨大</li>
+</ol>
+<h4><span id="原因分析">原因分析</span></h4><h6><span id="为何局域性与有序性对splay树影响巨大">为何局域性与有序性对Splay树影响巨大？</span></h6><p>由前面的复杂度分析可知，Splay树每次访问某个节点后，都会将其旋转至根部。这样一来，Splay树在局部性强的测例下表现的性能必然更好，而有序性则保证了树的高度能够趋于平衡。</p>
+<h6><span id="为何avl树始终比splay树表现得好">为何AVL树始终比Splay树表现得好？</span></h6><p>经过分析和与同学讨论，发现根本原因在于，要想Splay的局部操作凸显出优势，局部操作的长度不能大于AVL所能达到的树高$O(\log n)$，</p>
+<p>后者根据测例的范围nmax = 1000000，最多也只有20左右，这个远小于测例中预设的局部区间大小（约100）。</p>
+<p>由此结果可以知道，当总体树高$O(\log n)$较小时，即便是局部性和有序性较强的测例也无法完全凸显Splay的优势；但根据组内的结果对比，可以看到Splay对局部性和有序性的提升空间要远大于AVL。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -203,40 +276,128 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://blog.hygephile.com/12/13/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/12/08/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E7%9A%84%E6%B5%8B%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/" class="archive-article-date">
-  	<time datetime="2020-12-07T16:03:48.637Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-08</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+  
+<nav id="article-nav">
+  
+  
+    <a href="/12/08/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E7%9A%84%E6%B5%8B%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
+  
   
 
-    
+  
+
+  
+
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '8a771ef22c7928de78b0',
+  	clientSecret: 'f10b9ec4f4fc16c26c888f009046b3a1d604c4c1',
+  	repo: 'NickLennonLiu.github.io',
+  	owner: 'NickLennonLiu',
+  	admin: ['NickLennonLiu'],
+  	id: 'Sun Dec 13 2020 15:00:00 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+
+  
+  
 
 
           </div>
@@ -259,8 +420,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
