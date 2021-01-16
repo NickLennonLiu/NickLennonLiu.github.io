@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://blog.hygephile.com">
-  <title>BBST性能测试报告 | Hygephile</title>
+  <title>学期总结 | Hygephile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PA2b BBST Performance Analysis 报告计95 刘玉河 2019011560 数据结构基类BST作为高级平衡树的基类BST,应当实现以下基本功能：  高度维护updateHeight与updateHeightAbove  节点查找search  节点移除removeAt  3-4重构connect34  节点旋转rotateAt   以及相关的宏定义，如IsRChild、">
+  <meta name="description" content="日记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BBST性能测试报告">
-<meta property="og:url" content="https://blog.hygephile.com/12/13/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/index.html">
+<meta property="og:title" content="学期总结">
+<meta property="og:url" content="https://blog.hygephile.com/2021/01/16/journal/%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Hygephile">
-<meta property="og:description" content="PA2b BBST Performance Analysis 报告计95 刘玉河 2019011560 数据结构基类BST作为高级平衡树的基类BST,应当实现以下基本功能：  高度维护updateHeight与updateHeightAbove  节点查找search  节点移除removeAt  3-4重构connect34  节点旋转rotateAt   以及相关的宏定义，如IsRChild、">
+<meta property="og:description" content="日记">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://blog.hygephile.com/images/dsa/PA2b.jpg">
-<meta property="article:published_time" content="2020-12-13T07:00:00.000Z">
-<meta property="article:modified_time" content="2020-12-14T07:05:59.900Z">
+<meta property="article:published_time" content="2021-01-16T10:10:31.000Z">
+<meta property="article:modified_time" content="2021-01-16T14:02:12.060Z">
 <meta property="article:author" content="Junetheriver@2020 粤ICP备20067892">
-<meta property="article:tag" content="dsa">
+<meta property="article:tag" content="Journal">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.hygephile.com/images/dsa/PA2b.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Hygephile" type="application/atom+xml">
   
@@ -169,95 +167,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-dsa/BBST性能测试报告" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-journal/学期总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      BBST性能测试报告
+      学期总结
     </h1>
   
 
         
-        <a href="/12/13/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/" class="archive-article-date">
-  	<time datetime="2020-12-13T07:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
+        <a href="/2021/01/16/journal/%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2021-01-16T10:10:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1><span id="pa2b-bbst-performance-analysis-报告">PA2b BBST Performance Analysis 报告</span></h1><p>计95 刘玉河 2019011560</p>
-<h3><span id="数据结构">数据结构</span></h3><h4><span id="基类bst">基类BST</span></h4><p>作为高级平衡树的基类BST,应当实现以下基本功能：</p>
-<ul>
-<li><p>高度维护updateHeight与updateHeightAbove</p>
-</li>
-<li><p>节点查找search</p>
-</li>
-<li><p>节点移除removeAt</p>
-</li>
-<li><p>3-4重构connect34</p>
-</li>
-<li><p>节点旋转rotateAt</p>
-</li>
-</ul>
-<p>以及相关的宏定义，如IsRChild、stature等，此处不一一列举</p>
-<h4><span id="avl">AVL</span></h4><p>在BST的基础上，AVL树</p>
-<ul>
-<li>新增了节点高度平衡的判断AvlBalanced</li>
-<li>实现了节点的插入insert与删除remove</li>
-</ul>
-<p>具体实现参考了课件与示例代码。</p>
-<h4><span id="splay">Splay</span></h4><p>在BST的基础上，Splay树</p>
-<ul>
-<li>新增了跨两代的旋转操作splay</li>
-<li>重载了节点查找search</li>
-<li>实现了节点插入insert与删除remove</li>
-</ul>
-<p>具体实现参考了课件与示例代码。</p>
-<h3><span id="复杂度分析">复杂度分析</span></h3><p>AVL与Splay树的三种操作的分摊复杂度均为$O(\log n)$,但在不同特点的操作序列下表现不尽相同。</p>
-<p><strong>AVL:</strong></p>
-<p>查找、插入与删除的最坏情况复杂度均为$O(\log n)$，其中删除所涉及到的旋转数量较多。</p>
-<p><strong>Splay:</strong></p>
-<p>当操作的节点局部性强、缓存命中率极高时能够达到更高的效率$O(\log k)$(k为局部规模)，任何连续的m次查找，都可以在$O(m\log k + n\log n)$时间内完成</p>
-<p>若反复地顺序访问任一个子集，此时分摊成本仅为常数</p>
-<h3><span id="测例生成">测例生成</span></h3><p>为了让测例生成器能够涉及绝大多数情况，并提高测例的可定制性，定义了如下的一系列函数</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 按照ins:del:que的多项分布随机决定一个操作类型（插入/删除/查找）</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> <span class="title">random_operation</span><span class="params">(<span class="keyword">int</span> ins, <span class="keyword">int</span> del, <span class="keyword">int</span> que)</span></span>;</span><br><span class="line"><span class="comment">// 按照正态分布/均匀分布随机确定一个操作序列的长度(最大值为total)</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">random_length</span><span class="params">(<span class="keyword">int</span> total, <span class="keyword">bool</span> normal)</span></span>;</span><br><span class="line"><span class="comment">// 生成一个有序的操作序列，区间[lo,hi]，可定制三种操作的占比</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sorted_sequence</span><span class="params">(<span class="keyword">int</span> length, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi, <span class="keyword">int</span> ins, <span class="keyword">int</span> del, <span class="keyword">int</span> que)</span></span>;</span><br><span class="line"><span class="comment">// 生成一个无序的操作序列，区间[lo,hi]，可定制三种操作的占比</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">random_sequence</span><span class="params">(<span class="keyword">int</span> length, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi, <span class="keyword">int</span> ins, <span class="keyword">int</span> del, <span class="keyword">int</span> que)</span></span>;</span><br><span class="line"><span class="comment">// 生成一个无序的操作序列,相邻的元素之间相差不超过10，区间[lo,hi]，可定制三种操作的占比</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">neighbor_sequence</span><span class="params">(<span class="keyword">int</span> length, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi, <span class="keyword">int</span> ins, <span class="keyword">int</span> del, <span class="keyword">int</span> que)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>所有的测例生成都根据以上函数的调用进行。通过调整参数即可获得不同情况的测例。</p>
-<h3><span id="测例设计">测例设计</span></h3><ol>
-<li><p>随机无序插入</p>
-</li>
-<li><p><strong>分段局部</strong>无序插入</p>
-</li>
-<li><p><strong>分段局部有序</strong>插入</p>
-</li>
-<li><p>前三分之一随机插入，后三分之二随机插入/删除</p>
-</li>
-<li><p>前三分之一随机插入，后三分之二<strong>分段局部</strong>随机插入/删除</p>
-</li>
-<li><p>前三分之一随机插入，后三分之二<strong>分段局部有序</strong>随机插入/删除</p>
-</li>
-<li><p>操作类型随机（1:1:1），操作区间完全随机</p>
-</li>
-<li><p>操作类型随机（1:1:1），操作区间分段</p>
-</li>
-<li><p>操作类型随机（1:1:1），操作区间分段，邻近操作（相邻元素不超过10）</p>
-</li>
-</ol>
-<h3><span id="性能测试">性能测试</span></h3><p><img src="/images/dsa/PA2b.jpg" alt="性能测试结果（如无法查看请见pdf版本）"></p>
-<p>将前述9个测试点分为纯插入、插入+删除、随机操作三组，每组内调整操作区间的局域性与有序性，可以得到如上的测试结果。</p>
-<h4><span id="结果总结">结果总结</span></h4><ol>
-<li>在同一个测试点下，AVL树的性能普遍高于Splay树</li>
-<li>操作区间的局域性与有序性对AVL的性能没有显著的影响，但对Splay树性能影响巨大</li>
-</ol>
-<h4><span id="原因分析">原因分析</span></h4><h6><span id="为何局域性与有序性对splay树影响巨大">为何局域性与有序性对Splay树影响巨大？</span></h6><p>由前面的复杂度分析可知，Splay树每次访问某个节点后，都会将其旋转至根部。这样一来，Splay树在局部性强的测例下表现的性能必然更好，而有序性则保证了树的高度能够趋于平衡。</p>
-<h6><span id="为何avl树始终比splay树表现得好">为何AVL树始终比Splay树表现得好？</span></h6><p>经过分析和与同学讨论，发现根本原因在于，要想Splay的局部操作凸显出优势，局部操作的长度不能大于AVL所能达到的树高$O(\log n)$，</p>
-<p>后者根据测例的范围nmax = 1000000，最多也只有20左右，这个远小于测例中预设的局部区间大小（约100）。</p>
-<p>由此结果可以知道，当总体树高$O(\log n)$较小时，即便是局部性和有序性较强的测例也无法完全凸显Splay的优势；但根据组内的结果对比，可以看到Splay对局部性和有序性的提升空间要远大于AVL。</p>
-
+        <div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">这里没啥好看的</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="1034c97f5875351d7abaa74f3146bf6ae3312449ba762b139511cd9a46c5363d">cfbf3c0a823ea6aa6b40fc6f1b671bf80e5eb2b592b65c6ddd99e5bc447a755ac4729bbe8eb6f119f42ef7d5867c2f19c7205a0b1ea808f5080d36d9147ef3b2f3a0592c0bb10594289c75db28e5f59758dc4ef298acbef27634b0edbdd8a95cf553beae03b57b1d1716e363ea16a0ebef69842300bdacbde498de1ad74b10d364c350c63b0707e8f20b39517df64616f764490ae8cb26a9b017dc2409a7bb0b1b1c383892e0c0bdb78bcb1d41fe9dab5de1c9540a83b3355af7d1f25f534feb6e128e449223b5b0d42735da489fd91bc73d4b749a0c29ab280e8f5974205020152c0276ae70f802788cea2ed79bc4ec7cc8333397316fe10a2f4ab727bc1e5fbb8b759f571e78339866d1e73eea3b8f9f828100eac9ba2483b1b886a169d142d6fbc7da444938881bb85a511c74718c53153366dcab68ccc0f00459b9a30ccdb73c12a00b39dbcb55b82920505b4c8d8d9ac7351d15535509ba475e33fc83c2dcb02e2828788927150a75f8982fb7b0c5eb1964bf766274a8514043e22ab85f05951160abc0891096bf0471184ba1f0631d026b01fb02da610a5065fac88f0a6896bb8f2a338ed9569c9a91e0806946c26027f35672f3c3b7e7aabd7dd0c7a4415e4327c26f799603ea845a1cce3997e367048a950e16755ee709e8b7fa3805c1aa14ba318159fde93259d0cdd0f8f62f48c5eedc6b7676ea582fb0df75747d5c4a79ed2b3c8134983fe69b1bb58e09411c467bd867592ffacd715f641014599200c67e4a91298fea50278e1392752b6b65e9459a8689dced7c5e152932a755f64746509e3260e3f9844fe5e7b299b316c8ca0b047233c723f63a9a71a2357041276d0e2a5257ad2fa14ddbd02bfa7bdf8aba742602bb1b7b6716864cc955621354af662745d37fb2341285d142422fda3046b2f1d53dd0e09e9a0a3e048c7ec71b898958b5604e0b2544aa5ee52d8b78f5a281104a8879bb88760dd1960e356601ee1cc422daea474f4a91dabd5e22cdfe2d0634291a848c26535ea96cb015fedc81ccdbf65223ece6f915840727c2b823ca5bfa9e2061b8861600558a50353db055461c8afbe7aeb8818536bf992ab592361b9f68b2996c2606b4dadbd3edff2293d8dd3fd3ed27015b402727699820f618e920c48608be83e7e045bb29022c46df95d37edcde1e7f8fb0f211967481a0e2aff9e1821f197cebfdba3a584166a96f3f8f01e4a2e3180fe77389a9206173de66ab394ff384c87b3122b4826a35def53cee591ce67d5ec8b490a56e2dfb0a7707ab5eaad12e96d8f9430418108a56000d611fb41bf65876fc4bfce0d368259a3d12e38cfe1f027e2d90f3d57f257ec636f06c20121b012d0ba5a9e3f0442fb99ed03b923293e85acd3cf22bfb9f3cc7a1fa5b2ce7e4c99f93fe7ec395686e6a70f044149e0d19d1ece785e675253bd5b186ac46e859160c773372f88fb6df25f0f0d79b59549800e242e1c204a82ce45ef88de3a68d33541af24b8d5746b48d1290cffca8ab256e80573e9fd43f4fb2b3796a9dab7798313a3d8135b65c282b1b833c58595a0d242c80680fb11c080179b8e2cfd50acd722061e1ba2678700ee702ce2c697abd5e1ca75654e6ce29acb2b45e3c0bf5abe368c6e092f05a48e4f77ee7bf006b482f939faa22391d3d257f6288a29268068e6efde1044b737dbe9cb35a53cb32c288c165bd35435332d3d3ddd429d80b24de61dad676d5069e533b5505f1b613b1522bc795a62d1b90b9c7dee50f55e96c6c17021e3121bf53d8b81bc9c124e59f1e583d94509d60583de9f083eb3e376d9c671dccd5921bbdf85e6f6f6d982dd40c2abed4e49a068b51d30b6f6cd01a8db446a53451ed324fd89377cd6fd74aa9814ca78bde5165cdc607174ac0a6984e3b351cad20cbdf0c0afd5d3c7dbf406a593c71009f39380226008d2aa48cfcaa05359f6a33c6eabdda9f196ef4264d599526583d4fdd0b2ae3e3f42764e79a724d0474ca5491ea7f90ff132384ed0063bbcc5e00c4e739ca972ff721ffd5157dd1c7ec42ed5bbda270e8f79f2bde50a8f3f40a938c5ca7afc93f84605620a7437b11d0ab9dda5ffda2d1f1887e5d02e0a349970dfed5e870b5fd1180b09e1dd0ffa956def6044ec9f2d7310a3d15388352e78476a6b436f4a3cd4f4a6690eb15c557d299b286575e50b7a4a871ad01d767995797e8ffe934f106b3ad44d28d03e84acc49de842ad27332cfd72a557b4c43e1517f44e2a7644645a44bd4ac5a75ebf1130018a8d6ec6448fbad74e4fd80cea1609b5a413a3986f94b9f00ac7f9d3b0d92ed46771f3b840a0152b7eb6107a20e1016b9bf548fc41fee62bdc9357ab3f575fd0ee7a3e795c17209a0712b64942bf8beccaf24db4e9fff4c98ebbb9f8ea0ed5e246345537f7a0788de82810928d5dcc97da12fcd9f8f819588c28a33eca28e28799eaafff0cefbcf1b21336eea9c601610cdeb959667c8d7c2f7b7d19f57c118caa7385388cb464a53c7666eb10da7b2b68fd48d74fec77a7e6639023ed0f325a4cfbdbe5d05d412853ccba60e25d7bd6d78bd0e3ed3551999c3204265d0a5640a3cc4656803d73a189eeeffd56477ae8138bd89f5562101f1806eab694ff2130575be930a911d11b6c1ec727042ff0aa2514bd65d3478173b5efe48b189dad170737a1a695beee0509ab39502f2e032b54053c62b8fcf30cd3468f92c2250562ff8f4d8293839cf5a8b16bd72a1d81ceffa6617d9d078e421774e17d92d731c8a8f31a73c43a89926d67050d910827d712c446941ffaca9188af0811f0d5a413038852612b92b9a70e1bd7b393cc1bf0e02b795b5704d556e0fd8ee0b6f1251d95dbd12f2bb30ac1f7a846b871fa5d89f48612c14b960bb5fe0203361523238d9b09d5a75ee40158f3b05688f2636021e98b0d527813aee560f45a8f46b4f93d9cc8a4a16116e85620d1c7851fbcafc3c6462c71e84dc75fabd99497a49b1389e2511ec795676c64c1b14b27ce81d8f2182550ee43985f4d1e5b71c3a408b684ef6085631dcd81e0d08977489067e1ea16ce6ccce1302ac3896bd3310fa8f34ff56913b24d1b2d6b5461b3f8bfcac4780a96e8561e706f5283c68c6b19f83b6afa5142239355358776e5e53fad80d6a428761e865dfffc98ed77b9811529478790f137a149a1b45e3439ec8e75cd506f1ba</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
       
 
       
@@ -270,7 +208,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">dsa</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Journal</a>
         		</li>
       		
 		</ul>
@@ -326,7 +264,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://blog.hygephile.com/12/13/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://blog.hygephile.com/2021/01/16/journal/%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -340,18 +278,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/01/16/journal/%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          学期总结
-        
-      </div>
-    </a>
   
-  
-    <a href="/12/08/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E7%9A%84%E6%B5%8B%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/12/13/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">BBST性能测试报告</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -398,7 +327,7 @@ if(true){
   	repo: 'NickLennonLiu.github.io',
   	owner: 'NickLennonLiu',
   	admin: ['NickLennonLiu'],
-  	id: 'Sun Dec 13 2020 15:00:00 GMT+0800',
+  	id: 'Sat Jan 16 2021 18:10:31 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
