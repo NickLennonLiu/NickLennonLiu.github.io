@@ -6,17 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://blog.hygephile.com">
-  <title>Hygephile</title>
+  <title>Archives: 2021/2 | Hygephile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="BBST 测例设计思路因为红黑树还没学所以先想一下AVL和Splay的。 允许操作：插入、删除、查找 现有测例生成函数：  指定区间的随机元素的操作序列，可以控制三种操作的比例 指定区间的有序元素的操作序列，可以控制三种操作的比例  单纯建树（范围：0-xmax，nmax） 无序插入【1】   预期是AVL占优势？因为无序时很依赖高度  有序插入  部分有序【2】   随机生成随机长度的有序区间">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="website">
 <meta property="og:title" content="Hygephile">
-<meta property="og:url" content="https://blog.hygephile.com/12/08/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E7%9A%84%E6%B5%8B%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/index.html">
+<meta property="og:url" content="https://blog.hygephile.com/archives/2021/02/index.html">
 <meta property="og:site_name" content="Hygephile">
-<meta property="og:description" content="BBST 测例设计思路因为红黑树还没学所以先想一下AVL和Splay的。 允许操作：插入、删除、查找 现有测例生成函数：  指定区间的随机元素的操作序列，可以控制三种操作的比例 指定区间的有序元素的操作序列，可以控制三种操作的比例  单纯建树（范围：0-xmax，nmax） 无序插入【1】   预期是AVL占优势？因为无序时很依赖高度  有序插入  部分有序【2】   随机生成随机长度的有序区间">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-12-07T16:03:48.637Z">
-<meta property="article:modified_time" content="2020-12-07T16:29:34.577Z">
 <meta property="article:author" content="Junetheriver@2020 粤ICP备20067892">
 <meta name="twitter:card" content="summary">
   
@@ -166,217 +162,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-dsa/BBST性能测试的测例设计思路" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3><span id="bbst-测例设计思路">BBST 测例设计思路</span></h3><p>因为红黑树还没学所以先想一下AVL和Splay的。</p>
-<p>允许操作：插入、删除、查找</p>
-<p>现有测例生成函数：</p>
-<ul>
-<li>指定区间的随机元素的操作序列，可以控制三种操作的比例</li>
-<li>指定区间的有序元素的操作序列，可以控制三种操作的比例</li>
-</ul>
-<h5><span id="单纯建树范围0-xmaxnmax">单纯建树（范围：0-xmax，nmax）</span></h5><ul>
-<li><p>无序插入【1】</p>
-<p>  预期是AVL占优势？因为无序时很依赖高度</p>
-</li>
-<li><p>有序插入</p>
-<ul>
-<li><p>部分有序【2】</p>
-<p>  随机生成随机长度的有序区间</p>
-</li>
-<li><p>完全有序【3】</p>
-<p>  预期Splay完全优势</p>
-</li>
-</ul>
-</li>
-</ul>
-<h5><span id="前13插入随机元素建树后面23负责查找">前1/3插入随机元素建树，后面2/3负责查找</span></h5><p>区间长度</p>
-<ul>
-<li>将区间[0-xmax] 16等分，每次在这些区间内无序操作</li>
-<li>正态分布决定有序区间长度</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>编号</th>
-<th>建树</th>
-<th>查找</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>等分、无序</td>
-<td>等分、无序</td>
-</tr>
-<tr>
-<td>2</td>
-<td>等分、无序</td>
-<td>正态、有序</td>
-</tr>
-<tr>
-<td>3</td>
-<td>正态、有序</td>
-<td>等分、无序</td>
-</tr>
-<tr>
-<td>4</td>
-<td>正态、有序</td>
-<td>正态、有序</td>
-</tr>
-</tbody></table>
-<h5><span id="模拟真实情况">模拟真实情况</span></h5><p>插入、删除、询问的概率分布</p>
-<ul>
-<li>3-1-1</li>
-<li>1-1-1</li>
-<li>1-1-3</li>
-</ul>
-<p>区间长度</p>
-<ul>
-<li>将区间[0-xmax] 16等分，每次在这些区间内无序操作</li>
-<li>正态分布决定有序区间长度</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
+    
       
       
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/02/07/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B02/" class="archive-article-date">
+  	<time datetime="2021-02-07T12:46:20.274Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-07</time>
+</a>
+        </div>
+    	 
+        <div class="article-info info-on-right">
+          
+          
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://blog.hygephile.com/12/08/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E7%9A%84%E6%B5%8B%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/12/13/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          BBST性能测试报告
-        
-      </div>
-    </a>
   
   
-    <a href="/11/23/2020/On-Hardworking/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">On &#34;Hardworking&#34;</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '8a771ef22c7928de78b0',
-  	clientSecret: 'f10b9ec4f4fc16c26c888f009046b3a1d604c4c1',
-  	repo: 'NickLennonLiu.github.io',
-  	owner: 'NickLennonLiu',
-  	admin: ['NickLennonLiu'],
-  	id: 'Tue Dec 08 2020 00:03:48 GMT+0800',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-
-  
-  
+    
 
 
           </div>
@@ -399,8 +221,8 @@ gitalk.render('gitalk-container')
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

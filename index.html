@@ -164,7 +164,71 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-2020/综述阅读笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2020/综述阅读笔记2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h5><span id="model-compression-and-hardware-acceleration-for-neural-networks-a-comprehensive-survey"><em>Model Compression and Hardware Acceleration for Neural Networks: A Comprehensive Survey</em></span></h5><p>[toc]</p>
+<h6><span id="abstract">Abstract</span></h6><h6><span id="i-introduction-motivation-and-overview">I. Introduction, Motivation, and Overview</span></h6><p>算法侧用于压缩DNN的技术可以分为四类</p>
+<ol>
+<li>compact model 紧密模型：设计更小的基础模型同时仍能满足可接受的应用准确度</li>
+<li>tensor decomposition张量分解：将大量的参数分解成一系列小型矩阵或张量来压缩内存体积和操作数目</li>
+<li>data quantization 数据量化</li>
+<li>network sparsification网络稀疏化：数据量化和网络稀疏化减少数据量的大小或神经元的数目。</li>
+</ol>
+<p>硬件侧则开发神经网络加速器neural network accelerators。传统的DNN加速器单纯优化硬件架构，来提高计算平行性和减少内存访问量。但最近情况有所改变，原因有二：单纯的硬件优化已经达到了性能的上界、出现的压缩算法在减少硬件消耗上展现出很大的潜力。</p>
+<p>高层的算法优化提供更高效硬件的设计指导；底层的硬件设计提供更高效算法设计的反馈。这样称为算法-硬件协同设计algorithm-hardware codesign。</p>
+<p>本文提供一个综合性的关于DNN压缩和加速的综述。提供不同分类的压缩方法之间的纵向比较，包括原理差异，压缩比例，准确度弱化度，灵敏度分析。</p>
+<h6><span id="ii-brief-preliminaries-of-neural-networks">II. Brief Preliminaries of Neural Networks</span></h6><p>$$<br>y_i = \varphi(b_i+\sum\limits_jx_jw_{ij})<br>$$</p>
+<p>w:weight, x:activation, phi: nonlinear transformation as activation function, b: bias</p>
+<p><strong>MLP</strong></p>
+<p>MLP 只包含全连接层</p>
+<p><strong>CNN</strong></p>
+<p>与处理1维特征的MLP相比，CNN 处理2维特征，包含3种层：卷积层，池化层和全连接层。卷积层和池化层有多个通道（即feature maps， FMs）<br>$$<br>\bold{FM}^{out}_{n} = \varphi(b_n + \sum_m\bold{FM}_m^{in}\otimes\bold{W}(m,n))<br>$$</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/02/07/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B02/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2020/综述阅读笔记1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
@@ -226,7 +290,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/30/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/01/30/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01/">展开全文 >></a>
         </p>
       
 
@@ -1107,119 +1171,6 @@
 
 
   
-    <article id="post-ML/ML_01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4><span id="绪论">绪论</span></h4><p>术语</p>
-<ul>
-<li><p>数据集</p>
-<ul>
-<li>示例/样本/特征向量<ul>
-<li>属性/特征</li>
-<li>属性值 张成 属性空间/样本空间/输入空间</li>
-<li>样本的维数</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>训练集</p>
-<ul>
-<li>训练样本</li>
-</ul>
-</li>
-<li><p>模型/假设/学习器</p>
-</li>
-<li><p>标记空间/输出空间</p>
-<ul>
-<li>有 标记 的示例称为 样例</li>
-</ul>
-</li>
-<li><p>学习任务</p>
-<ul>
-<li>按类型<ul>
-<li>分类</li>
-<li>回归</li>
-<li>聚类</li>
-</ul>
-</li>
-<li>按是否有标记<ul>
-<li>监督学习</li>
-<li>无监督学习</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>测试</p>
-<ul>
-<li>测试样本</li>
-</ul>
-</li>
-<li><p>假设空间</p>
-<ul>
-<li>利用通配符、合取式等符号来表示假设</li>
-</ul>
-</li>
-<li><p>版本空间：与训练集一致的假设集合</p>
-</li>
-<li><p>归纳偏好</p>
-<blockquote>
-<p>对某种类型假设的偏好</p>
-</blockquote>
-<ul>
-<li><p>奥卡姆剃刀</p>
-</li>
-<li><p>NFL theorem</p>
-<blockquote>
-<p>学习算法的期望性能是相同的</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/10/13/ML/ML_01/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1415,6 +1366,10 @@ MathJax.Hub.Queue(function() {
           
             <li class="search-li">
               <a href="https://0xclover.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Hexclover</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://carrychen.website/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>家住海边喜欢浪</a>
             </li>
           
         </ul>
