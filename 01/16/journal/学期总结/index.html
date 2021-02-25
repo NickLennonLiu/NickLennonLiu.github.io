@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://blog.hygephile.com">
-  <title>Hygephile</title>
+  <title>学期总结 | Hygephile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Model Compression and Hardware Acceleration for Neural Networks: A Comprehensive Survey[toc] AbstractI. Introduction, Motivation, and Overview算法侧用于压缩DNN的技术可以分为四类  compact model 紧密模型：设计更小的基础模型同时仍能满足可接受">
+  <meta name="description" content="日记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hygephile">
-<meta property="og:url" content="https://blog.hygephile.com/2021/02/07/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B02/index.html">
+<meta property="og:title" content="学期总结">
+<meta property="og:url" content="https://blog.hygephile.com/01/16/journal/%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Hygephile">
-<meta property="og:description" content="Model Compression and Hardware Acceleration for Neural Networks: A Comprehensive Survey[toc] AbstractI. Introduction, Motivation, and Overview算法侧用于压缩DNN的技术可以分为四类  compact model 紧密模型：设计更小的基础模型同时仍能满足可接受">
+<meta property="og:description" content="日记">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-02-07T12:46:20.274Z">
-<meta property="article:modified_time" content="2021-02-25T03:16:51.925Z">
+<meta property="article:published_time" content="2021-01-16T10:10:31.000Z">
+<meta property="article:modified_time" content="2021-01-16T14:02:12.060Z">
 <meta property="article:author" content="Junetheriver@2020 粤ICP备20067892">
+<meta property="article:tag" content="Journal">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hygephile" type="application/atom+xml">
@@ -166,94 +167,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2020/综述阅读笔记2" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-journal/学期总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      学期总结
+    </h1>
+  
+
+        
+        <a href="/01/16/journal/%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2021-01-16T10:10:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-16</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h5><span id="model-compression-and-hardware-acceleration-for-neural-networks-a-comprehensive-survey"><em>Model Compression and Hardware Acceleration for Neural Networks: A Comprehensive Survey</em></span></h5><p>[toc]</p>
-<h6><span id="abstract">Abstract</span></h6><h5><span id="i-introduction-motivation-and-overview">I. Introduction, Motivation, and Overview</span></h5><p>算法侧用于压缩DNN的技术可以分为四类</p>
-<ol>
-<li>compact model 紧密模型：设计更小的基础模型同时仍能满足可接受的应用准确度</li>
-<li>tensor decomposition张量分解：将大量的参数分解成一系列小型矩阵或张量来压缩内存体积和操作数目</li>
-<li>data quantization 数据量化</li>
-<li>network sparsification网络稀疏化：数据量化和网络稀疏化减少数据量的大小或神经元的数目。</li>
-</ol>
-<p>硬件侧则开发神经网络加速器neural network accelerators。传统的DNN加速器单纯优化硬件架构，来提高计算平行性和减少内存访问量。但最近情况有所改变，原因有二：单纯的硬件优化已经达到了性能的上界、出现的压缩算法在减少硬件消耗上展现出很大的潜力。</p>
-<p>高层的算法优化提供更高效硬件的设计指导；底层的硬件设计提供更高效算法设计的反馈。这样称为算法-硬件协同设计algorithm-hardware codesign。</p>
-<p>本文提供一个综合性的关于DNN压缩和加速的综述。提供不同分类的压缩方法之间的纵向比较，包括原理差异，压缩比例，准确度弱化度，灵敏度分析。</p>
-<h5><span id="ii-brief-preliminaries-of-neural-networks">II. Brief Preliminaries of Neural Networks</span></h5><p>$$<br>y_i = \varphi(b_i+\sum\limits_jx_jw_{ij})<br>$$</p>
-<p>w:weight, x:activation, phi: nonlinear transformation as activation function, b: bias</p>
-<p><strong>MLP</strong></p>
-<p>MLP 只包含全连接层</p>
-<p><strong>CNN</strong></p>
-<p>与处理1维特征的MLP相比，CNN 处理2维特征，包含3种层：卷积层，池化层和全连接层。卷积层和池化层有多个通道（即feature maps， FMs）<br>$$<br>\bold{FM}^{out}_{n} = \varphi(b_n + \sum_m\bold{FM}_m^{in}\otimes\bold{W}(m,n))<br>$$</p>
-<p><strong>RNN</strong></p>
-<p>与MLP和CNN的单纯前向传播不同，RNN在内层具有回溯连接recurrent connections，带来了时间动态性，对于语音识别和上下文信息语言处理有用。其中长短期记忆LSTM和门控循环单元GRU</p>
-<p><strong>模型训练</strong></p>
-<p>一个简单的优化目标：<br>$$<br>\min\limits_{W,b} L = \frac{1}{2}||f(X,W,b)-Y^{label}||^2_2<br>$$</p>
-<h5><span id="iii-neural-network-compression-algorithms">III. Neural Network Compression: Algorithms</span></h5><h6><span id="a-taxnomy-of-compression-approaches">A. Taxnomy of Compression Approaches</span></h6><ol>
-<li><p><strong>是否创建了一个基础模型？（压缩方式）</strong></p>
-<ol>
-<li><p>创建了：<u>Compact model</u></p>
-</li>
-<li><p>修改已有模型：</p>
-<p> <strong>张量是否被细分为小块？</strong></p>
-<ol>
-<li><p>细分了：<u>张量分解 Tensor Decomposition</u></p>
-</li>
-<li><p>没有细分：</p>
-<p> <strong>数据表示的比特宽度减少了吗？</strong></p>
-<ol>
-<li><p>减少了： <u>数据量子化 Data Quantization</u></p>
-</li>
-<li><p>没有：</p>
-<p> <strong>计算图是否稀疏？</strong></p>
-<ol>
-<li>稀疏： <u>Network Sparsification</u></li>
-<li>不稀疏： 保留讨论</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<p>我们不基于神经网络的类型（FC,CNN,RNN等）进行分类，因为它们之间存在大量的重叠关系</p>
-<h6><span id="b-compact-model">B. Compact model</span></h6><ol>
-<li><p>Compact CNNs</p>
-<p> 典型的技术有：deeper structure with expanded FMs, more complex branch topology, more flexible Conv arithmetic</p>
-<p> 将它们分为两类：</p>
-<ol>
-<li><p>单卷积层内的空间相关性：特征图被多个权重核进行卷积</p>
-<p> 设计有效的感知野RF对于卷积层的承载信息能力至关重要，而RF则由权重核的大小以及模式决定的</p>
-<p> 尽管通过增大卷积核的大小可以扩大RF，但带来的是二次增长的参数数目和操作数，C5x5和C3x3的效果近似，但后者要比前者少28%的参数和操作。因此3x3的核被广泛应用。</p>
-<p> 对于12-20大的卷积层，将nxn改为nx1加1xn的分解被实验证明有好的结果。然而对于2x2的核而言，节省的并没有那么多，而且偶数大小的核会带来补0的非对称性，带来结果特征图的偏移，最终空间信息聚集到某一个角落。</p>
-<p> 扩大RF的另一个方法是使用atrous Conv（扩张性核），Deformale Conv是它的一个一般化。</p>
-</li>
-<li><p>层内与层间的通道相关性：特征图通过不同的拓扑结构进行整合</p>
-<p> 各种玄学连接方式</p>
-</li>
-</ol>
-</li>
-<li><p>Compact RNNs——Unit and Network Level</p>
-<ol>
-<li><p>单元层面</p>
-<p> LSTM被设计来减轻梯度爆炸或梯度消失问题来提高长期的相关性。研究显示遗忘门是最重要的部分，输入门相对重要，而输出门则不那么重要。</p>
-<p> 为此,GRU,S-LSTM,JANET,MGU等结构简化了LSTM中的门，显著减少了参数数量和模型复杂度的同时没有减弱性能表现。</p>
-<p> 与减少门相对的，phased LSTM新增了一个时间门，通过一个参数化的振动来控制，产生对记忆细胞的稀疏更新。</p>
-</li>
-<li><p>网络层面</p>
-<p> 关心LSTM单元和整个网络架构之间的拓扑连接关系。</p>
-</li>
-<li><p>神经架构研究</p>
-</li>
-</ol>
-</li>
-</ol>
-
+        <div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <div class="hbe-input-container">
+  <input type="password" id="hbePass" placeholder="" />
+    <label for="hbePass">这里没啥好看的</label>
+    <div class="bottom-line"></div>
+  </div>
+  <script id="hbeData" type="hbeData" data-hmacdigest="1034c97f5875351d7abaa74f3146bf6ae3312449ba762b139511cd9a46c5363d">cfbf3c0a823ea6aa6b40fc6f1b671bf80e5eb2b592b65c6ddd99e5bc447a755ac4729bbe8eb6f119f42ef7d5867c2f19c7205a0b1ea808f5080d36d9147ef3b2f3a0592c0bb10594289c75db28e5f59758dc4ef298acbef27634b0edbdd8a95cf553beae03b57b1d1716e363ea16a0ebef69842300bdacbde498de1ad74b10d364c350c63b0707e8f20b39517df64616f764490ae8cb26a9b017dc2409a7bb0b1b1c383892e0c0bdb78bcb1d41fe9dab5de1c9540a83b3355af7d1f25f534feb6e128e449223b5b0d42735da489fd91bc73d4b749a0c29ab280e8f5974205020152c0276ae70f802788cea2ed79bc4ec7cc8333397316fe10a2f4ab727bc1e5fbb8b759f571e78339866d1e73eea3b8f9f828100eac9ba2483b1b886a169d142d6fbc7da444938881bb85a511c74718c53153366dcab68ccc0f00459b9a30ccdb73c12a00b39dbcb55b82920505b4c8d8d9ac7351d15535509ba475e33fc83c2dcb02e2828788927150a75f8982fb7b0c5eb1964bf766274a8514043e22ab85f05951160abc0891096bf0471184ba1f0631d026b01fb02da610a5065fac88f0a6896bb8f2a338ed9569c9a91e0806946c26027f35672f3c3b7e7aabd7dd0c7a4415e4327c26f799603ea845a1cce3997e367048a950e16755ee709e8b7fa3805c1aa14ba318159fde93259d0cdd0f8f62f48c5eedc6b7676ea582fb0df75747d5c4a79ed2b3c8134983fe69b1bb58e09411c467bd867592ffacd715f641014599200c67e4a91298fea50278e1392752b6b65e9459a8689dced7c5e152932a755f64746509e3260e3f9844fe5e7b299b316c8ca0b047233c723f63a9a71a2357041276d0e2a5257ad2fa14ddbd02bfa7bdf8aba742602bb1b7b6716864cc955621354af662745d37fb2341285d142422fda3046b2f1d53dd0e09e9a0a3e048c7ec71b898958b5604e0b2544aa5ee52d8b78f5a281104a8879bb88760dd1960e356601ee1cc422daea474f4a91dabd5e22cdfe2d0634291a848c26535ea96cb015fedc81ccdbf65223ece6f915840727c2b823ca5bfa9e2061b8861600558a50353db055461c8afbe7aeb8818536bf992ab592361b9f68b2996c2606b4dadbd3edff2293d8dd3fd3ed27015b402727699820f618e920c48608be83e7e045bb29022c46df95d37edcde1e7f8fb0f211967481a0e2aff9e1821f197cebfdba3a584166a96f3f8f01e4a2e3180fe77389a9206173de66ab394ff384c87b3122b4826a35def53cee591ce67d5ec8b490a56e2dfb0a7707ab5eaad12e96d8f9430418108a56000d611fb41bf65876fc4bfce0d368259a3d12e38cfe1f027e2d90f3d57f257ec636f06c20121b012d0ba5a9e3f0442fb99ed03b923293e85acd3cf22bfb9f3cc7a1fa5b2ce7e4c99f93fe7ec395686e6a70f044149e0d19d1ece785e675253bd5b186ac46e859160c773372f88fb6df25f0f0d79b59549800e242e1c204a82ce45ef88de3a68d33541af24b8d5746b48d1290cffca8ab256e80573e9fd43f4fb2b3796a9dab7798313a3d8135b65c282b1b833c58595a0d242c80680fb11c080179b8e2cfd50acd722061e1ba2678700ee702ce2c697abd5e1ca75654e6ce29acb2b45e3c0bf5abe368c6e092f05a48e4f77ee7bf006b482f939faa22391d3d257f6288a29268068e6efde1044b737dbe9cb35a53cb32c288c165bd35435332d3d3ddd429d80b24de61dad676d5069e533b5505f1b613b1522bc795a62d1b90b9c7dee50f55e96c6c17021e3121bf53d8b81bc9c124e59f1e583d94509d60583de9f083eb3e376d9c671dccd5921bbdf85e6f6f6d982dd40c2abed4e49a068b51d30b6f6cd01a8db446a53451ed324fd89377cd6fd74aa9814ca78bde5165cdc607174ac0a6984e3b351cad20cbdf0c0afd5d3c7dbf406a593c71009f39380226008d2aa48cfcaa05359f6a33c6eabdda9f196ef4264d599526583d4fdd0b2ae3e3f42764e79a724d0474ca5491ea7f90ff132384ed0063bbcc5e00c4e739ca972ff721ffd5157dd1c7ec42ed5bbda270e8f79f2bde50a8f3f40a938c5ca7afc93f84605620a7437b11d0ab9dda5ffda2d1f1887e5d02e0a349970dfed5e870b5fd1180b09e1dd0ffa956def6044ec9f2d7310a3d15388352e78476a6b436f4a3cd4f4a6690eb15c557d299b286575e50b7a4a871ad01d767995797e8ffe934f106b3ad44d28d03e84acc49de842ad27332cfd72a557b4c43e1517f44e2a7644645a44bd4ac5a75ebf1130018a8d6ec6448fbad74e4fd80cea1609b5a413a3986f94b9f00ac7f9d3b0d92ed46771f3b840a0152b7eb6107a20e1016b9bf548fc41fee62bdc9357ab3f575fd0ee7a3e795c17209a0712b64942bf8beccaf24db4e9fff4c98ebbb9f8ea0ed5e246345537f7a0788de82810928d5dcc97da12fcd9f8f819588c28a33eca28e28799eaafff0cefbcf1b21336eea9c601610cdeb959667c8d7c2f7b7d19f57c118caa7385388cb464a53c7666eb10da7b2b68fd48d74fec77a7e6639023ed0f325a4cfbdbe5d05d412853ccba60e25d7bd6d78bd0e3ed3551999c3204265d0a5640a3cc4656803d73a189eeeffd56477ae8138bd89f5562101f1806eab694ff2130575be930a911d11b6c1ec727042ff0aa2514bd65d3478173b5efe48b189dad170737a1a695beee0509ab39502f2e032b54053c62b8fcf30cd3468f92c2250562ff8f4d8293839cf5a8b16bd72a1d81ceffa6617d9d078e421774e17d92d731c8a8f31a73c43a89926d67050d910827d712c446941ffaca9188af0811f0d5a413038852612b92b9a70e1bd7b393cc1bf0e02b795b5704d556e0fd8ee0b6f1251d95dbd12f2bb30ac1f7a846b871fa5d89f48612c14b960bb5fe0203361523238d9b09d5a75ee40158f3b05688f2636021e98b0d527813aee560f45a8f46b4f93d9cc8a4a16116e85620d1c7851fbcafc3c6462c71e84dc75fabd99497a49b1389e2511ec795676c64c1b14b27ce81d8f2182550ee43985f4d1e5b71c3a408b684ef6085631dcd81e0d08977489067e1ea16ce6ccce1302ac3896bd3310fa8f34ff56913b24d1b2d6b5461b3f8bfcac4780a96e8561e706f5283c68c6b19f83b6afa5142239355358776e5e53fad80d6a428761e865dfffc98ed77b9811529478790f137a149a1b45e3439ec8e75cd506f1ba</script>
+</div>
+<script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
       
 
       
@@ -261,6 +203,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Journal</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -311,7 +264,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://blog.hygephile.com/2021/02/07/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B02/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://blog.hygephile.com/01/16/journal/%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -325,9 +278,18 @@
   
 <nav id="article-nav">
   
+    <a href="/01/30/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
-    <a href="/2021/01/30/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+  
+    <a href="/12/13/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">BBST性能测试报告</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -374,7 +336,7 @@ if(true){
   	repo: 'NickLennonLiu.github.io',
   	owner: 'NickLennonLiu',
   	admin: ['NickLennonLiu'],
-  	id: 'Sun Feb 07 2021 20:46:20 GMT+0800',
+  	id: 'Sat Jan 16 2021 18:10:31 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 

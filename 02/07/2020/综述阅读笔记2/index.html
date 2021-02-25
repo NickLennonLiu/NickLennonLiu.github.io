@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://blog.hygephile.com">
   <title>Hygephile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A Survey of Accelerator Architectrures for Deep Neural Networks[toc] Abstract这篇文章聚焦于近期在深度神经网络加速器DNN Accelerator的进展。讨论包括不同的支持DNN的架构，主要在以下几个方面：  计算单元computing units 数据流优化dataflow optimization targeted n">
+  <meta name="description" content="Model Compression and Hardware Acceleration for Neural Networks: A Comprehensive Survey[toc] AbstractI. Introduction, Motivation, and Overview算法侧用于压缩DNN的技术可以分为四类  compact model 紧密模型：设计更小的基础模型同时仍能满足可接受">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hygephile">
-<meta property="og:url" content="https://blog.hygephile.com/2021/01/30/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01/index.html">
+<meta property="og:url" content="https://blog.hygephile.com/02/07/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B02/index.html">
 <meta property="og:site_name" content="Hygephile">
-<meta property="og:description" content="A Survey of Accelerator Architectrures for Deep Neural Networks[toc] Abstract这篇文章聚焦于近期在深度神经网络加速器DNN Accelerator的进展。讨论包括不同的支持DNN的架构，主要在以下几个方面：  计算单元computing units 数据流优化dataflow optimization targeted n">
+<meta property="og:description" content="Model Compression and Hardware Acceleration for Neural Networks: A Comprehensive Survey[toc] AbstractI. Introduction, Motivation, and Overview算法侧用于压缩DNN的技术可以分为四类  compact model 紧密模型：设计更小的基础模型同时仍能满足可接受">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-01-30T01:48:31.572Z">
-<meta property="article:modified_time" content="2021-02-03T06:31:33.118Z">
+<meta property="article:published_time" content="2021-02-07T12:46:20.274Z">
+<meta property="article:modified_time" content="2021-02-25T03:16:51.925Z">
 <meta property="article:author" content="Junetheriver@2020 粤ICP备20067892">
 <meta name="twitter:card" content="summary">
   
@@ -166,56 +166,93 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2020/综述阅读笔记1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-2020/综述阅读笔记2" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4><span id="a-survey-of-accelerator-architectrures-for-deep-neural-networks"><em>A Survey of Accelerator Architectrures for Deep Neural Networks</em></span></h4><p>[toc]</p>
-<h5><span id="abstract">Abstract</span></h5><p>这篇文章聚焦于近期在深度神经网络加速器DNN Accelerator的进展。讨论包括不同的支持DNN的架构，主要在以下几个方面：</p>
-<ul>
-<li>计算单元computing units</li>
-<li>数据流优化dataflow optimization</li>
-<li>targeted network topologies(这是什么？)</li>
-<li>新的技术的架构</li>
-<li>用于新的应用的加速器</li>
-</ul>
-<h5><span id="1-introduction">1 Introduction</span></h5><p>近几年由于大数据和快速增长的算力，使得AI获得了极大的关注度和投资。</p>
-<p>ML算法中两个基本的函数单元是 突触synapses和神经元neurons。前者负责信息处理，后者负责特征提取，且相比突触而言有更多的模型，如McCulloch-Pitts, sigmoid, ReLU, Intergrate-and-Fire。</p>
-<p>ML可分为两种：ANN和SNN</p>
-<p>传统冯诺依曼电脑系统有分离的处理和储存元件，频繁的数据移动限制了系统性能和能量效率</p>
-<p>内存墙和功率墙</p>
-<p>近期的AI加速器往往有大量的<strong>高并行计算和储存单元</strong>，这些单元被组织成2D形式来支持矩阵向量乘法。NoC（Network-on-Chip)、HBM(high-bandwidth-memory)、数据重用data reuse等等被用于进一步优化加速器中的数据传输。</p>
-<p>除了传统的CMOS之外，非易失的内存（ReRAM等）也用于AI加速器设计中。它们有高储存密度和高速访问速度，有潜力实现存算一体。具体而言，ReRAM不仅能存放神经网络，还可以执行模拟信号的就地矩阵向量乘法。由于使用模拟信号，它的计算效率要比当下的CMOS高3到4个数量级，但是为了将它内部的模拟信号进行输入输出的数字信号转换（DAC ADC)，这两个过程用去了66%的能量和73%的面积。</p>
-<h5><span id="2-background">2 Background</span></h5><h6><span id="21-inference-and-training-of-dnns">2.1 Inference and training of DNNs</span></h6><p>DNN的参数利用最快梯度下降SGD等方法进行优化以达到最小损失函数</p>
-<p>前馈神经网络feed-forward和循环神经网络recurrent (RNN)中，推断Inference过程中的数据流都是链状的。</p>
-<p>而在训练training过程中，数据依赖是推断中的两倍深(the data dependency is twice as deep as it is in inference)，后向传递以逆序执行各层，每层在前向传递中的输出被再次利用来计算误差。</p>
-<p>一个深度神经网络大致包括：卷积层、全连通层、point-wise operation layers（激活函数层？）、批量归一化。后向传递与前向的区别在于1. 激活函数层的形式不同 2. 权重矩阵转置，卷积核旋转</p>
-<h6><span id="22-computation-patterns">2.2 Computation patterns</span></h6><p>矩阵乘法和卷积计算占据了九成的操作，是DNN加速器设计的主要目标。</p>
-<p>批量矩阵乘法中涉及到的数据重用：1.每个输入通道都重用于所有输出通道 2.每个权重都重用于所有输入样本。</p>
-<p>卷积可以视为矩阵乘法的拓展版本，加入了区域连通性local connectivity和平移不变性translation invariance。每个输入元素被一个2D 特征映射feature map代替，每个权重元素被2D 卷积核kernel/filter代替。整个计算基于滑动窗口。</p>
-<p>卷积计算可以利用toeplitz矩阵转化为矩阵计算，代价是引入冗余数据。矩阵计算则是卷积的退化版本。</p>
-<h6><span id="23-resistive-memory">2.3 Resistive memory</span></h6><p>忆阻器(又ReRAM)，通过在top electrodeTE和BE之间施加一个特定宽度或者大小的脉冲的电流或电压，可以改变其阻态，存储在单元格cell中的数据可以用阻值级别来表示，低阻态代表1，高阻态代表0。读取数据时，施加一个小电压，通过电流大小来判断阻值。</p>
-<h5><span id="3-on-chip-accelerators">3 On-chip accelerators</span></h5><p>在DNN加速器设计的早期，加速器设计成通用目标处理的近似程序approximate programs in general-purpose processing，或者是针对小型的神经网络。由于通用处理芯片的各种限制，往往有必要为AI/DNN应用设计特定的芯片。</p>
-<h6><span id="31-the-neural-processing-unit">3.1 The neural processing unit</span></h6><p>NPU利用硬件化的片上神经网络来加速程序的某一片段，而不是在CPU上运行。</p>
-<p>NPU的组成：8个处理引擎processing engines PE，每个PE执行一个神经元的计算（即乘法，累加和sigmoid，也就是一个多层感知multiple layer perceptronMLP神经网络的计算）</p>
-<p>如果某个程序片段具有以下特点：1.频繁执行 2.可近似 3.输入和输出是良定的。那么它就可以被NPU加速。程序员需要人工标注出满足以上条件的片段，然后编译器就会将其编译成NPU指令，计算任务在运行期间就会从CPU转到NPU上。索伯边探测和快速傅里叶变换是这类程序片段的例子。一个NPU能减少97%的动态CPU指令，达到最高11.1倍的速度。</p>
-<h6><span id="32-reno-a-reconfigurable-noc-accelerator">3.2 RENO: A reconfigurable NoC accelerator</span></h6><p>RENO的PE基于ReRAM，每个PE有4个ReRAM crossbar，分别处理正负输入和正负权重。RENO内的路由传输模拟信号，DAC和ADC只在RENO和CPU之间需要使用，RENO内部都是模拟信号。</p>
-<p>RENO支持MLP处理和auto-associate memoryAAM。</p>
-<h5><span id="4-stand-alone-dnncnn-accelerator">4 Stand-alone DNN/CNN accelerator</span></h5><p>用DianNao series和张量处理单元TPU作为例子介绍独立加速器，并讨论数据流分析。</p>
-<h6><span id="41-the-diannao-serires-an-academic-example">4.1 The DianNao serires: An academic example</span></h6><p>DianNao是这个系列的第一个设计，由以下部分组成：</p>
+        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h5><span id="model-compression-and-hardware-acceleration-for-neural-networks-a-comprehensive-survey"><em>Model Compression and Hardware Acceleration for Neural Networks: A Comprehensive Survey</em></span></h5><p>[toc]</p>
+<h6><span id="abstract">Abstract</span></h6><h5><span id="i-introduction-motivation-and-overview">I. Introduction, Motivation, and Overview</span></h5><p>算法侧用于压缩DNN的技术可以分为四类</p>
 <ol>
-<li>计算块神经函数单元 NFU，执行计算</li>
-<li>作为输入神经元的输入缓冲NBin</li>
-<li>作为输出神经元的输出缓冲NBout</li>
-<li>作为突触权重的突触缓冲synaptic weights SB</li>
-<li>控制处理器CP</li>
+<li>compact model 紧密模型：设计更小的基础模型同时仍能满足可接受的应用准确度</li>
+<li>tensor decomposition张量分解：将大量的参数分解成一系列小型矩阵或张量来压缩内存体积和操作数目</li>
+<li>data quantization 数据量化</li>
+<li>network sparsification网络稀疏化：数据量化和网络稀疏化减少数据量的大小或神经元的数目。</li>
 </ol>
-<p>NFU包括乘法器，加法树，非线性函数单元。被设计成一个流水线。片上存储器采用了便签存储器而不是普通的缓存</p>
-<h6><span id="42-the-tpu-an-industrial-example">4.2 The TPU: An industrial example</span></h6><h6><span id="43-dataflow-analysis-and-architecture-design">4.3 Dataflow analysis and architecture design</span></h6><p>一个DNN/CNN通常带来很大的内存足迹。对于大型复杂的DNN/CNN模型，很难将整个模型映射到芯片上。由于片外带宽off-chip bandwidth的限制，增加片上数据重用并减少片外数据传输来提升计算效率至关重要。</p>
-<h5><span id="5-accelerators-with-emerging-memories">5 Accelerators with emerging memories</span></h5><p>ReRAM和hybrid memory cubeHMC是新进内存技术和内存结构的代表，使得PIMprocessing-in-memory存内处理变得可能。CPU和芯片外内存之间的数据传输要比一个浮点操作高两个数量级的能量消耗。</p>
-<h6><span id="51-reram-based-dnn-accelerators">5.1 ReRAM-based DNN accelerators</span></h6><p>在DNN中运用ReRAM的关键在于将其作为矩阵向量乘法的计算引擎。PRIME、ISAAC、PipeLayer是这类DNN加速器的代表。</p>
-<h6><span id="52-hmc-based-dnn-accelerators">5.2 HMC-based DNN accelerators</span></h6><p>一个HMC在垂直方向整合了DRAM颗粒和逻辑颗粒。其高内存容量，高内存带宽和低延迟的特性使得能够进行近数据处理near-data processing。Neurocube和Tetris是代表。</p>
+<p>硬件侧则开发神经网络加速器neural network accelerators。传统的DNN加速器单纯优化硬件架构，来提高计算平行性和减少内存访问量。但最近情况有所改变，原因有二：单纯的硬件优化已经达到了性能的上界、出现的压缩算法在减少硬件消耗上展现出很大的潜力。</p>
+<p>高层的算法优化提供更高效硬件的设计指导；底层的硬件设计提供更高效算法设计的反馈。这样称为算法-硬件协同设计algorithm-hardware codesign。</p>
+<p>本文提供一个综合性的关于DNN压缩和加速的综述。提供不同分类的压缩方法之间的纵向比较，包括原理差异，压缩比例，准确度弱化度，灵敏度分析。</p>
+<h5><span id="ii-brief-preliminaries-of-neural-networks">II. Brief Preliminaries of Neural Networks</span></h5><p>$$<br>y_i = \varphi(b_i+\sum\limits_jx_jw_{ij})<br>$$</p>
+<p>w:weight, x:activation, phi: nonlinear transformation as activation function, b: bias</p>
+<p><strong>MLP</strong></p>
+<p>MLP 只包含全连接层</p>
+<p><strong>CNN</strong></p>
+<p>与处理1维特征的MLP相比，CNN 处理2维特征，包含3种层：卷积层，池化层和全连接层。卷积层和池化层有多个通道（即feature maps， FMs）<br>$$<br>\bold{FM}^{out}_{n} = \varphi(b_n + \sum_m\bold{FM}_m^{in}\otimes\bold{W}(m,n))<br>$$</p>
+<p><strong>RNN</strong></p>
+<p>与MLP和CNN的单纯前向传播不同，RNN在内层具有回溯连接recurrent connections，带来了时间动态性，对于语音识别和上下文信息语言处理有用。其中长短期记忆LSTM和门控循环单元GRU</p>
+<p><strong>模型训练</strong></p>
+<p>一个简单的优化目标：<br>$$<br>\min\limits_{W,b} L = \frac{1}{2}||f(X,W,b)-Y^{label}||^2_2<br>$$</p>
+<h5><span id="iii-neural-network-compression-algorithms">III. Neural Network Compression: Algorithms</span></h5><h6><span id="a-taxnomy-of-compression-approaches">A. Taxnomy of Compression Approaches</span></h6><ol>
+<li><p><strong>是否创建了一个基础模型？（压缩方式）</strong></p>
+<ol>
+<li><p>创建了：<u>Compact model</u></p>
+</li>
+<li><p>修改已有模型：</p>
+<p> <strong>张量是否被细分为小块？</strong></p>
+<ol>
+<li><p>细分了：<u>张量分解 Tensor Decomposition</u></p>
+</li>
+<li><p>没有细分：</p>
+<p> <strong>数据表示的比特宽度减少了吗？</strong></p>
+<ol>
+<li><p>减少了： <u>数据量子化 Data Quantization</u></p>
+</li>
+<li><p>没有：</p>
+<p> <strong>计算图是否稀疏？</strong></p>
+<ol>
+<li>稀疏： <u>Network Sparsification</u></li>
+<li>不稀疏： 保留讨论</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>我们不基于神经网络的类型（FC,CNN,RNN等）进行分类，因为它们之间存在大量的重叠关系</p>
+<h6><span id="b-compact-model">B. Compact model</span></h6><ol>
+<li><p>Compact CNNs</p>
+<p> 典型的技术有：deeper structure with expanded FMs, more complex branch topology, more flexible Conv arithmetic</p>
+<p> 将它们分为两类：</p>
+<ol>
+<li><p>单卷积层内的空间相关性：特征图被多个权重核进行卷积</p>
+<p> 设计有效的感知野RF对于卷积层的承载信息能力至关重要，而RF则由权重核的大小以及模式决定的</p>
+<p> 尽管通过增大卷积核的大小可以扩大RF，但带来的是二次增长的参数数目和操作数，C5x5和C3x3的效果近似，但后者要比前者少28%的参数和操作。因此3x3的核被广泛应用。</p>
+<p> 对于12-20大的卷积层，将nxn改为nx1加1xn的分解被实验证明有好的结果。然而对于2x2的核而言，节省的并没有那么多，而且偶数大小的核会带来补0的非对称性，带来结果特征图的偏移，最终空间信息聚集到某一个角落。</p>
+<p> 扩大RF的另一个方法是使用atrous Conv（扩张性核），Deformale Conv是它的一个一般化。</p>
+</li>
+<li><p>层内与层间的通道相关性：特征图通过不同的拓扑结构进行整合</p>
+<p> 各种玄学连接方式</p>
+</li>
+</ol>
+</li>
+<li><p>Compact RNNs——Unit and Network Level</p>
+<ol>
+<li><p>单元层面</p>
+<p> LSTM被设计来减轻梯度爆炸或梯度消失问题来提高长期的相关性。研究显示遗忘门是最重要的部分，输入门相对重要，而输出门则不那么重要。</p>
+<p> 为此,GRU,S-LSTM,JANET,MGU等结构简化了LSTM中的门，显著减少了参数数量和模型复杂度的同时没有减弱性能表现。</p>
+<p> 与减少门相对的，phased LSTM新增了一个时间门，通过一个参数化的振动来控制，产生对记忆细胞的稀疏更新。</p>
+</li>
+<li><p>网络层面</p>
+<p> 关心LSTM单元和整个网络架构之间的拓扑连接关系。</p>
+</li>
+<li><p>神经架构研究</p>
+</li>
+</ol>
+</li>
+</ol>
 
       
 
@@ -274,7 +311,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://blog.hygephile.com/2021/01/30/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://blog.hygephile.com/02/07/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B02/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -288,18 +325,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/02/07/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B02/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/02/25/2021/%E5%AD%A6%E6%9C%9F%E5%B7%A5%E4%BD%9C/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          学期工作
         
       </div>
     </a>
   
   
-    <a href="/2021/01/16/journal/%E5%AD%A6%E6%9C%9F%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">学期总结</div>
+    <a href="/01/30/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -346,7 +383,7 @@ if(true){
   	repo: 'NickLennonLiu.github.io',
   	owner: 'NickLennonLiu',
   	admin: ['NickLennonLiu'],
-  	id: 'Sat Jan 30 2021 09:48:31 GMT+0800',
+  	id: 'Sun Feb 07 2021 20:46:20 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
