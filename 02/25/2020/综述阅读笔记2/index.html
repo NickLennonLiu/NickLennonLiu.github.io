@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://blog.hygephile.com">
-  <title>Hygephile</title>
+  <title>学期工作 | Hygephile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Model Compression and Hardware Acceleration for Neural Networks: A Comprehensive Survey[toc] AbstractI. Introduction, Motivation, and Overview算法侧用于压缩DNN的技术可以分为四类  compact model 紧密模型：设计更小的基础模型同时仍能满足可接受">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hygephile">
-<meta property="og:url" content="https://blog.hygephile.com/02/07/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B02/index.html">
+<meta property="og:title" content="学期工作">
+<meta property="og:url" content="https://blog.hygephile.com/02/25/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B02/index.html">
 <meta property="og:site_name" content="Hygephile">
 <meta property="og:description" content="Model Compression and Hardware Acceleration for Neural Networks: A Comprehensive Survey[toc] AbstractI. Introduction, Motivation, and Overview算法侧用于压缩DNN的技术可以分为四类  compact model 紧密模型：设计更小的基础模型同时仍能满足可接受">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-02-07T12:46:20.274Z">
-<meta property="article:modified_time" content="2021-02-25T03:16:51.925Z">
+<meta property="article:published_time" content="2021-02-25T06:29:30.000Z">
+<meta property="article:modified_time" content="2021-02-25T07:43:23.946Z">
 <meta property="article:author" content="Junetheriver@2020 粤ICP备20067892">
 <meta name="twitter:card" content="summary">
   
@@ -169,6 +169,21 @@
             <article id="post-2020/综述阅读笔记2" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      学期工作
+    </h1>
+  
+
+        
+        <a href="/02/25/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B02/" class="archive-article-date">
+  	<time datetime="2021-02-25T06:29:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-25</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h5><span id="model-compression-and-hardware-acceleration-for-neural-networks-a-comprehensive-survey"><em>Model Compression and Hardware Acceleration for Neural Networks: A Comprehensive Survey</em></span></h5><p>[toc]</p>
@@ -248,10 +263,41 @@
 <li><p>网络层面</p>
 <p> 关心LSTM单元和整个网络架构之间的拓扑连接关系。</p>
 </li>
-<li><p>神经架构研究</p>
+</ol>
+</li>
+<li><p>Neural Architecture Search</p>
+<ol>
+<li><p>Search space搜索空间</p>
+</li>
+<li><p>Search algorithm</p>
+<p> NAS方法分为两个阶段：1) 生成器产生一个架构，然后2) 评估器用这个网络进行训练，然后衡量它的质量。由于训练一个网络所耗费资源巨大，需要有好的搜索算法。它们基本分为五类：</p>
+<ol>
+<li><p>随机搜索</p>
+</li>
+<li><p>加强学习reinforcement learning</p>
+</li>
+<li><p>进化算法 evolutionary algorithms</p>
+</li>
+<li><p>贝叶斯优化</p>
+</li>
+<li><p>基于梯度的方法</p>
+<p>其中2 3 5往往有更具竞争力的结果</p>
 </li>
 </ol>
 </li>
+<li><p>Quality evaluation</p>
+</li>
+</ol>
+</li>
+</ol>
+<h6><span id="c-tensor-decomposition">C. Tensor Decomposition</span></h6><ol>
+<li>低阶矩阵分解<ol>
+<li>满秩分解 A(mxn) = W(mxr)H(rxn)其中r比m,n小</li>
+<li>奇异值分解（最好）</li>
+<li>其他矩阵分解：QR,CUR</li>
+</ol>
+</li>
+<li>张量化分解</li>
 </ol>
 
       
@@ -311,7 +357,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://blog.hygephile.com/02/07/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B02/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://blog.hygephile.com/02/25/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B02/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -325,18 +371,18 @@
   
 <nav id="article-nav">
   
-    <a href="/02/25/2021/%E5%AD%A6%E6%9C%9F%E5%B7%A5%E4%BD%9C/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/02/28/2021/%E6%99%BA%E8%83%BD%E4%BD%93%E8%B4%BA%E5%B2%81%E8%B5%9B%E7%9B%B4%E6%92%AD%E9%97%B4%E5%B7%A5%E4%BD%9C%E7%BA%AA%E5%AE%9E/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          学期工作
+          智能体贺岁赛直播间工作纪实
         
       </div>
     </a>
   
   
-    <a href="/01/30/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/02/25/2021/%E5%AD%A6%E6%9C%9F%E5%B7%A5%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">学期工作</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -383,7 +429,7 @@ if(true){
   	repo: 'NickLennonLiu.github.io',
   	owner: 'NickLennonLiu',
   	admin: ['NickLennonLiu'],
-  	id: 'Sun Feb 07 2021 20:46:20 GMT+0800',
+  	id: 'Thu Feb 25 2021 14:29:30 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
