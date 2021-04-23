@@ -164,6 +164,202 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-dsa/BBST性能测试的测例设计思路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3><span id="bbst-测例设计思路">BBST 测例设计思路</span></h3><p>因为红黑树还没学所以先想一下AVL和Splay的。</p>
+<p>允许操作：插入、删除、查找</p>
+<p>现有测例生成函数：</p>
+<ul>
+<li>指定区间的随机元素的操作序列，可以控制三种操作的比例</li>
+<li>指定区间的有序元素的操作序列，可以控制三种操作的比例</li>
+</ul>
+<h5><span id="单纯建树范围0-xmaxnmax">单纯建树（范围：0-xmax，nmax）</span></h5><ul>
+<li><p>无序插入【1】</p>
+<p>  预期是AVL占优势？因为无序时很依赖高度</p>
+</li>
+<li><p>有序插入</p>
+<ul>
+<li><p>部分有序【2】</p>
+<p>  随机生成随机长度的有序区间</p>
+</li>
+<li><p>完全有序【3】</p>
+<p>  预期Splay完全优势</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5><span id="前13插入随机元素建树后面23负责查找">前1/3插入随机元素建树，后面2/3负责查找</span></h5><p>区间长度</p>
+<ul>
+<li>将区间[0-xmax] 16等分，每次在这些区间内无序操作</li>
+<li>正态分布决定有序区间长度</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>建树</th>
+<th>查找</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>等分、无序</td>
+<td>等分、无序</td>
+</tr>
+<tr>
+<td>2</td>
+<td>等分、无序</td>
+<td>正态、有序</td>
+</tr>
+<tr>
+<td>3</td>
+<td>正态、有序</td>
+<td>等分、无序</td>
+</tr>
+<tr>
+<td>4</td>
+<td>正态、有序</td>
+<td>正态、有序</td>
+</tr>
+</tbody></table>
+<h5><span id="模拟真实情况">模拟真实情况</span></h5><p>插入、删除、询问的概率分布</p>
+<ul>
+<li>3-1-1</li>
+<li>1-1-1</li>
+<li>1-1-3</li>
+</ul>
+<p>区间长度</p>
+<ul>
+<li>将区间[0-xmax] 16等分，每次在这些区间内无序操作</li>
+<li>正态分布决定有序区间长度</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/12/08/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E7%9A%84%E6%B5%8B%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2020/On-Hardworking" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/11/23/2020/On-Hardworking/">On &#34;Hardworking&#34;</a>
+    </h1>
+  
+
+        
+        <a href="/11/23/2020/On-Hardworking/" class="archive-article-date">
+  	<time datetime="2020-11-23T15:24:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>我初中时班里有这么一个女孩子，她的视力很差，看纸上的字需要用放大镜，并且伏着身子，头几乎要贴到桌面上。即便她先天条件这么差，她还是能保持在中上水平，并保持了许多爱好，总而言之是一位很努力，态度很认真的女孩子。</p>
+<p>在我水平测地理险些失A后，班主任十分担心我的成绩，语重心长地找我谈了几次，让我别玩电脑，好好学习，谈话的过程中自然以那位女孩子作为对比。班主任对我刺激最大的一句话是：“xxx，（就算别人看不出来）我知道你其实一点都不努力”。</p>
+<p>她说的没有半点错误，但估计是刺激到了当时极度自负的我，我自那开始就对于“努力”这一个词有着莫名其妙的执念：凭什么那个人是努力的，而我是不努力的？我的不努力是因为我生性懒惰吗？是因为我习惯于投机取巧吗？还是因为我本身能力不行，受到的挫折让我没有动力坚持？……于此同时，我还对那些“显然十分努力”的人生发出羡慕、对“环境促使其努力”的人感到嫉妒和仇恨，但至今我也并不认为自己属于其中的哪一个。</p>
+<p>带着这种微妙的感觉，我后来在高中慢慢发展出这样两个问题：我该怎么让我的努力得到认可？我该怎么否定掉别人所谓的“努力”？前者是隐式的，后者则显式地存在于我日常的思维中。</p>
+<p>可惜的是，这两个问题一个得不到答案，一个得到了无聊的答案：我想不出让人认可自己的努力的方法，也没有人认可自己；我无法否定别人，一个人能否定的只有自己，而我又没有办法让别人否定掉他们自己的努力。</p>
+<p>再稍微深究一下：与其说找不到让人认可自己的方法，倒不如说是我从那时候开始一直到现在，<strong>压根就没有变努力过</strong>，<strong>至少不够周围的人努力</strong>。而我希望否定他人的想法来源，则是我在原本的环境中怀揣着的“对自己的努力程度的自满”在新环境中不断被打击，而生发出的不服气和嫉妒。我不愿意相信别人比自己努力，因而绞尽脑汁去试图证明他们努力的虚伪——我看见他们一边抱怨着环境为他们带来的（这只是我的视角，真实情况大概是他们自己争取的）努力，一边在这个努力的过程中收益，并在一个阶段结束后，恰当地为自己取得的成就进行一番不错的评论。</p>
+<p>真讽刺，明明是我最虚伪。（PS：这个情况在大学不一样了，我居然遇到了比我更虚伪的人）</p>
+<p>所幸的是，我的偏执想法到底还是会随着见识而有所改观。如今的我看到的是绝大多数人都在发自内心地寻求努力的机会，并且虽然吃很多苦，但终归乐在其中。</p>
+<p>我已经不需要再思索如何否定别人的努力了。我唯一要做的事，就是像大家那样，真诚地努力——不是寻找努力，也不是认可努力，就只是单纯、真挚的努力——就好了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">GarbageTalks</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/11/23/2020/On-Hardworking/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-journal/Dear-Diary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1012,97 +1208,9 @@
 
 
   
-    <article id="post-ctf/THUCTF2020-baby-xorrrr" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/09/26/ctf/THUCTF2020-baby-xorrrr/">THUCTF2020 baby-xorrrr</a>
-    </h1>
-  
-
-        
-        <a href="/09/26/ctf/THUCTF2020-baby-xorrrr/" class="archive-article-date">
-  	<time datetime="2020-09-25T16:28:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1><span id="thuctf2020-baby-xorrrr">THUCTF2020 baby-xorrrr</span></h1><p>绕了很多远路终于做出这道简单题，菜逼心里十分有成就感</p>
-<p><a target="_blank" rel="noopener" href="https://thuctf2020.redbud.info/files/9facf64b3741243ba21902a32c6e5be5/baby-xorrrr_240f40e6f1d35abc0d45f03504913ba2.zip">https://thuctf2020.redbud.info/files/9facf64b3741243ba21902a32c6e5be5/baby-xorrrr_240f40e6f1d35abc0d45f03504913ba2.zip</a></p>
-<p>先看题给代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.strxor <span class="keyword">import</span> strxor</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">flag = <span class="string">&#x27;********************************************&#x27;</span></span><br><span class="line">secret = cycle(<span class="string">&quot;xoriseasy&quot;</span>)</span><br><span class="line">key = cycle(os.urandom(<span class="number">6</span>))</span><br><span class="line">cipher = <span class="string">&#x27;&#x27;</span>.join(strxor(strxor(m, next(secret)), next(key)) <span class="keyword">for</span> m <span class="keyword">in</span> flag)</span><br><span class="line">open(<span class="string">&quot;output&quot;</span>, <span class="string">&quot;w&quot;</span>).write(cipher.encode(<span class="string">&quot;hex&quot;</span>))</span><br></pre></td></tr></table></figure>
-
-<p>不知道为何这是python2的，以至于我为了复现这个过程花了90%的时间</p>
-<p>简而言之这个加密的流程是</p>
-<ol>
-<li>将字符串“xoriseasy”的字符轮流循环地与flag中字符取异或</li>
-<li>随机生成一个长度为6的字符串，再次与1中得到的字符串轮流循环取异或</li>
-</ol>
-<p>所以我们先再用xoriseasy取一次异或来抵消掉第一步的加密</p>
-<p>接下来如何知道那随机生成的加密密码呢？</p>
-<p>从这次比赛的flag的设置我们得知，flag的开头六个字符是THUCTF，因此我们只需要用“THUCTF”来对加密的字符串前六位取异或，就能得到密码啦！</p>
-<p>然后再用密码来对整个字符串取异或，就能得到完整的flag了。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ctf</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/09/26/ctf/THUCTF2020-baby-xorrrr/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
     </nav>
   
 
