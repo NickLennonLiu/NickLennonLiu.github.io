@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://blog.hygephile.com">
-  <title>Archives | Hygephile</title>
+  <title>最大匹配算法及其证明 | Hygephile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hygephile">
-<meta property="og:url" content="https://blog.hygephile.com/archives/index.html">
+  <meta name="description" content="最大匹配算法及其证明算法主流程构造矩阵，最小覆盖，调整元素，修改界值 算法内容 在矩阵C的每行选一最大值作为本行的界值  $l(x_i) &#x3D; \max\limits_{j}C_{ij}, \quad l(y_j) &#x3D; 0$  构造矩阵B  $B &#x3D; (b_{ij}){n\times n},\quad b{ij} &#x3D; l(x_i) + l(y_j) - c_{ij}$  在B中对0元素进行最小覆盖，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="最大匹配算法及其证明">
+<meta property="og:url" content="https://blog.hygephile.com/04/29/2021/%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%E5%8F%8A%E5%85%B6%E8%AF%81%E6%98%8E/index.html">
 <meta property="og:site_name" content="Hygephile">
+<meta property="og:description" content="最大匹配算法及其证明算法主流程构造矩阵，最小覆盖，调整元素，修改界值 算法内容 在矩阵C的每行选一最大值作为本行的界值  $l(x_i) &#x3D; \max\limits_{j}C_{ij}, \quad l(y_j) &#x3D; 0$  构造矩阵B  $B &#x3D; (b_{ij}){n\times n},\quad b{ij} &#x3D; l(x_i) + l(y_j) - c_{ij}$  在B中对0元素进行最小覆盖，">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-04-29T03:58:18.000Z">
+<meta property="article:modified_time" content="2021-04-29T03:58:49.249Z">
 <meta property="article:author" content="Junetheriver@2020 粤ICP备20067892">
+<meta property="article:tag" content="dm">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hygephile" type="application/atom+xml">
@@ -162,36 +167,67 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2021/最大匹配算法及其证明" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/04/29/2021/%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%E5%8F%8A%E5%85%B6%E8%AF%81%E6%98%8E/" class="archive-article-date">
-  	<time datetime="2021-04-29T03:58:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-29</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/04/29/2021/%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%E5%8F%8A%E5%85%B6%E8%AF%81%E6%98%8E/">最大匹配算法及其证明</a>
+    <h1 class="article-title" itemprop="name">
+      最大匹配算法及其证明
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/04/29/2021/%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%E5%8F%8A%E5%85%B6%E8%AF%81%E6%98%8E/" class="archive-article-date">
+  	<time datetime="2021-04-29T03:58:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3><span id="最大匹配算法及其证明">最大匹配算法及其证明</span></h3><h4><span id="算法主流程">算法主流程</span></h4><p>构造矩阵，最小覆盖，调整元素，修改界值</p>
+<h4><span id="算法内容">算法内容</span></h4><ol>
+<li><p>在矩阵C的每行选一最大值作为本行的界值</p>
+<p> $l(x_i) = \max\limits_{j}C_{ij}, \quad l(y_j) = 0$</p>
+<p> 构造矩阵B</p>
+<p> $B = (b_{ij})<em>{n\times n},\quad b</em>{ij} = l(x_i) + l(y_j) - c_{ij}$</p>
+</li>
+<li><p>在B中对0元素进行最小覆盖，覆盖数为r</p>
+<ol>
+<li><p>若覆盖数r=n，则$W = \sum(l(x_i) + l(y_j))$为最大权，结束</p>
+</li>
+<li><p>在未覆盖的元素中选取最小非零元$\delta$</p>
+<p> 双重覆盖元：$b_{ij} = b_{ij} + \delta$</p>
+<p> 未覆盖元：$b_{ij} = b_{ij} - \delta$</p>
+</li>
+</ol>
+</li>
+<li><p>修改界值</p>
+<p> 若$x_i$行未被覆盖，则$l(x_i) = l(x_i) - \delta$</p>
+<p> 若$y_j$行被覆盖，则$l(y_j) = l(y_j) + \delta$</p>
+<p> 删除覆盖标记，转2</p>
+</li>
+</ol>
+<h4><span id="证明">证明</span></h4><h5><span id="不变性">不变性</span></h5><ol>
+<li><strong>界值反映的是不同行列元素之和的上界</strong></li>
+<li>$b^<em>_{ij} = l^</em>(x_i) + l^*(y_j) - c_{ij} \ge 0$</li>
+</ol>
+<p>$\sum\limits_{i\ne j}c_{ij} \le \sum(l(x_i) + l(y_j))$</p>
+<p>$\implies \max\sum\limits_{i\ne j}c_{ij} = \min\sum(l(x_i) + l(y_j))$</p>
+<h5><span id="单调性">单调性</span></h5><p><strong>上限值单调递减</strong></p>
+<p>不妨设某次运算后，盖住了B矩阵的c行，d列，若未结束，c+d&lt;n。$\delta$是未覆盖的最小元</p>
+<p>$$\sum(l^*(x_i) + l^*(y_j)) = \sum(l(x_i)+l(y_j))-(n-c)\delta + d\delta\ = \sum(l(x_i)+l(y_j))-(n-c-d)\delta$$</p>
+<p>界值和单调减。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -203,364 +239,127 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://blog.hygephile.com/04/29/2021/%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95%E5%8F%8A%E5%85%B6%E8%AF%81%E6%98%8E/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/04/23/2021/%E8%AE%BA%E9%80%80%E8%AF%BE/" class="archive-article-date">
-  	<time datetime="2021-04-23T15:32:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/04/23/2021/%E8%AE%BA%E9%80%80%E8%AF%BE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">论退课</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/04/23/2021/%E8%AE%BA%E9%80%80%E8%AF%BE/">论退课</a>
-    </h1>
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Journal</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/04/18/2021/%E6%B7%B1%E5%91%BC%E5%90%B8/" class="archive-article-date">
-  	<time datetime="2021-04-18T11:56:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/04/18/2021/%E6%B7%B1%E5%91%BC%E5%90%B8/">深呼吸</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Journal</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/04/18/2021/%E5%8F%91%E9%9F%B3%EF%BC%9A%E5%8A%A8%E8%AF%8D%E5%8F%98%E4%BD%8D%E6%97%B6%E7%9A%84%E9%9F%B3%E5%8F%98%E7%8E%B0%E8%B1%A1/" class="archive-article-date">
-  	<time datetime="2021-04-18T11:41:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/04/18/2021/%E5%8F%91%E9%9F%B3%EF%BC%9A%E5%8A%A8%E8%AF%8D%E5%8F%98%E4%BD%8D%E6%97%B6%E7%9A%84%E9%9F%B3%E5%8F%98%E7%8E%B0%E8%B1%A1/">发音：动词变位时的音变现象</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">russian</a>
-        		</li>
-      		
-		</ul>
-	</div>
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
 
-          
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/04/18/2021/%E8%AF%AD%E6%B3%95%EF%BC%9A%E5%B8%A6-%D1%81%D1%8F%E5%8A%A8%E8%AF%8D%E7%9A%84%E5%8F%98%E4%BD%8D/" class="archive-article-date">
-  	<time datetime="2021-04-18T04:30:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/04/18/2021/%E8%AF%AD%E6%B3%95%EF%BC%9A%E5%B8%A6-%D1%81%D1%8F%E5%8A%A8%E8%AF%8D%E7%9A%84%E5%8F%98%E4%BD%8D/">语法：带-ся动词的变位</a>
-    </h1>
-  
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '8a771ef22c7928de78b0',
+  	clientSecret: 'f10b9ec4f4fc16c26c888f009046b3a1d604c4c1',
+  	repo: 'NickLennonLiu.github.io',
+  	owner: 'NickLennonLiu',
+  	admin: ['NickLennonLiu'],
+  	id: 'Thu Apr 29 2021 11:58:18 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">russian</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/04/18/2021/%E8%AF%AD%E6%B3%95%EF%BC%9A%E5%90%8D%E8%AF%8D%E5%8D%95%E6%95%B0%E7%AC%AC%E5%85%AD%E6%A0%BC/" class="archive-article-date">
-  	<time datetime="2021-04-18T04:21:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/04/18/2021/%E8%AF%AD%E6%B3%95%EF%BC%9A%E5%90%8D%E8%AF%8D%E5%8D%95%E6%95%B0%E7%AC%AC%E5%85%AD%E6%A0%BC/">语法：名词单数第六格</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">russian</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/04/13/2021/%E8%AF%AD%E6%B3%95%EF%BC%9A%E5%8A%A8%E8%AF%8D%E7%9A%84%E7%AC%AC%E4%BA%8C%E5%8F%98%E4%BD%8D%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2021-04-12T16:25:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/04/13/2021/%E8%AF%AD%E6%B3%95%EF%BC%9A%E5%8A%A8%E8%AF%8D%E7%9A%84%E7%AC%AC%E4%BA%8C%E5%8F%98%E4%BD%8D%E6%B3%95/">语法：动词的第二变位法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">russian</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/04/13/2021/%E8%AF%AD%E6%B3%95%EF%BC%9A%E5%BD%A2%E5%AE%B9%E8%AF%8D%E7%9A%84%E6%80%A7%E5%92%8C%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2021-04-12T16:25:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/04/13/2021/%E8%AF%AD%E6%B3%95%EF%BC%9A%E5%BD%A2%E5%AE%B9%E8%AF%8D%E7%9A%84%E6%80%A7%E5%92%8C%E6%95%B0/">语法：形容词的性和数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">russian</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/04/09/2021/%E4%BF%84%E8%AF%AD%E4%B9%8B%E6%97%A5%E5%B8%B8%E7%94%A8%E8%AF%AD/" class="archive-article-date">
-  	<time datetime="2021-04-09T07:12:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/04/09/2021/%E4%BF%84%E8%AF%AD%E4%B9%8B%E6%97%A5%E5%B8%B8%E7%94%A8%E8%AF%AD/">俄语之日常用语</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">russian</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/04/08/2021/%E4%B8%8E%E6%88%96%E5%9B%BE%E6%90%9C%E7%B4%A2/" class="archive-article-date">
-  	<time datetime="2021-04-08T13:59:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/04/08/2021/%E4%B8%8E%E6%88%96%E5%9B%BE%E6%90%9C%E7%B4%A2/">与或图搜索</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ai</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -584,8 +383,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
