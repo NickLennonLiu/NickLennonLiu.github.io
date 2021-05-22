@@ -165,6 +165,120 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-dsa/BBST性能测试的测例设计思路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3><span id="bbst-测例设计思路">BBST 测例设计思路</span></h3><p>因为红黑树还没学所以先想一下AVL和Splay的。</p>
+<p>允许操作：插入、删除、查找</p>
+<p>现有测例生成函数：</p>
+<ul>
+<li>指定区间的随机元素的操作序列，可以控制三种操作的比例</li>
+<li>指定区间的有序元素的操作序列，可以控制三种操作的比例</li>
+</ul>
+<h5><span id="单纯建树范围0-xmaxnmax">单纯建树（范围：0-xmax，nmax）</span></h5><ul>
+<li><p>无序插入【1】</p>
+<p>  预期是AVL占优势？因为无序时很依赖高度</p>
+</li>
+<li><p>有序插入</p>
+<ul>
+<li><p>部分有序【2】</p>
+<p>  随机生成随机长度的有序区间</p>
+</li>
+<li><p>完全有序【3】</p>
+<p>  预期Splay完全优势</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5><span id="前13插入随机元素建树后面23负责查找">前1/3插入随机元素建树，后面2/3负责查找</span></h5><p>区间长度</p>
+<ul>
+<li>将区间[0-xmax] 16等分，每次在这些区间内无序操作</li>
+<li>正态分布决定有序区间长度</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>建树</th>
+<th>查找</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>等分、无序</td>
+<td>等分、无序</td>
+</tr>
+<tr>
+<td>2</td>
+<td>等分、无序</td>
+<td>正态、有序</td>
+</tr>
+<tr>
+<td>3</td>
+<td>正态、有序</td>
+<td>等分、无序</td>
+</tr>
+<tr>
+<td>4</td>
+<td>正态、有序</td>
+<td>正态、有序</td>
+</tr>
+</tbody></table>
+<h5><span id="模拟真实情况">模拟真实情况</span></h5><p>插入、删除、询问的概率分布</p>
+<ul>
+<li>3-1-1</li>
+<li>1-1-1</li>
+<li>1-1-3</li>
+</ul>
+<p>区间长度</p>
+<ul>
+<li>将区间[0-xmax] 16等分，每次在这些区间内无序操作</li>
+<li>正态分布决定有序区间长度</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/12/08/dsa/BBST%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E7%9A%84%E6%B5%8B%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2020/On-Hardworking" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1095,97 +1209,9 @@
 
 
   
-    <article id="post-ctf/THUCTF2020-baby-xorrrr" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/09/26/ctf/THUCTF2020-baby-xorrrr/">THUCTF2020 baby-xorrrr</a>
-    </h1>
-  
-
-        
-        <a href="/09/26/ctf/THUCTF2020-baby-xorrrr/" class="archive-article-date">
-  	<time datetime="2020-09-25T16:28:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1><span id="thuctf2020-baby-xorrrr">THUCTF2020 baby-xorrrr</span></h1><p>绕了很多远路终于做出这道简单题，菜逼心里十分有成就感</p>
-<p><a target="_blank" rel="noopener" href="https://thuctf2020.redbud.info/files/9facf64b3741243ba21902a32c6e5be5/baby-xorrrr_240f40e6f1d35abc0d45f03504913ba2.zip">https://thuctf2020.redbud.info/files/9facf64b3741243ba21902a32c6e5be5/baby-xorrrr_240f40e6f1d35abc0d45f03504913ba2.zip</a></p>
-<p>先看题给代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.strxor <span class="keyword">import</span> strxor</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">flag = <span class="string">&#x27;********************************************&#x27;</span></span><br><span class="line">secret = cycle(<span class="string">&quot;xoriseasy&quot;</span>)</span><br><span class="line">key = cycle(os.urandom(<span class="number">6</span>))</span><br><span class="line">cipher = <span class="string">&#x27;&#x27;</span>.join(strxor(strxor(m, next(secret)), next(key)) <span class="keyword">for</span> m <span class="keyword">in</span> flag)</span><br><span class="line">open(<span class="string">&quot;output&quot;</span>, <span class="string">&quot;w&quot;</span>).write(cipher.encode(<span class="string">&quot;hex&quot;</span>))</span><br></pre></td></tr></table></figure>
-
-<p>不知道为何这是python2的，以至于我为了复现这个过程花了90%的时间</p>
-<p>简而言之这个加密的流程是</p>
-<ol>
-<li>将字符串“xoriseasy”的字符轮流循环地与flag中字符取异或</li>
-<li>随机生成一个长度为6的字符串，再次与1中得到的字符串轮流循环取异或</li>
-</ol>
-<p>所以我们先再用xoriseasy取一次异或来抵消掉第一步的加密</p>
-<p>接下来如何知道那随机生成的加密密码呢？</p>
-<p>从这次比赛的flag的设置我们得知，flag的开头六个字符是THUCTF，因此我们只需要用“THUCTF”来对加密的字符串前六位取异或，就能得到密码啦！</p>
-<p>然后再用密码来对整个字符串取异或，就能得到完整的flag了。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ctf</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/09/26/ctf/THUCTF2020-baby-xorrrr/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1334,6 +1360,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ai</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">journal</a>
               </li>
             
             <div class="clearfix"></div>
