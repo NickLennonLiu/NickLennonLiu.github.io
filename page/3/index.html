@@ -161,6 +161,113 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2020/综述阅读笔记1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/02/25/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01/">综述阅读笔记1</a>
+    </h1>
+  
+
+        
+        <a href="/02/25/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01/" class="archive-article-date">
+  	<time datetime="2021-02-25T06:29:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4><span id="a-survey-of-accelerator-architectrures-for-deep-neural-networks"><em>A Survey of Accelerator Architectrures for Deep Neural Networks</em></span></h4><p>[toc]</p>
+<h5><span id="abstract">Abstract</span></h5><p>这篇文章聚焦于近期在深度神经网络加速器DNN Accelerator的进展。讨论包括不同的支持DNN的架构，主要在以下几个方面：</p>
+<ul>
+<li>计算单元computing units</li>
+<li>数据流优化dataflow optimization</li>
+<li>targeted network topologies(这是什么？)</li>
+<li>新的技术的架构</li>
+<li>用于新的应用的加速器</li>
+</ul>
+<h5><span id="1-introduction">1 Introduction</span></h5><p>近几年由于大数据和快速增长的算力，使得AI获得了极大的关注度和投资。</p>
+<p>ML算法中两个基本的函数单元是 突触synapses和神经元neurons。前者负责信息处理，后者负责特征提取，且相比突触而言有更多的模型，如McCulloch-Pitts, sigmoid, ReLU, Intergrate-and-Fire。</p>
+<p>ML可分为两种：ANN和SNN</p>
+<p>传统冯诺依曼电脑系统有分离的处理和储存元件，频繁的数据移动限制了系统性能和能量效率</p>
+<p>内存墙和功率墙</p>
+<p>近期的AI加速器往往有大量的<strong>高并行计算和储存单元</strong>，这些单元被组织成2D形式来支持矩阵向量乘法。NoC（Network-on-Chip)、HBM(high-bandwidth-memory)、数据重用data reuse等等被用于进一步优化加速器中的数据传输。</p>
+<p>除了传统的CMOS之外，非易失的内存（ReRAM等）也用于AI加速器设计中。它们有高储存密度和高速访问速度，有潜力实现存算一体。具体而言，ReRAM不仅能存放神经网络，还可以执行模拟信号的就地矩阵向量乘法。由于使用模拟信号，它的计算效率要比当下的CMOS高3到4个数量级，但是为了将它内部的模拟信号进行输入输出的数字信号转换（DAC ADC)，这两个过程用去了66%的能量和73%的面积。</p>
+<h5><span id="2-background">2 Background</span></h5><h6><span id="21-inference-and-training-of-dnns">2.1 Inference and training of DNNs</span></h6><p>DNN的参数利用最快梯度下降SGD等方法进行优化以达到最小损失函数</p>
+<p>前馈神经网络feed-forward和循环神经网络recurrent (RNN)中，推断Inference过程中的数据流都是链状的。</p>
+<p>而在训练training过程中，数据依赖是推断中的两倍深(the data dependency is twice as deep as it is in inference)，后向传递以逆序执行各层，每层在前向传递中的输出被再次利用来计算误差。</p>
+<p>一个深度神经网络大致包括：卷积层、全连通层、point-wise operation layers（激活函数层？）、批量归一化。后向传递与前向的区别在于1. 激活函数层的形式不同 2. 权重矩阵转置，卷积核旋转</p>
+<h6><span id="22-computation-patterns">2.2 Computation patterns</span></h6><p>矩阵乘法和卷积计算占据了九成的操作，是DNN加速器设计的主要目标。</p>
+<p>批量矩阵乘法中涉及到的数据重用：1.每个输入通道都重用于所有输出通道 2.每个权重都重用于所有输入样本。</p>
+<p>卷积可以视为矩阵乘法的拓展版本，加入了区域连通性local connectivity和平移不变性translation invariance。每个输入元素被一个2D 特征映射feature map代替，每个权重元素被2D 卷积核kernel/filter代替。整个计算基于滑动窗口。</p>
+<p>卷积计算可以利用toeplitz矩阵转化为矩阵计算，代价是引入冗余数据。矩阵计算则是卷积的退化版本。</p>
+<h6><span id="23-resistive-memory">2.3 Resistive memory</span></h6><p>忆阻器(又ReRAM)，通过在top electrodeTE和BE之间施加一个特定宽度或者大小的脉冲的电流或电压，可以改变其阻态，存储在单元格cell中的数据可以用阻值级别来表示，低阻态代表1，高阻态代表0。读取数据时，施加一个小电压，通过电流大小来判断阻值。</p>
+<h5><span id="3-on-chip-accelerators">3 On-chip accelerators</span></h5><p>在DNN加速器设计的早期，加速器设计成通用目标处理的近似程序approximate programs in general-purpose processing，或者是针对小型的神经网络。由于通用处理芯片的各种限制，往往有必要为AI/DNN应用设计特定的芯片。</p>
+<h6><span id="31-the-neural-processing-unit">3.1 The neural processing unit</span></h6><p>NPU利用硬件化的片上神经网络来加速程序的某一片段，而不是在CPU上运行。</p>
+<p>NPU的组成：8个处理引擎processing engines PE，每个PE执行一个神经元的计算（即乘法，累加和sigmoid，也就是一个多层感知multiple layer perceptronMLP神经网络的计算）</p>
+<p>如果某个程序片段具有以下特点：1.频繁执行 2.可近似 3.输入和输出是良定的。那么它就可以被NPU加速。程序员需要人工标注出满足以上条件的片段，然后编译器就会将其编译成NPU指令，计算任务在运行期间就会从CPU转到NPU上。索伯边探测和快速傅里叶变换是这类程序片段的例子。一个NPU能减少97%的动态CPU指令，达到最高11.1倍的速度。</p>
+<h6><span id="32-reno-a-reconfigurable-noc-accelerator">3.2 RENO: A reconfigurable NoC accelerator</span></h6><p>RENO的PE基于ReRAM，每个PE有4个ReRAM crossbar，分别处理正负输入和正负权重。RENO内的路由传输模拟信号，DAC和ADC只在RENO和CPU之间需要使用，RENO内部都是模拟信号。</p>
+<p>RENO支持MLP处理和auto-associate memoryAAM。</p>
+<h5><span id="4-stand-alone-dnncnn-accelerator">4 Stand-alone DNN/CNN accelerator</span></h5><p>用DianNao series和张量处理单元TPU作为例子介绍独立加速器，并讨论数据流分析。</p>
+<h6><span id="41-the-diannao-serires-an-academic-example">4.1 The DianNao serires: An academic example</span></h6><p>DianNao是这个系列的第一个设计，由以下部分组成：</p>
+<ol>
+<li>计算块神经函数单元 NFU，执行计算</li>
+<li>作为输入神经元的输入缓冲NBin</li>
+<li>作为输出神经元的输出缓冲NBout</li>
+<li>作为突触权重的突触缓冲synaptic weights SB</li>
+<li>控制处理器CP</li>
+</ol>
+<p>NFU包括乘法器，加法树，非线性函数单元。被设计成一个流水线。片上存储器采用了便签存储器而不是普通的缓存</p>
+<h6><span id="42-the-tpu-an-industrial-example">4.2 The TPU: An industrial example</span></h6><h6><span id="43-dataflow-analysis-and-architecture-design">4.3 Dataflow analysis and architecture design</span></h6><p>一个DNN/CNN通常带来很大的内存足迹。对于大型复杂的DNN/CNN模型，很难将整个模型映射到芯片上。由于片外带宽off-chip bandwidth的限制，增加片上数据重用并减少片外数据传输来提升计算效率至关重要。</p>
+<h5><span id="5-accelerators-with-emerging-memories">5 Accelerators with emerging memories</span></h5><p>ReRAM和hybrid memory cubeHMC是新进内存技术和内存结构的代表，使得PIMprocessing-in-memory存内处理变得可能。CPU和芯片外内存之间的数据传输要比一个浮点操作高两个数量级的能量消耗。</p>
+<h6><span id="51-reram-based-dnn-accelerators">5.1 ReRAM-based DNN accelerators</span></h6><p>在DNN中运用ReRAM的关键在于将其作为矩阵向量乘法的计算引擎。PRIME、ISAAC、PipeLayer是这类DNN加速器的代表。</p>
+<h6><span id="52-hmc-based-dnn-accelerators">5.2 HMC-based DNN accelerators</span></h6><p>一个HMC在垂直方向整合了DRAM颗粒和逻辑颗粒。其高内存容量，高内存带宽和低延迟的特性使得能够进行近数据处理near-data processing。Neurocube和Tetris是代表。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/02/25/2020/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2020/综述阅读笔记2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1194,119 +1301,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/10/16/dsa/DSA-%E5%88%86%E6%91%8A%E5%A4%8D%E6%9D%82%E5%BA%A6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ML/ML_01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4><span id="绪论">绪论</span></h4><p>术语</p>
-<ul>
-<li><p>数据集</p>
-<ul>
-<li>示例/样本/特征向量<ul>
-<li>属性/特征</li>
-<li>属性值 张成 属性空间/样本空间/输入空间</li>
-<li>样本的维数</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>训练集</p>
-<ul>
-<li>训练样本</li>
-</ul>
-</li>
-<li><p>模型/假设/学习器</p>
-</li>
-<li><p>标记空间/输出空间</p>
-<ul>
-<li>有 标记 的示例称为 样例</li>
-</ul>
-</li>
-<li><p>学习任务</p>
-<ul>
-<li>按类型<ul>
-<li>分类</li>
-<li>回归</li>
-<li>聚类</li>
-</ul>
-</li>
-<li>按是否有标记<ul>
-<li>监督学习</li>
-<li>无监督学习</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>测试</p>
-<ul>
-<li>测试样本</li>
-</ul>
-</li>
-<li><p>假设空间</p>
-<ul>
-<li>利用通配符、合取式等符号来表示假设</li>
-</ul>
-</li>
-<li><p>版本空间：与训练集一致的假设集合</p>
-</li>
-<li><p>归纳偏好</p>
-<blockquote>
-<p>对某种类型假设的偏好</p>
-</blockquote>
-<ul>
-<li><p>奥卡姆剃刀</p>
-</li>
-<li><p>NFL theorem</p>
-<blockquote>
-<p>学习算法的期望性能是相同的</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/10/13/ML/ML_01/">展开全文 >></a>
         </p>
       
 

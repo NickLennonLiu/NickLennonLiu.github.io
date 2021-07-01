@@ -161,6 +161,98 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2021/Rednotebook 中文词云" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/07/01/2021/Rednotebook%20%E4%B8%AD%E6%96%87%E8%AF%8D%E4%BA%91/">Rednotebook 中文词云</a>
+    </h1>
+  
+
+        
+        <a href="/07/01/2021/Rednotebook%20%E4%B8%AD%E6%96%87%E8%AF%8D%E4%BA%91/" class="archive-article-date">
+  	<time datetime="2021-07-01T13:27:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2><span id="rednotebook-中文词云">Rednotebook 中文词云</span></h2><p>rednotebook是个python写的轻量笔记软件，里面有一个Words词云功能比较突出，但不支持中文，每个未被空格分开的句子都会被当成一个单词放入词云中，起不到词云的作用。我找到程序文件位置发现是用python写的，进一步定位到与词云相关的是里面的<strong>data.py中的get_words()**函数和</strong>gui/clouds.py中的_get_words_for_cloud()**函数，在这两个文件中加入中文分词支持，应该就可以完成想要的词云效果。</p>
+<h5><span id="选用包thulac">选用包：THULAC</span></h5><p><a target="_blank" rel="noopener" href="https://github.com/thunlp/THULAC-Python">https://github.com/thunlp/THULAC-Python</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install thulac</span><br></pre></td></tr></table></figure>
+
+<p><del>前往<a target="_blank" rel="noopener" href="http://thulac.thunlp.org/message_v1_1%E5%A1%AB%E5%86%99%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%E4%B9%8B%E5%90%8E%E4%B8%8B%E8%BD%BDthulac%E7%9A%84%E6%A8%A1%E5%9E%8B">http://thulac.thunlp.org/message_v1_1填写个人信息之后下载thulac的模型</a></del>下载完之后发现pip安装的thulac已经自带默认模型，位置在/usr/local/lib/python3.8/dist-packages/thulac/models</p>
+<p>装好之后先在python终端试一下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> thulac</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>thu1 = thulac.thulac()</span><br><span class="line">Model loaded succeed</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>text = <span class="string">&quot;清华大学计算机系thulacmodel模型model&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>tokenized = thu1.cut(text, text=<span class="literal">True</span>)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">  ......</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python3.8/dist-packages/thulac/character/CBTaggingDecoder.py&quot;</span>, line <span class="number">170</span>, <span class="keyword">in</span> segmentTag</span><br><span class="line">    start = time.clock()</span><br><span class="line">AttributeError: module <span class="string">&#x27;time&#x27;</span> has no attribute <span class="string">&#x27;clock&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>原因是python3.8不再支持time.clock()，按照报错找到出错的代码，将time.clock()改为time.perf_counter()。修改之后好了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>tokenized = thu1.cut(text, text=<span class="literal">True</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(tokenized)</span><br><span class="line">清华大学_ni 计算机系_n thulacmodel_x 模型_n model_x</span><br></pre></td></tr></table></figure>
+
+<p>用的时候应该text=False（默认情况），返回的是一个二维数组。</p>
+<p>进一步测试一下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>text = <span class="string">&quot;小明学习他的离散数学，真是开心啊已经这么晚了&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>tokenized = thu1.cut(text)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(tokenized)</span><br><span class="line">[[<span class="string">&#x27;小明&#x27;</span>, <span class="string">&#x27;np&#x27;</span>], [<span class="string">&#x27;学习&#x27;</span>, <span class="string">&#x27;v&#x27;</span>], [<span class="string">&#x27;他&#x27;</span>, <span class="string">&#x27;r&#x27;</span>], [<span class="string">&#x27;的&#x27;</span>, <span class="string">&#x27;u&#x27;</span>], [<span class="string">&#x27;离散&#x27;</span>, <span class="string">&#x27;v&#x27;</span>], [<span class="string">&#x27;数学&#x27;</span>, <span class="string">&#x27;n&#x27;</span>], [<span class="string">&#x27;，&#x27;</span>, <span class="string">&#x27;w&#x27;</span>], [<span class="string">&#x27;真是&#x27;</span>, <span class="string">&#x27;d&#x27;</span>], [<span class="string">&#x27;开心&#x27;</span>, <span class="string">&#x27;a&#x27;</span>], [<span class="string">&#x27;啊&#x27;</span>, <span class="string">&#x27;u&#x27;</span>], [<span class="string">&#x27;已经&#x27;</span>, <span class="string">&#x27;d&#x27;</span>], [<span class="string">&#x27;这&#x27;</span>, <span class="string">&#x27;r&#x27;</span>], [<span class="string">&#x27;么&#x27;</span>, <span class="string">&#x27;q&#x27;</span>], [<span class="string">&#x27;晚&#x27;</span>, <span class="string">&#x27;a&#x27;</span>], [<span class="string">&#x27;了&#x27;</span>, <span class="string">&#x27;u&#x27;</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>text = <span class="string">&quot;Let&#x27;s try english words&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(thu1.cut(text))</span><br><span class="line">[[<span class="string">&#x27;Let&#x27;</span>, <span class="string">&#x27;x&#x27;</span>], [<span class="string">&quot;&#x27;&quot;</span>, <span class="string">&#x27;w&#x27;</span>], [<span class="string">&#x27;s&#x27;</span>, <span class="string">&#x27;j&#x27;</span>], [<span class="string">&#x27; &#x27;</span>, <span class="string">&#x27;j&#x27;</span>], [<span class="string">&#x27;try&#x27;</span>, <span class="string">&#x27;n&#x27;</span>], [<span class="string">&#x27; &#x27;</span>, <span class="string">&#x27;v&#x27;</span>], [<span class="string">&#x27;english&#x27;</span>, <span class="string">&#x27;x&#x27;</span>], [<span class="string">&#x27; &#x27;</span>, <span class="string">&#x27;v&#x27;</span>], [<span class="string">&#x27;words&#x27;</span>, <span class="string">&#x27;x&#x27;</span>]]</span><br></pre></td></tr></table></figure>
+
+<p>其中各个词性的含义：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">n&#x2F;名词 np&#x2F;人名 ns&#x2F;地名 ni&#x2F;机构名 nz&#x2F;其它专名</span><br><span class="line">m&#x2F;数词 q&#x2F;量词 mq&#x2F;数量词 t&#x2F;时间词 f&#x2F;方位词 s&#x2F;处所词</span><br><span class="line">v&#x2F;动词 a&#x2F;形容词 d&#x2F;副词 h&#x2F;前接成分 k&#x2F;后接成分 </span><br><span class="line">i&#x2F;习语 j&#x2F;简称 r&#x2F;代词 c&#x2F;连词 p&#x2F;介词 u&#x2F;助词 y&#x2F;语气助词</span><br><span class="line">e&#x2F;叹词 o&#x2F;拟声词 g&#x2F;语素 w&#x2F;标点 x&#x2F;其它 </span><br></pre></td></tr></table></figure>
+
+<p>可见它没法支持英文，意料之中</p>
+<p>到时候我们应该只保留词性为n*， v， a，i这几种词性，其他的不显示在词云中。</p>
+<h5><span id="rednotebook代码魔改">rednotebook代码魔改</span></h5><p>data.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_contain_chinese</span>(<span class="params">check_str</span>):</span></span><br><span class="line">    <span class="keyword">for</span> ch <span class="keyword">in</span> check_str:</span><br><span class="line">        <span class="keyword">if</span> <span class="string">u&#x27;\u4e00&#x27;</span> &lt;= ch &lt;= <span class="string">u&#x27;\u9fff&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">// <span class="class"><span class="keyword">class</span> <span class="title">Day</span>:</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_words</span>(<span class="params">self, with_special_chars=False</span>):</span></span><br><span class="line">    all_text = self.text</span><br><span class="line">    all_text = re.sub(<span class="string">r&quot;[%s]+&quot;</span>%punc, <span class="string">&quot; &quot;</span>, all_text)</span><br><span class="line">    words = all_text.split()</span><br><span class="line">    <span class="keyword">if</span> with_special_chars:</span><br><span class="line">        <span class="keyword">return</span> words</span><br><span class="line">    <span class="comment"># Strip all ASCII punctuation except for $, %, @ and &#x27;.</span></span><br><span class="line">    words = [w.strip(<span class="string">&#x27;.|-!&quot;&amp;/()=?*+~#_:;,&lt;&gt;^°`&#123;&#125;[]\\&#x27;</span>) <span class="keyword">for</span> w <span class="keyword">in</span> words]</span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> words:</span><br><span class="line">        <span class="keyword">if</span> i:</span><br><span class="line">            <span class="keyword">if</span> is_contain_chinese(i):</span><br><span class="line">                cutted = thu.cut(i)</span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> cutted:</span><br><span class="line">                    <span class="keyword">if</span> j[<span class="number">1</span>] <span class="keyword">in</span> [<span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;np&#x27;</span>, <span class="string">&#x27;ns&#x27;</span>, <span class="string">&#x27;ni&#x27;</span>, <span class="string">&#x27;nz&#x27;</span>, <span class="string">&#x27;v&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;i&#x27;</span>]:</span><br><span class="line">                        result.append(j[<span class="number">0</span>])</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">            result.append(i)</span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
+
+<p>gui/clouds.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_get_words_for_cloud</span>(<span class="params">self, word_count_dict, ignores, includes</span>):</span></span><br><span class="line">    words_and_frequencies = [</span><br><span class="line">        (word, freq)</span><br><span class="line">        <span class="keyword">for</span> (word, freq) <span class="keyword">in</span> word_count_dict.items()</span><br><span class="line">        <span class="keyword">if</span> (len(word) &gt; <span class="number">4</span> <span class="keyword">or</span> any(pattern.match(word) <span class="keyword">or</span> (len(word) &gt; <span class="number">1</span> <span class="keyword">and</span> <span class="keyword">not</span> word.encode(<span class="string">&#x27;utf-8&#x27;</span>).isalpha()) <span class="keyword">for</span> pattern <span class="keyword">in</span> includes))</span><br><span class="line">        <span class="keyword">and</span> <span class="keyword">not</span></span><br><span class="line">        <span class="comment"># filter words in ignore_list</span></span><br><span class="line">        any(pattern.match(word) <span class="keyword">for</span> pattern <span class="keyword">in</span> ignores)</span><br><span class="line">    ]</span><br><span class="line">    <span class="keyword">return</span> self.select_most_frequent_words(words_and_frequencies, CLOUD_WORDS)</span><br></pre></td></tr></table></figure>
+
+<p>其中中文是长度大于等于2的即可纳入词云，英文单词是长度大于4。</p>
+<h5><span id="最终结果">最终结果</span></h5><p><img src="https://z3.ax1x.com/2021/07/01/Ry9blj.png" alt="结果"></p>
+<p>感觉还可以吧？我觉得唯一的缺点就是笔记中的词语很可能不大会重复，而重复多次的词语估计将在这里持续存在很久很久。。。</p>
+<p>而且这个thulac模型的加载时间有些长，打开rednotebook要花几秒钟才加载得出词云</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/07/01/2021/Rednotebook%20%E4%B8%AD%E6%96%87%E8%AF%8D%E4%BA%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-journal/结束大二下的感想" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1399,155 +1491,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/04/18/2021/%E5%90%8D%E8%AF%8D%E7%9A%84%E6%A0%BC/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2021/语法：形容词" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/04/13/2021/%E8%AF%AD%E6%B3%95%EF%BC%9A%E5%BD%A2%E5%AE%B9%E8%AF%8D/">语法：形容词</a>
-    </h1>
-  
-
-        
-        <a href="/04/13/2021/%E8%AF%AD%E6%B3%95%EF%BC%9A%E5%BD%A2%E5%AE%B9%E8%AF%8D/" class="archive-article-date">
-  	<time datetime="2021-04-12T16:25:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.2.1/css/hint.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>形容词同样有性和数的变化，应该和修饰的名词保持一致</p>
-<p>形容词的词尾分为硬变化和软变化两大类。</p>
-<h4><span id="硬变化">硬变化</span></h4><p>硬变化以-ый, -ая, -ое, -ые结尾</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>一格词尾</th>
-<th>例词</th>
-<th>六格词尾</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>阳性</td>
-<td>-ый（重音不在结尾）<br>-ой（重音在结尾）</td>
-<td>новый дом<br>молодой</td>
-<td>-ом</td>
-</tr>
-<tr>
-<td>阴性</td>
-<td>-ая</td>
-<td>новая машина</td>
-<td>-ой</td>
-</tr>
-<tr>
-<td>中性</td>
-<td>-ое</td>
-<td>новое фото</td>
-<td>-ом</td>
-</tr>
-<tr>
-<td>复数</td>
-<td>-ые<br>-ие</td>
-<td>новые машины</td>
-<td>-ых<br>-их</td>
-</tr>
-</tbody></table>
-<p>阴性和中性的词尾组成恰好和名词的词尾有着很好的联系，至于阳性和复数则需要记忆一下。</p>
-<h4><span id="软变化">软变化</span></h4><table>
-<thead>
-<tr>
-<th></th>
-<th>一格词尾</th>
-<th>例词</th>
-<th>六格词尾</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>阳性</td>
-<td>-ий</td>
-<td>домашний</td>
-<td>-ем</td>
-</tr>
-<tr>
-<td>阴性</td>
-<td>-яя</td>
-<td>домашняя</td>
-<td>-ей</td>
-</tr>
-<tr>
-<td>中性</td>
-<td>-ее</td>
-<td>домашнее</td>
-<td>-ем</td>
-</tr>
-<tr>
-<td>复数</td>
-<td>-ие</td>
-<td>домашние</td>
-<td>-их</td>
-</tr>
-</tbody></table>
-<h4><span id="г-к-х-ж-ш-ч-щ">г, к, х, ж, ш, ч, щ</span></h4><h5><span id="г-к-х">г, к, х</span></h5><p>都是硬变化，但因为后面不能跟ы，因此是-ий, -ие</p>
-<h5><span id="ж-ш-ч-щ">ж, ш, ч, щ</span></h5><p>后面不能跟ы, я 变为 и, а</p>
-<h6><span id="重音在词尾硬变化">重音在词尾：硬变化</span></h6><p>большо́й   больша́я большо́е больши́е</p>
-<h6><span id="重音不在词尾软变化">重音不在词尾：软变化</span></h6><p>хоро́ший хоро́шая хоро́шее хоро́шие</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">russian</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/04/13/2021/%E8%AF%AD%E6%B3%95%EF%BC%9A%E5%BD%A2%E5%AE%B9%E8%AF%8D/">展开全文 >></a>
         </p>
       
 
