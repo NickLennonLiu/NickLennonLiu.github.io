@@ -1,0 +1,61 @@
+<!doctype html><html lang=zh-CN><meta charset=utf-8><meta content="width=device-width,initial-scale=1" name=viewport><title>3D Demo</title><meta content="A standalone Three.js demo with a sphere, tetrahedron, and cube orbiting around each other." name=description><style>html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: #080b10;
+      color: #e8edf2;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .scene {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 38%, rgba(53, 76, 102, 0.9), rgba(13, 20, 29, 0.92) 42%, #06090d 100%);
+    }
+
+    #orbit-canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .topbar {
+      position: fixed;
+      top: 18px;
+      left: 18px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .topbar a {
+      color: #d7e3ee;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(215, 227, 238, 0.45);
+    }
+
+    .topbar span {
+      color: rgba(215, 227, 238, 0.7);
+    }
+
+    .status {
+      position: fixed;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      z-index: 2;
+      color: rgba(232, 237, 242, 0.72);
+      font-size: 13px;
+      line-height: 1.5;
+      pointer-events: none;
+    }
+
+    .status[data-state="ready"] {
+      opacity: 0;
+    }</style><body><main aria-label="Three.js orbiting objects demo" class=scene><canvas id=orbit-canvas></canvas></main><nav aria-label="Page navigation" class=topbar><a href=/>Back to blog</a><span>Sphere / tetrahedron / cube orbit demo</span></nav><div class=status id=status>Loading Three.js scene...</div><script src=/three-demo/orbit-demo.js type=module></script>
