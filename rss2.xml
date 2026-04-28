@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Junetheriver's Blog</title>
+    <link>https://blog.river9.top/</link>
+    <description>Anything but useful</description>
+    <copyright>All rights reserved 2026, River June</copyright>
+    <lastBuildDate>Sat, 17 May 2025 08:25:38 GMT</lastBuildDate>
+    <generator>Hexo</generator>
+    <atom:link href="https://blog.river9.top/rss2.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>迷思-大模型×人脑：多语义表征、Hyper-alignment 与脑机解码</title>
+      <link>https://blog.river9.top/2025/05/17/aiandbrain/</link>
+      <description>
+        <![CDATA[<div class="chat chat-user" data-time="2025-05-17T02:51:18.845Z">
+<p>陪我聊会天吧</p>
+
+</div>
+<div class="chat chat-assistant chat-thoughts"]]>
+      </description>
+      <author>River June</author>
+      <pubDate>Sat, 17 May 2025 08:16:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>chat2blog: 把ChatGPT对话记录放进你的博客里</title>
+      <link>https://blog.river9.top/2025/05/13/chatTag/</link>
+      <description>
+        <![CDATA[<div class="note warning"><h2 id="内容提示"><a class="markdownIt-Anchor" href="#内容提示"></a> 内容提示</h2>
+<p>以下内容均为IDE（Augment Code/Copilot）瞎生成的，请勿当真</p>
+</div>
+<div class="chat]]>
+      </description>
+      <author>River June</author>
+      <pubDate>Tue, 13 May 2025 15:38:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>Hello</title>
+      <link>https://blog.river9.top/2025/05/01/hello/</link>
+      <description>
+        <![CDATA[<h1 id="hello"><a class="markdownIt-Anchor" href="#hello"></a> Hello</h1>
+<p>This is the default]]>
+      </description>
+      <author>River June</author>
+      <category domain="https://blog.river9.top/tags/Hexo/">Hexo</category>
+      <pubDate>Thu, 01 May 2025 03:19:29 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

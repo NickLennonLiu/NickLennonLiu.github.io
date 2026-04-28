@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author>
+    <name>River June</name>
+  </author>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  <id>https://blog.river9.top/</id>
+  <link href="https://blog.river9.top/" rel="alternate"/>
+  <link href="https://blog.river9.top/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, River June</rights>
+  <subtitle>Anything but useful</subtitle>
+  <title>Junetheriver's Blog</title>
+  <updated>2025-05-17T08:25:38.475Z</updated>
+  <entry>
+    <author>
+      <name>River June</name>
+    </author>
+    <id>https://blog.river9.top/2025/05/17/aiandbrain/</id>
+    <link href="https://blog.river9.top/2025/05/17/aiandbrain/"/>
+    <published>2025-05-17T08:16:29.000Z</published>
+    <summary>
+      <![CDATA[<div class="chat chat-user" data-time="2025-05-17T02:51:18.845Z">
+<p>陪我聊会天吧</p>
+
+</div>
+<div class="chat chat-assistant chat-thoughts"]]>
+    </summary>
+    <title>迷思-大模型×人脑：多语义表征、Hyper-alignment 与脑机解码</title>
+    <updated>2025-05-17T08:25:38.475Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>River June</name>
+    </author>
+    <id>https://blog.river9.top/2025/05/13/chatTag/</id>
+    <link href="https://blog.river9.top/2025/05/13/chatTag/"/>
+    <published>2025-05-13T15:38:29.000Z</published>
+    <summary>
+      <![CDATA[<div class="note warning"><h2 id="内容提示"><a class="markdownIt-Anchor" href="#内容提示"></a> 内容提示</h2>
+<p>以下内容均为IDE（Augment Code/Copilot）瞎生成的，请勿当真</p>
+</div>
+<div class="chat]]>
+    </summary>
+    <title>chat2blog: 把ChatGPT对话记录放进你的博客里</title>
+    <updated>2025-05-13T15:45:05.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>River June</name>
+    </author>
+    <category term="Hexo" scheme="https://blog.river9.top/tags/Hexo/"/>
+    <id>https://blog.river9.top/2025/05/01/hello/</id>
+    <link href="https://blog.river9.top/2025/05/01/hello/"/>
+    <published>2025-05-01T03:19:29.000Z</published>
+    <summary>
+      <![CDATA[<h1 id="hello"><a class="markdownIt-Anchor" href="#hello"></a> Hello</h1>
+<p>This is the default]]>
+    </summary>
+    <title>Hello</title>
+    <updated>2025-05-04T02:34:19.000Z</updated>
+  </entry>
+</feed>
