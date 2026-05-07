@@ -4,6 +4,33 @@
   <url>
     <loc>https://blog.river9.top/works/index.html</loc>
     
+    <lastmod>2026-05-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.river9.top/2026/05/07/blender-mmd-codex-mayday/</loc>
+    
+    <lastmod>2026-05-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.river9.top/2026/04/30/gee-web-learning-notes-2026-04-30/</loc>
+    
+    <lastmod>2026-05-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.river9.top/2026/04/28/aseprite-works/</loc>
+    
     <lastmod>2026-04-28</lastmod>
     
     <changefreq>monthly</changefreq>
@@ -94,7 +121,7 @@
 
   <url>
     <loc>https://blog.river9.top/</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-05-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -102,11 +129,95 @@
   
   <url>
     <loc>https://blog.river9.top/tags/Hexo/</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.river9.top/tags/Aseprite/</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.river9.top/tags/Pixel-Art/</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.river9.top/tags/Codex/</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.river9.top/tags/Blender/</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.river9.top/tags/MMD/</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.river9.top/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.river9.top/tags/Go/</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.river9.top/tags/Gee/</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.river9.top/tags/Web-Framework/</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.river9.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2026-05-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
 
+  
+  <url>
+    <loc>https://blog.river9.top/categories/Art/</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.river9.top/categories/Notes/</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 </urlset>

@@ -10,7 +10,75 @@
   <rights>All rights reserved 2026, River June</rights>
   <subtitle>Anything but useful</subtitle>
   <title>Junetheriver's Blog</title>
-  <updated>2025-05-17T08:25:38.475Z</updated>
+  <updated>2026-05-07T08:08:25.298Z</updated>
+  <entry>
+    <author>
+      <name>River June</name>
+    </author>
+    <category term="Notes" scheme="https://blog.river9.top/categories/Notes/"/>
+    <category term="Codex" scheme="https://blog.river9.top/tags/Codex/"/>
+    <category term="Blender" scheme="https://blog.river9.top/tags/Blender/"/>
+    <category term="MMD" scheme="https://blog.river9.top/tags/MMD/"/>
+    <category term="自动化" scheme="https://blog.river9.top/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
+    <id>https://blog.river9.top/2026/05/07/blender-mmd-codex-mayday/</id>
+    <link href="https://blog.river9.top/2026/05/07/blender-mmd-codex-mayday/"/>
+    <published>2026-05-07T07:56:08.000Z</published>
+    <summary>
+      <![CDATA[<div class="codex-note">
+  本文由 Codex 根据五一期间的聊天记录整理撰写，内容经我指定主题、结构和写作约束后生成。
+</div>
+<h1 id="五一使用-codex-做-blender-mmd-自动化的一次尝试"><a class="markdownIt-Anchor" href="#五一使用-codex-做-blender-mmd-自动化的一次尝试"></a>]]>
+    </summary>
+    <title>五一使用 Codex 做 Blender MMD 自动化的一次尝试</title>
+    <updated>2026-05-07T08:08:25.298Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>River June</name>
+    </author>
+    <category term="Notes" scheme="https://blog.river9.top/categories/Notes/"/>
+    <category term="Go" scheme="https://blog.river9.top/tags/Go/"/>
+    <category term="Gee" scheme="https://blog.river9.top/tags/Gee/"/>
+    <category term="Web Framework" scheme="https://blog.river9.top/tags/Web-Framework/"/>
+    <category term="学习笔记" scheme="https://blog.river9.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://blog.river9.top/2026/04/30/gee-web-learning-notes-2026-04-30/</id>
+    <link href="https://blog.river9.top/2026/04/30/gee-web-learning-notes-2026-04-30/"/>
+    <published>2026-04-30T14:15:00.000Z</published>
+    <summary>
+      <![CDATA[<p>这一阶段我在做 <code>7days-golang</code> 的 Web 框架实战，今天算是把 <code>gee-web</code> 这条线完整走通了。</p>
+<p>相关材料：</p>
+<ul>
+<li>Gee-Web 教程（极客兔兔）：<span class="exturl"]]>
+    </summary>
+    <title>从语法卡点到框架闭环：我的 Gee-Web 学习笔记</title>
+    <updated>2026-05-07T07:54:02.835Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>River June</name>
+    </author>
+    <category term="Art" scheme="https://blog.river9.top/categories/Art/"/>
+    <category term="Aseprite" scheme="https://blog.river9.top/tags/Aseprite/"/>
+    <category term="Pixel Art" scheme="https://blog.river9.top/tags/Pixel-Art/"/>
+    <id>https://blog.river9.top/2026/04/28/aseprite-works/</id>
+    <link href="https://blog.river9.top/2026/04/28/aseprite-works/"/>
+    <published>2026-04-28T13:05:00.000Z</published>
+    <summary>
+      <![CDATA[<p>我的 Aseprite 小作品合集 ✨</p>
+<style>
+.aseprite-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 14px;
+}
+
+.aseprite-card {
+  background:]]>
+    </summary>
+    <title>Aseprite Works</title>
+    <updated>2026-04-28T13:54:46.994Z</updated>
+  </entry>
   <entry>
     <author>
       <name>River June</name>

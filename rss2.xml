@@ -5,9 +5,65 @@
     <link>https://blog.river9.top/</link>
     <description>Anything but useful</description>
     <copyright>All rights reserved 2026, River June</copyright>
-    <lastBuildDate>Sat, 17 May 2025 08:25:38 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 07 May 2026 08:08:25 GMT</lastBuildDate>
     <generator>Hexo</generator>
     <atom:link href="https://blog.river9.top/rss2.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>五一使用 Codex 做 Blender MMD 自动化的一次尝试</title>
+      <link>https://blog.river9.top/2026/05/07/blender-mmd-codex-mayday/</link>
+      <description>
+        <![CDATA[<div class="codex-note">
+  本文由 Codex 根据五一期间的聊天记录整理撰写，内容经我指定主题、结构和写作约束后生成。
+</div>
+<h1 id="五一使用-codex-做-blender-mmd-自动化的一次尝试"><a class="markdownIt-Anchor" href="#五一使用-codex-做-blender-mmd-自动化的一次尝试"></a>]]>
+      </description>
+      <author>River June</author>
+      <category domain="https://blog.river9.top/categories/Notes/">Notes</category>
+      <category domain="https://blog.river9.top/tags/Codex/">Codex</category>
+      <category domain="https://blog.river9.top/tags/Blender/">Blender</category>
+      <category domain="https://blog.river9.top/tags/MMD/">MMD</category>
+      <category domain="https://blog.river9.top/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/">自动化</category>
+      <pubDate>Thu, 07 May 2026 07:56:08 GMT</pubDate>
+    </item>
+    <item>
+      <title>从语法卡点到框架闭环：我的 Gee-Web 学习笔记</title>
+      <link>https://blog.river9.top/2026/04/30/gee-web-learning-notes-2026-04-30/</link>
+      <description>
+        <![CDATA[<p>这一阶段我在做 <code>7days-golang</code> 的 Web 框架实战，今天算是把 <code>gee-web</code> 这条线完整走通了。</p>
+<p>相关材料：</p>
+<ul>
+<li>Gee-Web 教程（极客兔兔）：<span class="exturl"]]>
+      </description>
+      <author>River June</author>
+      <category domain="https://blog.river9.top/categories/Notes/">Notes</category>
+      <category domain="https://blog.river9.top/tags/Go/">Go</category>
+      <category domain="https://blog.river9.top/tags/Gee/">Gee</category>
+      <category domain="https://blog.river9.top/tags/Web-Framework/">Web Framework</category>
+      <category domain="https://blog.river9.top/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</category>
+      <pubDate>Thu, 30 Apr 2026 14:15:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Aseprite Works</title>
+      <link>https://blog.river9.top/2026/04/28/aseprite-works/</link>
+      <description>
+        <![CDATA[<p>我的 Aseprite 小作品合集 ✨</p>
+<style>
+.aseprite-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 14px;
+}
+
+.aseprite-card {
+  background:]]>
+      </description>
+      <author>River June</author>
+      <category domain="https://blog.river9.top/categories/Art/">Art</category>
+      <category domain="https://blog.river9.top/tags/Aseprite/">Aseprite</category>
+      <category domain="https://blog.river9.top/tags/Pixel-Art/">Pixel Art</category>
+      <pubDate>Tue, 28 Apr 2026 13:05:00 GMT</pubDate>
+    </item>
     <item>
       <title>迷思-大模型×人脑：多语义表征、Hyper-alignment 与脑机解码</title>
       <link>https://blog.river9.top/2025/05/17/aiandbrain/</link>
