@@ -26,13 +26,13 @@
       <pubDate>Thu, 07 May 2026 07:56:08 GMT</pubDate>
     </item>
     <item>
-      <title>从语法卡点到框架闭环：我的 Gee-Web 学习笔记</title>
+      <title>Gee-Web 学习笔记：语法卡点与框架闭环</title>
       <link>https://blog.river9.top/2026/04/30/gee-web-learning-notes-2026-04-30/</link>
       <description>
-        <![CDATA[<p>这一阶段我在做 <code>7days-golang</code> 的 Web 框架实战，今天算是把 <code>gee-web</code> 这条线完整走通了。</p>
-<p>相关材料：</p>
-<ul>
-<li>Gee-Web 教程（极客兔兔）：<span class="exturl"]]>
+        <![CDATA[<div class="codex-note">
+  本文由 Codex 整理撰写，内容经我指定主题、结构和写作约束后生成。
+</div>
+<p>这一阶段我在做 <code>7days-golang</code> 里的 Gee-Web 框架实战。相关教程是 <span class="exturl"]]>
       </description>
       <author>River June</author>
       <category domain="https://blog.river9.top/categories/Notes/">Notes</category>
