@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://blog.river9.top/sitemap.xml
+Sitemap: https://nicklennonliu.github.io/sitemap.xml
