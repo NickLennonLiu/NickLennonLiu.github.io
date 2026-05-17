@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 240" role="img" aria-label="Skeleton-CutMix concept diagram">
+  <defs>
+    <linearGradient id="sk-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fbff"/>
+      <stop offset="100%" stop-color="#eaf2ff"/>
+    </linearGradient>
+    <linearGradient id="sk-card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f1f6ff"/>
+    </linearGradient>
+    <linearGradient id="sk-accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1e40af"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <marker id="sk-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1e40af"/>
+    </marker>
+
+    <!-- Skeleton symbol templates -->
+    <g id="skel-source">
+      <!-- Head -->
+      <circle cx="0" cy="-44" r="6" fill="#1e40af"/>
+      <!-- Spine -->
+      <line x1="0" y1="-38" x2="0" y2="6" stroke="#1e40af" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- Shoulders/arms -->
+      <line x1="0" y1="-30" x2="-16" y2="-20" stroke="#1e40af" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="0" y1="-30" x2="16" y2="-20" stroke="#1e40af" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="-16" y1="-20" x2="-22" y2="-2" stroke="#1e40af" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="16" y1="-20" x2="22" y2="-2" stroke="#1e40af" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- Hips/legs -->
+      <line x1="0" y1="6" x2="-12" y2="26" stroke="#1e40af" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="0" y1="6" x2="12" y2="26" stroke="#1e40af" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="-12" y1="26" x2="-14" y2="46" stroke="#1e40af" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="12" y1="26" x2="14" y2="46" stroke="#1e40af" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- Joints -->
+      <circle cx="0" cy="-30" r="2.6" fill="#1e3a8a"/>
+      <circle cx="-16" cy="-20" r="2.6" fill="#1e3a8a"/>
+      <circle cx="16" cy="-20" r="2.6" fill="#1e3a8a"/>
+      <circle cx="-22" cy="-2" r="2.6" fill="#1e3a8a"/>
+      <circle cx="22" cy="-2" r="2.6" fill="#1e3a8a"/>
+      <circle cx="0" cy="6" r="2.6" fill="#1e3a8a"/>
+      <circle cx="-12" cy="26" r="2.6" fill="#1e3a8a"/>
+      <circle cx="12" cy="26" r="2.6" fill="#1e3a8a"/>
+      <circle cx="-14" cy="46" r="2.6" fill="#1e3a8a"/>
+      <circle cx="14" cy="46" r="2.6" fill="#1e3a8a"/>
+    </g>
+
+    <g id="skel-target">
+      <circle cx="0" cy="-44" r="6" fill="#0ea5e9"/>
+      <line x1="0" y1="-38" x2="0" y2="6" stroke="#0ea5e9" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="0" y1="-30" x2="-18" y2="-26" stroke="#0ea5e9" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="0" y1="-30" x2="18" y2="-14" stroke="#0ea5e9" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="-18" y1="-26" x2="-26" y2="-10" stroke="#0ea5e9" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="18" y1="-14" x2="26" y2="2" stroke="#0ea5e9" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="0" y1="6" x2="-10" y2="26" stroke="#0ea5e9" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="0" y1="6" x2="14" y2="24" stroke="#0ea5e9" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="-10" y1="26" x2="-16" y2="46" stroke="#0ea5e9" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="14" y1="24" x2="18" y2="46" stroke="#0ea5e9" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="0" cy="-30" r="2.6" fill="#0c4a6e"/>
+      <circle cx="-18" cy="-26" r="2.6" fill="#0c4a6e"/>
+      <circle cx="18" cy="-14" r="2.6" fill="#0c4a6e"/>
+      <circle cx="-26" cy="-10" r="2.6" fill="#0c4a6e"/>
+      <circle cx="26" cy="2" r="2.6" fill="#0c4a6e"/>
+      <circle cx="0" cy="6" r="2.6" fill="#0c4a6e"/>
+      <circle cx="-10" cy="26" r="2.6" fill="#0c4a6e"/>
+      <circle cx="14" cy="24" r="2.6" fill="#0c4a6e"/>
+      <circle cx="-16" cy="46" r="2.6" fill="#0c4a6e"/>
+      <circle cx="18" cy="46" r="2.6" fill="#0c4a6e"/>
+    </g>
+
+    <!-- Mixed: half source (blue) upper, half target (sky) lower -->
+    <g id="skel-mixed">
+      <circle cx="0" cy="-44" r="6" fill="#1e40af"/>
+      <line x1="0" y1="-38" x2="0" y2="6" stroke="#1e40af" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="0" y1="-30" x2="-16" y2="-20" stroke="#1e40af" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="0" y1="-30" x2="16" y2="-20" stroke="#1e40af" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="-16" y1="-20" x2="-22" y2="-2" stroke="#1e40af" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="16" y1="-20" x2="22" y2="-2" stroke="#1e40af" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="0" y1="6" x2="-10" y2="26" stroke="#0ea5e9" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="0" y1="6" x2="14" y2="24" stroke="#0ea5e9" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="-10" y1="26" x2="-16" y2="46" stroke="#0ea5e9" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="14" y1="24" x2="18" y2="46" stroke="#0ea5e9" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="0" cy="-30" r="2.6" fill="#1e3a8a"/>
+      <circle cx="-16" cy="-20" r="2.6" fill="#1e3a8a"/>
+      <circle cx="16" cy="-20" r="2.6" fill="#1e3a8a"/>
+      <circle cx="-22" cy="-2" r="2.6" fill="#1e3a8a"/>
+      <circle cx="22" cy="-2" r="2.6" fill="#1e3a8a"/>
+      <circle cx="0" cy="6" r="3" fill="#7c3aed"/>
+      <circle cx="-10" cy="26" r="2.6" fill="#0c4a6e"/>
+      <circle cx="14" cy="24" r="2.6" fill="#0c4a6e"/>
+      <circle cx="-16" cy="46" r="2.6" fill="#0c4a6e"/>
+      <circle cx="18" cy="46" r="2.6" fill="#0c4a6e"/>
+    </g>
+  </defs>
+
+  <rect width="1000" height="240" rx="14" fill="url(#sk-bg)"/>
+  <rect x="0.5" y="0.5" width="999" height="239" rx="14" fill="none" stroke="#bfdbfe"/>
+
+  <!-- Source domain card -->
+  <g transform="translate(40,40)">
+    <rect width="160" height="160" rx="12" fill="url(#sk-card)" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text x="80" y="24" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" fill="#1e40af" letter-spacing="0.5">SOURCE DOMAIN</text>
+    <use href="#skel-source" transform="translate(80,98)"/>
+    <text x="80" y="148" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#374151">e.g., NTU-60 (labeled)</text>
+  </g>
+
+  <!-- Target domain card -->
+  <g transform="translate(40,40)" opacity="0">
+    <!-- placeholder -->
+  </g>
+
+  <g transform="translate(216,40)">
+    <rect width="160" height="160" rx="12" fill="url(#sk-card)" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text x="80" y="24" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" fill="#0c4a6e" letter-spacing="0.5">TARGET DOMAIN</text>
+    <use href="#skel-target" transform="translate(80,98)"/>
+    <text x="80" y="148" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#374151">e.g., ETRI-Activity3D</text>
+  </g>
+
+  <!-- Plus sign between source/target -->
+  <text x="208" y="124" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="700" fill="#1e40af">+</text>
+
+  <!-- Arrow -->
+  <line x1="382" y1="120" x2="426" y2="120" stroke="#1e40af" stroke-width="2.4" marker-end="url(#sk-arrow)"/>
+  <text x="404" y="106" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" fill="#1e40af" letter-spacing="0.5">PROBABILISTIC</text>
+  <text x="404" y="118" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" fill="#1e40af" letter-spacing="0.5">BONE EXCHANGE</text>
+
+  <!-- Mixed Skeleton card -->
+  <g transform="translate(432,40)">
+    <rect width="180" height="160" rx="12" fill="url(#sk-card)" stroke="#1e40af" stroke-width="2"/>
+    <text x="90" y="24" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" fill="#1e40af" letter-spacing="0.5">MIXED SKELETON</text>
+    <use href="#skel-mixed" transform="translate(90,98)"/>
+    <text x="90" y="148" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#374151">Part-importance sampling (PIS)</text>
+  </g>
+
+  <line x1="618" y1="120" x2="662" y2="120" stroke="#1e40af" stroke-width="2.4" marker-end="url(#sk-arrow)"/>
+
+  <!-- Adapted recognizer card -->
+  <g transform="translate(668,40)">
+    <rect width="292" height="160" rx="12" fill="url(#sk-card)" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text x="146" y="24" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" fill="#1e40af" letter-spacing="0.5">DOMAIN-ADAPTED RECOGNIZER</text>
+
+    <!-- Network diagram -->
+    <g transform="translate(20,42)">
+      <g stroke="#94a3b8" stroke-width="1">
+        <line x1="14" y1="14" x2="64" y2="0"/>
+        <line x1="14" y1="14" x2="64" y2="28"/>
+        <line x1="14" y1="14" x2="64" y2="56"/>
+        <line x1="14" y1="44" x2="64" y2="0"/>
+        <line x1="14" y1="44" x2="64" y2="28"/>
+        <line x1="14" y1="44" x2="64" y2="56"/>
+        <line x1="14" y1="74" x2="64" y2="0"/>
+        <line x1="14" y1="74" x2="64" y2="28"/>
+        <line x1="14" y1="74" x2="64" y2="56"/>
+        <line x1="64" y1="0" x2="124" y2="28"/>
+        <line x1="64" y1="28" x2="124" y2="28"/>
+        <line x1="64" y1="56" x2="124" y2="28"/>
+      </g>
+      <circle cx="14" cy="14" r="6" fill="#1e40af"/>
+      <circle cx="14" cy="44" r="6" fill="#1e40af"/>
+      <circle cx="14" cy="74" r="6" fill="#1e40af"/>
+      <circle cx="64" cy="0" r="6" fill="#3b82f6"/>
+      <circle cx="64" cy="28" r="6" fill="#3b82f6"/>
+      <circle cx="64" cy="56" r="6" fill="#3b82f6"/>
+      <circle cx="124" cy="28" r="7" fill="#0ea5e9"/>
+    </g>
+
+    <!-- Action labels -->
+    <g transform="translate(180,44)" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#1e3a8a">
+      <rect x="0" y="0" width="92" height="20" rx="4" fill="#dbeafe" stroke="#1e40af"/>
+      <text x="46" y="13" text-anchor="middle" font-weight="600">Drink water</text>
+      <rect x="0" y="26" width="92" height="20" rx="4" fill="#eff6ff" stroke="#93c5fd"/>
+      <text x="46" y="39" text-anchor="middle">Sit down</text>
+      <rect x="0" y="52" width="92" height="20" rx="4" fill="#eff6ff" stroke="#93c5fd"/>
+      <text x="46" y="65" text-anchor="middle">Wave hand</text>
+    </g>
+
+    <text x="146" y="148" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#374151">Cross-domain action recognition (TIP 2023)</text>
+  </g>
+
+  <text x="500" y="226" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-style="italic" fill="#1e40af" font-weight="600">Figure: Skeleton-CutMix concept &#8212; probabilistic bone exchange for supervised domain adaptation</text>
+</svg>

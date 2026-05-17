@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuhe Liu | Portfolio</title>
+    <meta name="description" content="Yuhe Liu, M.Eng. candidate at Tsinghua University working on LLM evaluation, AIOps, RAG, Agents, and domain-specific AI systems.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1a56db;
+            --primary-blue-hover: #1e40af;
+            --light-blue: #eff6ff;
+            --border-blue: #bfdbfe;
+            --text-main: #111827;
+            --text-muted: #4b5563;
+            --bg-white: #ffffff;
+            --bg-gray: #f9fafb;
+            --highlight-bg: #dbeafe;
+            --highlight-text: #1e40af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--bg-white);
+        }
+
+        a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--primary-blue-hover);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-blue);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-mark {
+            background-color: var(--primary-blue);
+            color: white;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--bg-white) 0%, var(--light-blue) 100%);
+            border-bottom: 1px solid var(--border-blue);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.1rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-text p.lead {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: white;
+            border: 1px solid var(--primary-blue);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-blue-hover);
+            color: white;
+            box-shadow: 0 4px 6px rgba(26, 86, 219, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--light-blue);
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--border-blue);
+            transition: transform 0.3s ease;
+        }
+        
+        .hero-image img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-alt {
+            background-color: var(--bg-gray);
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .section-header {
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header .eyebrow {
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+        }
+
+        /* Research Focus Grid */
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-blue);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(26, 86, 219, 0.1);
+            border-color: var(--primary-blue);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Publications */
+        .pub-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .pub-item {
+            padding: 2rem;
+            border-left: 4px solid var(--primary-blue);
+            background-color: var(--bg-white);
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .pub-item:hover {
+            background-color: var(--light-blue);
+            transform: translateX(4px);
+        }
+
+        .pub-meta {
+            font-size: 0.85rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pub-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+
+        .pub-authors {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .author-highlight {
+            background-color: var(--highlight-bg);
+            color: var(--highlight-text);
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            border: 1px solid rgba(29, 78, 216, 0.2);
+        }
+
+        .pub-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            width: 2px;
+            background-color: var(--border-blue);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 3.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--primary-blue);
+            border: 3px solid var(--bg-white);
+            box-shadow: 0 0 0 2px var(--border-blue);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .timeline-item:hover::before {
+            transform: scale(1.2);
+            background-color: var(--primary-blue-hover);
+        }
+
+        .timeline-time {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            background-color: var(--light-blue);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--text-main);
+        }
+
+        .timeline-org {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Skills & Two Column */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            list-style: none;
+        }
+
+        .tag-list li {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid var(--border-blue);
+            transition: all 0.2s ease;
+        }
+
+        .tag-list li:hover {
+            background-color: var(--primary-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .service-list p {
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .service-list p::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--border-blue);
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content, .two-column {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            .section {
+                padding: 4rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="/" class="logo">
+                <span class="logo-mark">YL</span>
+                Yuhe Liu
+            </a>
+            <nav class="nav-links">
+                <a href="#publications">Publications</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="https://blog.river9.top/">Blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <p class="subtitle">Tsinghua CS · LLM Evaluation · AIOps</p>
+                    <h1>Yuhe Liu</h1>
+                    <p class="lead">
+                        M.Eng. candidate in Computer Science and Technology at Tsinghua University. I work on LLM evaluation,
+                        AIOps benchmarks, RAG and Agent systems, and domain-specific model adaptation.
+                    </p>
+                    <div class="btn-group">
+                        <a href="mailto:junetheriver@gmail.com" class="btn btn-primary">Email Me</a>
+                        <a href="assets/cv-yuhe-liu.pdf" class="btn btn-outline">View CV</a>
+                        <a href="https://github.com/JuneTheRiver" class="btn btn-outline">GitHub</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="assets/research-map.png" alt="Research map connecting LLM evaluation, AIOps data, RAG pipelines, agent systems, and domain applications.">
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Focus -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <p class="eyebrow">Research Focus</p>
+                    <h2>Building reliable LLM systems for operations domains</h2>
+                </div>
+                <div class="focus-grid">
+                    <div class="card">
+                        <h3>AIOps evaluation</h3>
+                        <p>Benchmarking LLM capabilities across language ability, operations tasks, and data modalities.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Automatic benchmark generation</h3>
+                        <p>Using RAG and Agent pipelines to transform product documentation into high-quality domain QA data.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Domain adaptation</h3>
+                        <p>Fine-tuning and evaluating models for telecom, technical support, CI logs, and operations workflows.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications -->
+        <section id="publications" class="section section-alt">
+            <div class="container">
+                <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <p class="eyebrow">Publications</p>
+                        <h2>Selected Papers</h2>
+                    </div>
+                    <a href="assets/cv-yuhe-liu.pdf" style="font-weight: 500;">View Full CV &rarr;</a>
+                </div>
+                
+                <div class="pub-list">
+                    <!-- Pub 1 -->
+                    <div class="pub-item">
+                        <div class="pub-meta">
+                            <span>FSE 2026</span>
+                            <span>Lead Author</span>
+                        </div>
+                        <h3 class="pub-title">Eagle: A Comprehensive LLM Benchmarking Framework for Operations Capability</h3>
+                        <div class="pub-authors">
+                            <span class="author-highlight">Yuhe Liu</span>, Co-author A, Co-author B, et al.
+                        </div>
+                        <p class="pub-desc">A benchmarking framework for evaluating operations-oriented capabilities of large language models.</p>
+                    </div>
+
+                    <!-- Pub 2 -->
+                    <div class="pub-item">
+                        <div class="pub-meta">
+                            <span>FSE 2025</span>
+                            <span>Lead Author</span>
+                        </div>
+                        <h3 class="pub-title">OpsEval: A Comprehensive Benchmark Suite for Evaluating LLMs' Capability in IT Operations Domain</h3>
+                        <div class="pub-authors">
+                            <span class="author-highlight">Yuhe Liu</span>, Co-author A, Co-author B, et al.
+                        </div>
+                        <p class="pub-desc">9,000+ AIOps QA pairs, multi-paradigm evaluation, and a public leaderboard for LLMs in IT operations. <a href="https://opseval.cstcloud.cn/v2/">[Leaderboard]</a></p>
+                    </div>
+
+                    <!-- Pub 3 -->
+                    <div class="pub-item">
+                        <div class="pub-meta">
+                            <span>TIP 2023</span>
+                            <span>Second Author</span>
+                        </div>
+                        <h3 class="pub-title">Skeleton-CutMix: Mixing Up Skeleton with Probabilistic Bone Exchange for Supervised Domain Adaptation</h3>
+                        <div class="pub-authors">
+                            First Author, <span class="author-highlight">Yuhe Liu</span>, Third Author, et al.
+                        </div>
+                        <p class="pub-desc">A cross-domain skeleton augmentation method for improving action recognition transfer.</p>
+                    </div>
+
+                    <!-- Pub 4 -->
+                    <div class="pub-item">
+                        <div class="pub-meta">
+                            <span>IJCNN 2025</span>
+                            <span>Third Author</span>
+                        </div>
+                        <h3 class="pub-title">TechSupportEval: An Automated Evaluation Framework for Technical Support Question Answering</h3>
+                        <div class="pub-authors">
+                            First Author, Second Author, <span class="author-highlight">Yuhe Liu</span>, Fourth Author, et al.
+                        </div>
+                        <p class="pub-desc">An evaluation framework for technical support QA scenarios and model response quality.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects & Experience -->
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <p class="eyebrow">Projects and Experience</p>
+                    <h2>Applied LLM evaluation and system deployment</h2>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">2024.08 - 2025.08</div>
+                        <h3 class="timeline-title">AIOps Automatic Evaluation System Construction</h3>
+                        <div class="timeline-org">Huawei, CAS, CAICT</div>
+                        <p class="timeline-desc">Designed a taxonomy and three-dimensional evaluation system for AIOps foundation models. Built RAG and Agent based benchmark generation pipelines and delivered evaluation systems inside Huawei and on the CAICT benchmarking platform.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-time">2023.09 - 2024.07</div>
+                        <h3 class="timeline-title">OpsEval Benchmark and Leaderboard</h3>
+                        <div class="timeline-org">NetMan Lab</div>
+                        <p class="timeline-desc">Curated 9,000+ AIOps QA pairs, maintained the OpsEval leaderboard, and evaluated 20+ mainstream LLMs with LLM-as-a-Judge, RAGAS, and frequency-based analysis.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">2024.08 - 2024.11</div>
+                        <h3 class="timeline-title">LLM-based Log Analysis for CI Pipeline</h3>
+                        <div class="timeline-org">Tencent TEG, Algorithm Intern</div>
+                        <p class="timeline-desc">Optimized abnormal log retrieval with keyword tables and context-window matching, then designed automatic answer evaluation with keyword matching, TF-IDF, and LLM-as-a-Judge.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">2023.11 - 2024.07</div>
+                        <h3 class="timeline-title">Fine-tuning Large Language Models for the Telecom Domain</h3>
+                        <div class="timeline-org">ZTE</div>
+                        <p class="timeline-desc">Prepared telecom-domain QA data and compared parameter-efficient and full fine-tuning methods across PT, SFT, and DPO training paradigms.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills & Campus Work -->
+        <section id="skills" class="section section-alt">
+            <div class="container two-column">
+                <div>
+                    <div class="section-header" style="margin-bottom: 2rem;">
+                        <p class="eyebrow">Technical Skills</p>
+                        <h2>Stack</h2>
+                    </div>
+                    <ul class="tag-list">
+                        <li>Python</li>
+                        <li>C/C++</li>
+                        <li>TypeScript</li>
+                        <li>Golang</li>
+                        <li>Rust</li>
+                        <li>RAG</li>
+                        <li>Agents</li>
+                        <li>LLM Evaluation</li>
+                        <li>DeepSpeed</li>
+                        <li>Megatron</li>
+                        <li>Docker</li>
+                        <li>Django</li>
+                        <li>MySQL</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <div class="section-header" style="margin-bottom: 2rem;">
+                        <p class="eyebrow">Teaching and Service</p>
+                        <h2>Campus work</h2>
+                    </div>
+                    <div class="service-list">
+                        <p>Teaching Assistant for Software Engineering, Department of Computer Science, 2023, 2024, and 2025.</p>
+                        <p>Cluster management for NetMan Lab, including internal network accounts and CPU/VM resources.</p>
+                        <p>Research intern in scene reconstruction and second author of Skeleton-CutMix.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 0.5rem;">© 2026 Yuhe Liu. All rights reserved.</p>
+            <p><a href="https://nicklennonliu.github.io/">nicklennonliu.github.io</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
