@@ -65,6 +65,7 @@
         line-height: 1.65;
         color: var(--ink-900);
         background: var(--bg);
+        overflow-x: hidden;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
@@ -253,6 +254,10 @@
         gap: 64px;
         align-items: center;
       }
+      .hero-copy,
+      .hero-visual {
+        min-width: 0;
+      }
       .eyebrow {
         display: inline-flex;
         align-items: center;
@@ -298,12 +303,16 @@
         margin-top: 32px;
         display: flex;
         flex-wrap: wrap;
-        gap: 12px;
+        max-width: 100%;
+        column-gap: 12px;
+        row-gap: 12px;
       }
       .btn {
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         gap: 8px;
+        margin: 0;
         padding: 11px 18px;
         border-radius: 10px;
         font-weight: 600;
@@ -369,6 +378,7 @@
       /* Hero visual */
       .hero-visual {
         position: relative;
+        max-width: 100%;
         aspect-ratio: 4 / 3;
         background: linear-gradient(135deg, #fff 0%, var(--blue-50) 100%);
         border: 1px solid var(--blue-200);
@@ -955,6 +965,34 @@
         .nav-links a:not(.nav-cta) {
           display: none;
         }
+        .nav-links .nav-cta {
+          display: none;
+        }
+        .nav-links {
+          gap: 8px;
+          min-width: 0;
+        }
+        .lang-toggle {
+          padding: 6px 10px;
+        }
+        .container {
+          padding: 0 20px;
+        }
+        .actions {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          column-gap: 12px;
+          row-gap: 12px;
+        }
+        .actions .btn {
+          width: 100%;
+          min-height: 42px;
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+        .actions .btn.primary {
+          grid-column: 1 / -1;
+        }
         .section-head {
           flex-direction: column;
           align-items: flex-start;
@@ -1026,7 +1064,7 @@
                 </svg>
                 <span data-i18n="hero.btn.cv">Download CV</span>
               </a>
-              <a class="btn ghost" href="https://github.com/JuneTheRiver" target="_blank" rel="noopener">
+              <a class="btn ghost" href="https://github.com/NickLennonLiu" target="_blank" rel="noopener">
                 <svg viewBox="0 0 20 20" fill="currentColor">
                   <path d="M10 0C4.477 0 0 4.477 0 10c0 4.418 2.865 8.166 6.839 9.489.5.09.682-.217.682-.482 0-.237-.009-.866-.014-1.7-2.782.604-3.369-1.342-3.369-1.342-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.071 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.646.35-1.087.636-1.337-2.22-.252-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.91-1.294 2.748-1.025 2.748-1.025.546 1.378.202 2.395.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.688-4.566 4.935.359.31.679.922.679 1.858 0 1.341-.012 2.422-.012 2.752 0 .268.181.578.688.48A10.001 10.001 0 0020 10c0-5.523-4.477-10-10-10z" />
                 </svg>
@@ -1438,7 +1476,7 @@
         <span>
           <a href="https://nicklennonliu.github.io/">nicklennonliu.github.io</a>
           &nbsp;·&nbsp;
-          <a href="https://github.com/JuneTheRiver" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/NickLennonLiu" target="_blank" rel="noopener">GitHub</a>
         </span>
       </div>
     </footer>
