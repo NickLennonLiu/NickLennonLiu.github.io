@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Yuhe Liu · Tsinghua CS · LLM Evaluation & AIOps</title>
+    <title>Yuhe Liu</title>
     <meta
       name="description"
-      content="Yuhe Liu, M.Eng. candidate at Tsinghua University. Research on LLM evaluation, AIOps, RAG, Agents, and domain-specific AI systems."
+      content="Yuhe Liu, M.Eng. in Computer Science and Technology at Tsinghua University. Research on LLM evaluation, AIOps, RAG, Agents, and domain-specific AI systems."
     />
-    <link rel="canonical" href="https://nicklennonliu.github.io/" />
+    <link rel="canonical" href="https://lyh.river9.top/" />
     <link rel="icon" href="favicon.ico" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -150,14 +150,14 @@
         gap: 28px;
         align-items: center;
       }
-      .nav-links a {
+      .nav-links > a {
         color: var(--ink-700);
         font-weight: 500;
         font-size: 0.92rem;
         position: relative;
         padding: 4px 0;
       }
-      .nav-links a::after {
+      .nav-links > a::after {
         content: "";
         position: absolute;
         left: 0;
@@ -170,29 +170,45 @@
         transition: transform 0.22s var(--ease);
         border-radius: 2px;
       }
-      .nav-links a:hover {
+      .nav-links > a:hover {
         color: var(--blue-700);
       }
-      .nav-links a:hover::after {
+      .nav-links > a:hover::after {
         transform: scaleX(1);
+      }
+      .nav-actions {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+        margin-left: 4px;
       }
       .nav-cta {
         display: inline-flex;
         align-items: center;
-        gap: 6px;
-        padding: 8px 14px;
+        justify-content: center;
+        gap: 4px;
+        box-sizing: border-box;
+        height: 28px;
+        margin: 0;
+        padding: 0 12px;
         background: var(--blue-700);
         color: #fff !important;
         border-radius: 999px;
         font-weight: 600;
-        font-size: 0.88rem;
+        font-size: 0.82rem;
+        line-height: 1;
+        white-space: nowrap;
+        flex-shrink: 0;
         box-shadow: 0 6px 14px -6px rgba(37, 99, 235, 0.7);
+      }
+      .nav-cta svg {
+        width: 12px;
+        height: 12px;
+        flex-shrink: 0;
       }
       .nav-cta:hover {
         background: var(--blue-800);
-      }
-      .nav-cta::after {
-        display: none;
       }
       .lang-toggle {
         appearance: none;
@@ -202,14 +218,20 @@
         color: var(--blue-800);
         border: 1px solid var(--blue-200);
         border-radius: 999px;
-        padding: 6px 12px;
+        box-sizing: border-box;
+        height: 28px;
+        min-width: 52px;
+        margin: 0;
+        padding: 0 10px;
         font-size: 0.82rem;
         font-weight: 600;
-        letter-spacing: 0.04em;
+        letter-spacing: 0.02em;
         line-height: 1;
+        white-space: nowrap;
+        flex-shrink: 0;
         display: inline-flex;
         align-items: center;
-        gap: 4px;
+        justify-content: center;
         transition: all 0.2s var(--ease);
       }
       .lang-toggle:hover {
@@ -218,7 +240,12 @@
         color: var(--blue-900);
       }
       .lang-toggle .lang-pair {
+        display: inline-flex;
+        align-items: center;
+        gap: 2px;
+        white-space: nowrap;
         font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 0.78rem;
       }
       .lang-toggle .lang-pair .active {
         color: var(--blue-800);
@@ -229,7 +256,6 @@
       }
       .lang-toggle .sep {
         color: var(--ink-300, #cbd5e1);
-        margin: 0 2px;
       }
 
       /* ===== Hero ===== */
@@ -962,18 +988,30 @@
         }
       }
       @media (max-width: 640px) {
-        .nav-links a:not(.nav-cta) {
+        .nav-links > a {
           display: none;
         }
         .nav-links .nav-cta {
           display: none;
         }
         .nav-links {
-          gap: 8px;
+          gap: 0;
           min-width: 0;
         }
+        .nav-actions {
+          margin-left: 0;
+          gap: 8px;
+        }
+        .lang-toggle,
+        .nav-cta {
+          height: 28px;
+        }
         .lang-toggle {
-          padding: 6px 10px;
+          padding: 0 10px;
+          min-width: 48px;
+        }
+        .nav-cta {
+          padding: 0 10px;
         }
         .container {
           padding: 0 20px;
@@ -1009,9 +1047,9 @@
     <header class="site-header">
       <div class="container">
         <nav class="nav" aria-label="Primary">
-          <a class="brand" href="/" aria-label="Yuhe Liu home">
-            <span class="brand-mark">YL</span>
-            <span>Yuhe&nbsp;Liu</span>
+          <a class="brand" href="./" aria-label="Junetheriver home">
+            <span class="brand-mark">⑨</span>
+            <span>Yuhe Liu</span>
           </a>
           <div class="nav-links">
             <a href="#focus" data-i18n="nav.research">Research</a>
@@ -1019,17 +1057,20 @@
             <a href="#experience" data-i18n="nav.experience">Experience</a>
             <a href="#skills" data-i18n="nav.skills">Skills</a>
             <a href="https://blog.river9.top/" target="_blank" rel="noopener" data-i18n="nav.blog">Blog</a>
-            <button class="lang-toggle" type="button" data-lang-toggle aria-label="Switch language">
-              <span class="lang-pair" aria-hidden="true">
-                <span class="lang-en active">EN</span><span class="sep">/</span><span class="lang-zh inactive">中</span>
-              </span>
-            </button>
-            <a class="nav-cta" href="mailto:junetheriver@gmail.com">
-              <span data-i18n="nav.email">Email</span>
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                <path d="M7 13l6-6M7 7h6v6" />
-              </svg>
-            </a>
+            <div class="nav-actions">
+              <button class="lang-toggle" type="button" data-lang-toggle aria-label="Switch language">
+                <span class="lang-pair" aria-hidden="true">
+                  <span class="lang-en active">EN</span><span class="sep">/</span><span class="lang-zh inactive">中</span>
+                </span>
+              </button>
+              <a class="nav-cta" href="mailto:junetheriver@gmail.com">
+                <span data-i18n="nav.email">Email</span>
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="5" width="14" height="11" rx="2" />
+                  <path d="M3 7l7 5 7-5" />
+                </svg>
+              </a>
+            </div>
           </div>
         </nav>
       </div>
@@ -1042,10 +1083,10 @@
           <div class="hero-copy reveal">
             <span class="eyebrow"><span class="dot"></span><span data-i18n="hero.eyebrow">Tsinghua CS · LLM Evaluation · AIOps</span></span>
             <h1 data-i18n="hero.title" data-i18n-html>
-              <span class="accent">Yuhe&nbsp;Liu</span>
+              <span class="accent">Junetheriver</span>
             </h1>
             <p class="lead" data-i18n="hero.lead" data-i18n-html>
-              An M.Eng. candidate in Computer Science at Tsinghua University. My research focuses
+              An M.Eng. from Computer Science and Technology at Tsinghua University. My research focuses
               on LLM evaluation, AIOps benchmarks, RAG &amp; Agent pipelines, and domain-specific
               model adaptation across telecom, technical support, and IT operations.
             </p>
@@ -1074,19 +1115,19 @@
 
           </div>
 
-          <figure class="hero-visual reveal">
+          <!-- <figure class="hero-visual reveal">
             <span class="badge">// research-map.png</span>
             <img
               src="assets/research-map.png"
               alt="Research map connecting LLM evaluation, AIOps data, RAG pipelines, agent systems, and domain applications."
             />
             <figcaption data-i18n="hero.visual.caption">Evaluation, domain data &amp; deployed LLM systems.</figcaption>
-          </figure>
+          </figure> -->
         </div>
       </section>
 
       <!-- ===== Research Focus ===== -->
-      <section class="section" id="focus">
+      <!-- <section class="section" id="focus">
         <div class="container">
           <div class="section-head">
             <div class="title-block">
@@ -1146,7 +1187,7 @@
             </article>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <!-- ===== Publications ===== -->
       <section class="section tinted" id="publications">
@@ -1154,11 +1195,11 @@
           <div class="section-head">
             <div class="title-block">
               <span class="eyebrow"><span class="dot"></span><span data-i18n="pubs.eyebrow">Publications</span></span>
-              <h2 data-i18n="pubs.title">Selected peer-reviewed papers.</h2>
-              <p class="subline" data-i18n="pubs.subline">
+              <h2 data-i18n="pubs.title">Published papers.</h2>
+              <!-- <p class="subline" data-i18n="pubs.subline">
                 Each card includes the full author list (with my name highlighted) and a preview of
                 the paper's main framework figure.
-              </p>
+              </p> -->
             </div>
             <a class="link-more" href="assets/cv-yuhe-liu.pdf" data-i18n="pubs.cv">
               View full CV →
@@ -1339,10 +1380,10 @@
             <div class="title-block">
               <span class="eyebrow"><span class="dot"></span><span data-i18n="exp.eyebrow">Projects &amp; Experience</span></span>
               <h2 data-i18n="exp.title">Applied LLM evaluation &amp; system deployment.</h2>
-              <p class="subline" data-i18n="exp.subline">
+              <!-- <p class="subline" data-i18n="exp.subline">
                 Selected industry collaborations on AIOps foundation models, log analysis and
                 telecom-domain fine-tuning.
-              </p>
+              </p> -->
             </div>
           </div>
 
@@ -1397,8 +1438,8 @@
         <div class="container">
           <div class="section-head">
             <div class="title-block">
-              <span class="eyebrow"><span class="dot"></span><span data-i18n="skills.eyebrow">Toolbox &amp; Service</span></span>
-              <h2 data-i18n="skills.title">Languages, frameworks and campus contributions.</h2>
+              <span class="eyebrow"><span class="dot"></span><span data-i18n="skills.eyebrow">Skills &amp; Service</span></span>
+              <h2 data-i18n="skills.title">Languages, frameworks and campus service.</h2>
             </div>
           </div>
 
@@ -1414,12 +1455,12 @@
                 <li>RAG</li>
                 <li data-i18n="skill.agents">Agents</li>
                 <li data-i18n="skill.eval">LLM Evaluation</li>
-                <li>DeepSpeed</li>
-                <li>Megatron</li>
+                <!-- <li>DeepSpeed</li>
+                <li>Megatron</li> -->
                 <li>Docker</li>
                 <li>Django</li>
                 <li>MySQL</li>
-                <li>PyTorch</li>
+                <!-- <li>PyTorch</li> -->
               </ul>
             </div>
             <div class="panel reveal" id="cv">
@@ -1447,7 +1488,7 @@
       <section class="section" id="contact">
         <div class="container">
           <div class="contact reveal">
-            <div>
+            <!-- <div>
               <span class="eyebrow"><span class="dot"></span><span data-i18n="contact.eyebrow">Contact</span></span>
               <h2 data-i18n="contact.title">Open to research conversations on LLM evaluation &amp; AIOps systems.</h2>
               <p data-i18n="contact.desc">
@@ -1455,7 +1496,7 @@
                 deploying LLMs into real operations workflows. Drop me a line — I usually reply
                 within a couple of days.
               </p>
-            </div>
+            </div> -->
             <div class="contact-actions">
               <a class="btn primary" href="mailto:junetheriver@gmail.com">
                 junetheriver@gmail.com
@@ -1472,9 +1513,9 @@
 
     <footer class="site-footer">
       <div class="container">
-        <span data-i18n="footer.copy">© 2026 Yuhe Liu · Built in Shenzhen, China</span>
+        <span data-i18n="footer.copy">© 2026 Junetheriver · Shenzhen, China</span>
         <span>
-          <a href="https://nicklennonliu.github.io/">nicklennonliu.github.io</a>
+          <a href="https://lyh.river9.top/">lyh.river9.top/</a>
           &nbsp;·&nbsp;
           <a href="https://github.com/NickLennonLiu" target="_blank" rel="noopener">GitHub</a>
         </span>
@@ -1508,36 +1549,36 @@
             "nav.blog": "Blog",
             "nav.email": "Email",
 
-            "hero.eyebrow": "Tsinghua CS \u00b7 LLM Evaluation \u00b7 AIOps",
-            "hero.title": "<span class=\"accent\">Yuhe&nbsp;Liu</span>",
-            "hero.lead": "An M.Eng. candidate in Computer Science at Tsinghua University. My research focuses on LLM evaluation, AIOps benchmarks, RAG &amp; Agent pipelines, and domain-specific model adaptation across telecom, technical support, and IT operations.",
+            "hero.eyebrow": "Tsinghua CS · LLM Evaluation · AIOps",
+            "hero.title": "<span class=\"accent\">Yuhe Liu</span>",
+            "hero.lead": "An M.Eng. in Computer Science and Technology at Tsinghua University. My research focuses on LLM evaluation, AIOps benchmarks, RAG &amp; Agent pipelines, and domain-specific model adaptation across telecom, technical support, and IT operations.",
             "hero.btn.contact": "Get in touch",
             "hero.btn.cv": "Download CV",
             "hero.visual.caption": "Evaluation, domain data & deployed LLM systems.",
 
             "focus.eyebrow": "Research Focus",
             "focus.title": "From benchmark design to deployed LLM systems.",
-            "focus.subline": "A three-layered agenda \u2014 evaluation taxonomy, automated data construction, and domain adaptation \u2014 to make large models useful for real operations workflows.",
+            "focus.subline": "A three-layered agenda — evaluation taxonomy, automated data construction, and domain adaptation — to make large models useful for real operations workflows.",
             "focus.card1.title": "AIOps evaluation",
-            "focus.card1.desc": "Benchmarking LLM capabilities across language ability, operations tasks and data modalities \u2014 with leaderboards, taxonomies and human-aligned metrics.",
+            "focus.card1.desc": "Benchmarking LLM capabilities across language ability, operations tasks and data modalities — with leaderboards, taxonomies and human-aligned metrics.",
             "focus.card2.title": "Automatic benchmark generation",
             "focus.card2.desc": "Turning enterprise documentation into high-quality domain QA via RAG and Agent pipelines with multi-granular quality controls.",
             "focus.card3.title": "Domain adaptation",
-            "focus.card3.desc": "Fine-tuning and evaluating models for telecom, technical support, CI logs and operations workflows \u2014 across PT, SFT and DPO paradigms.",
+            "focus.card3.desc": "Fine-tuning and evaluating models for telecom, technical support, CI logs and operations workflows — across PT, SFT and DPO paradigms.",
 
             "pubs.eyebrow": "Publications",
             "pubs.title": "Selected peer-reviewed papers.",
             "pubs.subline": "Each card includes the full author list (with my name highlighted) and a preview of the paper's main framework figure.",
-            "pubs.cv": "View full CV \u2192",
+            "pubs.cv": "View full CV →",
 
             "role.lead": "Lead Author",
             "role.second": "2nd Author",
             "role.third": "3rd Author",
 
-            "pub.eagle.venue": "FSE 2026 \u00b7 Industry",
+            "pub.eagle.venue": "FSE 2026 · Industry",
             "pub.eagle.title": "Eagle: Leveraging Operations Documents for Comprehensive Benchmark Question Generation",
             "pub.eagle.authors": "<span class=\"me\">Yuhe Liu</span>, Changhua Pei, Hang Wang, Longlong Xu, Xiaogang Dong, Zhen Feng, Li Zheng, Kehang Ji, Dan Pei",
-            "pub.eagle.desc": "An end-to-end framework deployed inside Huawei that ingests enterprise product documentation and synthesizes 4,845 domain-grounded QA pairs across logs, metrics, traces and configurations. Eagle improves expert-rated rubric scores by 22%\u201349% over SOTA baselines.",
+            "pub.eagle.desc": "An end-to-end framework deployed inside Huawei that ingests enterprise product documentation and synthesizes 4,845 domain-grounded QA pairs across logs, metrics, traces and configurations. Eagle improves expert-rated rubric scores by 22%–49% over SOTA baselines.",
 
             "pub.opseval.title": "OpsEval: A Comprehensive Benchmark Suite for Evaluating Large Language Models' Capability in IT Operations Domain",
             "pub.opseval.authors": "<span class=\"me\">Yuhe Liu</span>, Changhua Pei, Longlong Xu, Bohan Chen, Mingze Sun, Zhirui Zhang, Yongqian Sun, Shenglin Zhang, Kun Wang, Haiming Zhang, Jianhui Li, Gaogang Xie, Xidao Wen, Xiaohui Nie, Minghua Ma, Dan Pei",
@@ -1545,7 +1586,7 @@
 
             "pub.tech.title": "TechSupportEval: An Automated Evaluation Framework for Technical Support Question Answering",
             "pub.tech.authors": "Bohan Chen, Yongqian Sun, <span class=\"me\">Yuhe Liu</span>, Longlong Xu, Zhe Xie, Changhua Pei, Jing Han, Fan Ni, Xuhui Cai, Ce Yang, Dan Pei",
-            "pub.tech.desc": "An automated evaluation framework for technical-support QA that combines ClozeFact (cloze-style fact verification) and StepRestore (step ordering reconstruction). Achieves AUC 0.91 on a TechQA-based benchmark \u2014 +7.6% over prior SOTA.",
+            "pub.tech.desc": "An automated evaluation framework for technical-support QA that combines ClozeFact (cloze-style fact verification) and StepRestore (step ordering reconstruction). Achieves AUC 0.91 on a TechQA-based benchmark — +7.6% over prior SOTA.",
 
             "pub.skel.title": "Skeleton-CutMix: Mixing Up Skeleton with Probabilistic Bone Exchange for Supervised Domain Adaptation",
             "pub.skel.authors": "Hanchao Liu, <span class=\"me\">Yuhe Liu</span>, Tai-Jiang Mu, Shi-Min Hu",
@@ -1561,13 +1602,13 @@
             "exp.title": "Applied LLM evaluation & system deployment.",
             "exp.subline": "Selected industry collaborations on AIOps foundation models, log analysis and telecom-domain fine-tuning.",
             "exp.it1.title": "AIOps Automatic Evaluation System Construction",
-            "exp.it1.org": "Huawei \u00b7 CAS \u00b7 CAICT",
+            "exp.it1.org": "Huawei · CAS · CAICT",
             "exp.it1.desc": "Designed a taxonomy and three-dimensional evaluation system for AIOps foundation models. Built RAG- and Agent-based benchmark generation pipelines and delivered evaluation systems inside Huawei and on the CAICT benchmarking platform.",
             "exp.it2.title": "OpsEval Benchmark and Leaderboard",
             "exp.it2.org": "NetMan Lab, Tsinghua",
             "exp.it2.desc": "Curated 9,000+ AIOps QA pairs, maintained the OpsEval leaderboard, and evaluated 20+ mainstream LLMs with LLM-as-a-Judge, RAGAS and frequency-based analysis.",
             "exp.it3.title": "LLM-based Log Analysis for CI Pipeline",
-            "exp.it3.org": "Tencent TEG \u00b7 Algorithm Intern",
+            "exp.it3.org": "Tencent TEG · Algorithm Intern",
             "exp.it3.desc": "Optimized abnormal log retrieval with keyword tables and context-window matching, then designed automatic answer evaluation with keyword matching, TF-IDF and LLM-as-a-Judge.",
             "exp.it4.title": "Fine-tuning Large Language Models for the Telecom Domain",
             "exp.it4.org": "ZTE",
@@ -1579,119 +1620,119 @@
             "skills.service": "Teaching & service",
             "skill.agents": "Agents",
             "skill.eval": "LLM Evaluation",
-            "service.1": "Teaching Assistant for Software Engineering, Department of Computer Science \u2014 2023, 2024 and 2025.",
+            "service.1": "Teaching Assistant for Software Engineering, Department of Computer Science — 2023, 2024 and 2025.",
             "service.2": "Cluster management for NetMan Lab, including internal network accounts and CPU/VM resources.",
             "service.3": "Research intern in scene reconstruction and second author on Skeleton-CutMix (IEEE TIP 2023).",
 
             "contact.eyebrow": "Contact",
             "contact.title": "Open to research conversations on LLM evaluation & AIOps systems.",
-            "contact.desc": "I'm happy to chat about benchmark design, agentic pipelines for domain data, or deploying LLMs into real operations workflows. Drop me a line \u2014 I usually reply within a couple of days.",
+            "contact.desc": "I'm happy to chat about benchmark design, agentic pipelines for domain data, or deploying LLMs into real operations workflows. Drop me a line — I usually reply within a couple of days.",
             "contact.cv": "Download CV (PDF)",
-            "contact.blog": "Read blog \u2192",
+            "contact.blog": "Read blog →",
 
-            "footer.copy": "\u00a9 2026 Yuhe Liu \u00b7 Built in Shenzhen, China"
+            "footer.copy": "© 2026 Junetheriver · Built in Shenzhen, China"
           },
           zh: {
-            "nav.research": "\u7814\u7a76",
-            "nav.publications": "\u8bba\u6587",
-            "nav.experience": "\u7ecf\u5386",
-            "nav.skills": "\u6280\u80fd",
-            "nav.blog": "\u535a\u5ba2",
-            "nav.email": "\u90ae\u4ef6",
+            "nav.research": "研究",
+            "nav.publications": "论文",
+            "nav.experience": "经历",
+            "nav.skills": "技能",
+            "nav.blog": "博客",
+            "nav.email": "邮件",
 
-            "hero.eyebrow": "\u6e05\u534e\u5927\u5b66\u8ba1\u7b97\u673a\u7cfb \u00b7 \u5927\u6a21\u578b\u8bc4\u6d4b \u00b7 AIOps",
-            "hero.title": "<span class=\"accent\">\u5218\u7389\u6cb3</span>",
-            "hero.lead": "\u6e05\u534e\u5927\u5b66\u8ba1\u7b97\u673a\u79d1\u5b66\u4e0e\u6280\u672f\u4e13\u4e1a\u7855\u58eb\u7814\u7a76\u751f\uff0c\u7814\u7a76\u65b9\u5411\u6db5\u76d6\u5927\u6a21\u578b\u8bc4\u6d4b\u3001AIOps \u57fa\u51c6\u3001RAG \u4e0e Agent \u6d41\u6c34\u7ebf\uff0c\u4ee5\u53ca\u9762\u5411\u7535\u4fe1\u3001\u6280\u672f\u652f\u6301\u3001IT \u8fd0\u7ef4\u7684\u9886\u57df\u6a21\u578b\u9002\u914d\u3002",
-            "hero.btn.contact": "\u4e0e\u6211\u8054\u7cfb",
-            "hero.btn.cv": "\u4e0b\u8f7d\u7b80\u5386",
-            "hero.visual.caption": "\u8bc4\u6d4b\u3001\u9886\u57df\u6570\u636e\u4e0e\u5df2\u90e8\u7f72\u7684\u5927\u6a21\u578b\u7cfb\u7edf\u3002",
+            "hero.eyebrow": "清华大学计算机系 · 大模型评测 · AIOps",
+            "hero.title": "<span class=\"accent\">Yuhe Liu</span>",
+            "hero.lead": "清华大学计算机科学与技术专业硕士研究生，研究方向涵盖大模型评测、AIOps 基准、RAG 与 Agent 流水线，以及面向电信、技术支持、IT 运维的领域模型适配。",
+            "hero.btn.contact": "与我联系",
+            "hero.btn.cv": "下载简历",
+            "hero.visual.caption": "评测、领域数据与已部署的大模型系统。",
 
-            "focus.eyebrow": "\u7814\u7a76\u65b9\u5411",
-            "focus.title": "\u4ece\u57fa\u51c6\u8bbe\u8ba1\u5230\u5927\u6a21\u578b\u7cfb\u7edf\u90e8\u7f72\u3002",
-            "focus.subline": "\u8bc4\u6d4b\u4f53\u7cfb\u3001\u81ea\u52a8\u6570\u636e\u6784\u5efa\u3001\u9886\u57df\u9002\u914d \u2014\u2014 \u4e09\u5c42\u7814\u7a76\u8def\u5f84\uff0c\u8ba9\u5927\u6a21\u578b\u771f\u6b63\u670d\u52a1\u4e8e\u5b9e\u9645\u8fd0\u7ef4\u5de5\u4f5c\u6d41\u3002",
-            "focus.card1.title": "AIOps \u8bc4\u6d4b",
-            "focus.card1.desc": "\u56f4\u7ed5\u8bed\u8a00\u80fd\u529b\u3001\u8fd0\u7ef4\u4efb\u52a1\u4e0e\u6570\u636e\u6a21\u6001\u5bf9\u5927\u6a21\u578b\u8fdb\u884c\u57fa\u51c6\u5316\u8bc4\u6d4b\uff0c\u914d\u5957\u6392\u884c\u699c\u3001\u80fd\u529b\u5206\u7c7b\u4f53\u7cfb\u4e0e\u5bf9\u9f50\u4eba\u5de5\u7684\u6307\u6807\u3002",
-            "focus.card2.title": "\u57fa\u51c6\u81ea\u52a8\u751f\u6210",
-            "focus.card2.desc": "\u57fa\u4e8e RAG \u4e0e Agent \u6d41\u6c34\u7ebf\uff0c\u5c06\u4f01\u4e1a\u6587\u6863\u8f6c\u5316\u4e3a\u9ad8\u8d28\u91cf\u9886\u57df\u95ee\u7b54\u6570\u636e\uff0c\u5e76\u914d\u5907\u591a\u7c92\u5ea6\u8d28\u91cf\u7ba1\u63a7\u3002",
-            "focus.card3.title": "\u9886\u57df\u9002\u914d",
-            "focus.card3.desc": "\u9488\u5bf9\u7535\u4fe1\u3001\u6280\u672f\u652f\u6301\u3001CI \u65e5\u5fd7\u4e0e\u8fd0\u7ef4\u6d41\u7a0b\u8fdb\u884c\u6a21\u578b\u5fae\u8c03\u4e0e\u8bc4\u6d4b\uff0c\u6db5\u76d6 PT\u3001SFT\u3001DPO \u591a\u79cd\u8bad\u7ec3\u8303\u5f0f\u3002",
+            "focus.eyebrow": "研究方向",
+            "focus.title": "从基准设计到大模型系统部署。",
+            "focus.subline": "评测体系、自动数据构建、领域适配 —— 三层研究路径，让大模型真正服务于实际运维工作流。",
+            "focus.card1.title": "AIOps 评测",
+            "focus.card1.desc": "围绕语言能力、运维任务与数据模态对大模型进行基准化评测，配套排行榜、能力分类体系与对齐人工的指标。",
+            "focus.card2.title": "基准自动生成",
+            "focus.card2.desc": "基于 RAG 与 Agent 流水线，将企业文档转化为高质量领域问答数据，并配备多粒度质量管控。",
+            "focus.card3.title": "领域适配",
+            "focus.card3.desc": "针对电信、技术支持、CI 日志与运维流程进行模型微调与评测，涵盖 PT、SFT、DPO 多种训练范式。",
 
-            "pubs.eyebrow": "\u8bba\u6587\u6210\u679c",
-            "pubs.title": "\u90e8\u5206\u540c\u884c\u8bc4\u5ba1\u8bba\u6587\u3002",
-            "pubs.subline": "\u6bcf\u5f20\u5361\u7247\u5305\u542b\u5b8c\u6574\u4f5c\u8005\u5217\u8868\uff08\u6211\u7684\u540d\u5b57\u4ee5\u84dd\u8272\u9ad8\u4eae\uff09\uff0c\u5e76\u9644\u4e0a\u8be5\u8bba\u6587\u6838\u5fc3\u6846\u67b6\u56fe\u7684\u9884\u89c8\u3002",
-            "pubs.cv": "\u67e5\u770b\u5b8c\u6574\u7b80\u5386 \u2192",
+            "pubs.eyebrow": "论文成果",
+            "pubs.title": "部分同行评审论文。",
+            "pubs.subline": "每张卡片包含完整作者列表（我的名字以蓝色高亮），并附上该论文核心框架图的预览。",
+            "pubs.cv": "查看完整简历 →",
 
-            "role.lead": "\u4e00\u4f5c",
-            "role.second": "\u4e8c\u4f5c",
-            "role.third": "\u4e09\u4f5c",
+            "role.lead": "一作",
+            "role.second": "二作",
+            "role.third": "三作",
 
-            "pub.eagle.venue": "FSE 2026 \u00b7 \u5de5\u4e1a\u754c",
+            "pub.eagle.venue": "FSE 2026 · 工业界",
             "pub.eagle.title": "Eagle: Leveraging Operations Documents for Comprehensive Benchmark Question Generation",
             "pub.eagle.authors": "<span class=\"me\">Yuhe Liu</span>, Changhua Pei, Hang Wang, Longlong Xu, Xiaogang Dong, Zhen Feng, Li Zheng, Kehang Ji, Dan Pei",
-            "pub.eagle.desc": "\u5728\u534e\u4e3a\u5185\u90e8\u90e8\u7f72\u7684\u7aef\u5230\u7aef\u6846\u67b6\uff0c\u5c06\u4f01\u4e1a\u4ea7\u54c1\u6587\u6863\u8f6c\u5316\u4e3a 4,845 \u6761\u8986\u76d6\u65e5\u5fd7\u3001\u6307\u6807\u3001\u8c03\u7528\u94fe\u4e0e\u914d\u7f6e\u7684\u9886\u57df\u95ee\u7b54\u6570\u636e\u3002\u4e13\u5bb6\u8bc4\u5206\u8f83 SOTA \u57fa\u7ebf\u63d0\u5347 22%\u201349%\u3002",
+            "pub.eagle.desc": "在华为内部部署的端到端框架，将企业产品文档转化为 4,845 条覆盖日志、指标、调用链与配置的领域问答数据。专家评分较 SOTA 基线提升 22%–49%。",
 
             "pub.opseval.title": "OpsEval: A Comprehensive Benchmark Suite for Evaluating Large Language Models' Capability in IT Operations Domain",
             "pub.opseval.authors": "<span class=\"me\">Yuhe Liu</span>, Changhua Pei, Longlong Xu, Bohan Chen, Mingze Sun, Zhirui Zhang, Yongqian Sun, Shenglin Zhang, Kun Wang, Haiming Zhang, Jianhui Li, Gaogang Xie, Xidao Wen, Xiaohui Nie, Minghua Ma, Dan Pei",
-            "pub.opseval.desc": "\u4e00\u4e2a\u5305\u542b 9,000+ AIOps \u95ee\u7b54\u7684\u7efc\u5408\u57fa\u51c6\uff0c\u8986\u76d6 8 \u4e2a\u5b50\u9886\u57df\u3001\u591a\u79cd\u8bc4\u6d4b\u8303\u5f0f\uff08zero/few-shot\u3001CoT\u3001\u81ea\u6d3d\u6027\uff09\uff0c\u5e76\u63d0\u51fa\u4e0e\u4e13\u5bb6\u5bf9\u9f50\u5ea6\u8fbe 0.9185 \u7684\u95ee\u7b54\u8bc4\u5206\u6307\u6807 FAE-Score\u3002",
+            "pub.opseval.desc": "一个包含 9,000+ AIOps 问答的综合基准，覆盖 8 个子领域、多种评测范式（zero/few-shot、CoT、自洽性），并提出与专家对齐度达 0.9185 的问答评分指标 FAE-Score。",
 
             "pub.tech.title": "TechSupportEval: An Automated Evaluation Framework for Technical Support Question Answering",
             "pub.tech.authors": "Bohan Chen, Yongqian Sun, <span class=\"me\">Yuhe Liu</span>, Longlong Xu, Zhe Xie, Changhua Pei, Jing Han, Fan Ni, Xuhui Cai, Ce Yang, Dan Pei",
-            "pub.tech.desc": "\u9762\u5411\u6280\u672f\u652f\u6301\u95ee\u7b54\u7684\u81ea\u52a8\u8bc4\u6d4b\u6846\u67b6\uff0c\u7ed3\u5408 ClozeFact\uff08\u5b8c\u5f62\u586b\u7a7a\u5f0f\u4e8b\u5b9e\u6821\u9a8c\uff09\u4e0e StepRestore\uff08\u6b65\u9aa4\u987a\u5e8f\u91cd\u5efa\uff09\u3002\u5728\u57fa\u4e8e TechQA \u7684\u57fa\u51c6\u4e0a AUC \u8fbe 0.91\uff0c\u8f83\u6b64\u524d SOTA \u63d0\u5347 7.6%\u3002",
+            "pub.tech.desc": "面向技术支持问答的自动评测框架，结合 ClozeFact（完形填空式事实校验）与 StepRestore（步骤顺序重建）。在基于 TechQA 的基准上 AUC 达 0.91，较此前 SOTA 提升 7.6%。",
 
             "pub.skel.title": "Skeleton-CutMix: Mixing Up Skeleton with Probabilistic Bone Exchange for Supervised Domain Adaptation",
             "pub.skel.authors": "Hanchao Liu, <span class=\"me\">Yuhe Liu</span>, Tai-Jiang Mu, Shi-Min Hu",
-            "pub.skel.desc": "\u9762\u5411\u52a8\u4f5c\u8bc6\u522b\u8fc1\u79fb\u7684\u8de8\u57df\u9aa8\u67b6\u6570\u636e\u589e\u5f3a\u65b9\u6cd5\u3002\u901a\u8fc7\u5728\u6e90\u57df\u4e0e\u76ee\u6807\u57df\u9aa8\u67b6\u4e4b\u95f4\u6982\u7387\u6027\u4ea4\u6362\u9aa8\u9abc\uff0c\u4f7f\u6a21\u578b\u5728 NTU-60 \u4e0e ETRI-Activity3D \u6570\u636e\u96c6\u4e0a\u826f\u597d\u6cdb\u5316\u3002",
+            "pub.skel.desc": "面向动作识别迁移的跨域骨架数据增强方法。通过在源域与目标域骨架之间概率性交换骨骼，使模型在 NTU-60 与 ETRI-Activity3D 数据集上良好泛化。",
 
-            "link.conference": "\u4f1a\u8bae\u4e3b\u9875",
-            "link.code": "\u4ee3\u7801",
-            "link.dataset": "\u6570\u636e\u96c6",
-            "link.leaderboard": "\u6392\u884c\u699c",
-            "link.paper": "\u8bba\u6587 PDF",
+            "link.conference": "会议主页",
+            "link.code": "代码",
+            "link.dataset": "数据集",
+            "link.leaderboard": "排行榜",
+            "link.paper": "论文 PDF",
 
-            "exp.eyebrow": "\u9879\u76ee\u4e0e\u7ecf\u5386",
-            "exp.title": "\u5927\u6a21\u578b\u8bc4\u6d4b\u4e0e\u7cfb\u7edf\u90e8\u7f72\u5b9e\u8df5\u3002",
-            "exp.subline": "\u90e8\u5206\u5de5\u4e1a\u5408\u4f5c\u9879\u76ee\uff1aAIOps \u57fa\u7840\u6a21\u578b\u8bc4\u6d4b\u3001\u65e5\u5fd7\u5206\u6790\u4e0e\u7535\u4fe1\u9886\u57df\u6a21\u578b\u5fae\u8c03\u3002",
-            "exp.it1.title": "AIOps \u5927\u6a21\u578b\u81ea\u52a8\u8bc4\u6d4b\u7cfb\u7edf\u5efa\u8bbe",
-            "exp.it1.org": "\u534e\u4e3a \u00b7 \u4e2d\u79d1\u9662 \u00b7 \u4fe1\u901a\u9662",
-            "exp.it1.desc": "\u4e3a AIOps \u57fa\u7840\u5927\u6a21\u578b\u8bbe\u8ba1\u80fd\u529b\u5206\u7c7b\u4f53\u7cfb\u4e0e\u4e09\u7ef4\u8bc4\u6d4b\u7cfb\u7edf\uff0c\u642d\u5efa RAG / Agent \u57fa\u51c6\u751f\u6210\u6d41\u6c34\u7ebf\uff0c\u5e76\u5728\u534e\u4e3a\u5185\u90e8\u4e0e\u4fe1\u901a\u9662\u8bc4\u6d4b\u5e73\u53f0\u4e0a\u4ea4\u4ed8\u5b8c\u6574\u7684\u8bc4\u6d4b\u7cfb\u7edf\u3002",
-            "exp.it2.title": "OpsEval \u57fa\u51c6\u4e0e\u6392\u884c\u699c",
-            "exp.it2.org": "\u6e05\u534e NetMan Lab",
-            "exp.it2.desc": "\u6574\u7406 9,000+ \u6761 AIOps \u95ee\u7b54\u6570\u636e\uff0c\u7ef4\u62a4 OpsEval \u6392\u884c\u699c\uff0c\u5e76\u57fa\u4e8e LLM-as-a-Judge\u3001RAGAS \u4e0e\u9891\u7387\u7edf\u8ba1\u7b49\u65b9\u6cd5\u5bf9 20+ \u4e3b\u6d41\u5927\u6a21\u578b\u8fdb\u884c\u8bc4\u6d4b\u3002",
-            "exp.it3.title": "\u57fa\u4e8e\u5927\u6a21\u578b\u7684 CI \u6d41\u6c34\u7ebf\u65e5\u5fd7\u5206\u6790",
-            "exp.it3.org": "\u817e\u8baf TEG \u00b7 \u7b97\u6cd5\u5b9e\u4e60\u751f",
-            "exp.it3.desc": "\u901a\u8fc7\u5173\u952e\u8bcd\u8868\u4e0e\u4e0a\u4e0b\u6587\u7a97\u53e3\u5339\u914d\u4f18\u5316\u5f02\u5e38\u65e5\u5fd7\u53ec\u56de\uff0c\u5e76\u57fa\u4e8e\u5173\u952e\u8bcd\u5339\u914d\u3001TF-IDF \u4e0e LLM-as-a-Judge \u8bbe\u8ba1\u81ea\u52a8\u5316\u7b54\u6848\u8bc4\u4f30\u3002",
-            "exp.it4.title": "\u9762\u5411\u7535\u4fe1\u9886\u57df\u7684\u5927\u6a21\u578b\u5fae\u8c03",
-            "exp.it4.org": "\u4e2d\u5174\u901a\u8baf",
-            "exp.it4.desc": "\u6574\u7406\u7535\u4fe1\u9886\u57df\u95ee\u7b54\u6570\u636e\uff0c\u5728 PT\u3001SFT\u3001DPO \u7b49\u8bad\u7ec3\u8303\u5f0f\u4e0b\u7cfb\u7edf\u6bd4\u8f83\u53c2\u6570\u9ad8\u6548\u5fae\u8c03\u4e0e\u5168\u91cf\u5fae\u8c03\u65b9\u6cd5\u7684\u6548\u679c\u3002",
+            "exp.eyebrow": "项目与经历",
+            "exp.title": "大模型评测与系统部署实践。",
+            "exp.subline": "部分工业合作项目：AIOps 基础模型评测、日志分析与电信领域模型微调。",
+            "exp.it1.title": "AIOps 大模型自动评测系统建设",
+            "exp.it1.org": "华为 · 中科院 · 信通院",
+            "exp.it1.desc": "为 AIOps 基础大模型设计能力分类体系与三维评测系统，搭建 RAG / Agent 基准生成流水线，并在华为内部与信通院评测平台上交付完整的评测系统。",
+            "exp.it2.title": "OpsEval 基准与排行榜",
+            "exp.it2.org": "清华 NetMan Lab",
+            "exp.it2.desc": "整理 9,000+ 条 AIOps 问答数据，维护 OpsEval 排行榜，并基于 LLM-as-a-Judge、RAGAS 与频率统计等方法对 20+ 主流大模型进行评测。",
+            "exp.it3.title": "基于大模型的 CI 流水线日志分析",
+            "exp.it3.org": "腾讯 TEG · 算法实习生",
+            "exp.it3.desc": "通过关键词表与上下文窗口匹配优化异常日志召回，并基于关键词匹配、TF-IDF 与 LLM-as-a-Judge 设计自动化答案评估。",
+            "exp.it4.title": "面向电信领域的大模型微调",
+            "exp.it4.org": "中兴通讯",
+            "exp.it4.desc": "整理电信领域问答数据，在 PT、SFT、DPO 等训练范式下系统比较参数高效微调与全量微调方法的效果。",
 
-            "skills.eyebrow": "\u5de5\u5177\u6808\u4e0e\u670d\u52a1",
-            "skills.title": "\u7f16\u7a0b\u8bed\u8a00\u3001\u6846\u67b6\u4e0e\u6821\u5185\u5de5\u4f5c\u3002",
-            "skills.stack": "\u6280\u672f\u6808",
-            "skills.service": "\u6559\u5b66\u4e0e\u670d\u52a1",
-            "skill.agents": "Agent \u7cfb\u7edf",
-            "skill.eval": "\u5927\u6a21\u578b\u8bc4\u6d4b",
-            "service.1": "\u6e05\u534e\u5927\u5b66\u8ba1\u7b97\u673a\u7cfb\u300a\u8f6f\u4ef6\u5de5\u7a0b\u300b\u8bfe\u7a0b\u52a9\u6559\uff0c\u8fde\u7eed\u62c5\u4efb 2023\u30012024\u30012025 \u4e09\u5c4a\u3002",
-            "service.2": "\u8d1f\u8d23 NetMan Lab \u96c6\u7fa4\u7ba1\u7406\u5de5\u4f5c\uff0c\u5305\u62ec\u5185\u90e8\u7f51\u7edc\u8d26\u53f7\u4e0e CPU/VM \u8d44\u6e90\u7ba1\u7406\u3002",
-            "service.3": "\u66fe\u4ece\u4e8b\u573a\u666f\u91cd\u5efa\u65b9\u5411\u7684\u79d1\u7814\u5b9e\u4e60\uff0c\u5e76\u62c5\u4efb Skeleton-CutMix\uff08IEEE TIP 2023\uff09\u4e8c\u4f5c\u3002",
+            "skills.eyebrow": "工具栈与服务",
+            "skills.title": "编程语言、框架与校内工作。",
+            "skills.stack": "技术栈",
+            "skills.service": "教学与服务",
+            "skill.agents": "Agent 系统",
+            "skill.eval": "大模型评测",
+            "service.1": "清华大学计算机系《软件工程》课程助教，连续担任 2023、2024、2025 三届。",
+            "service.2": "负责 NetMan Lab 集群管理工作，包括内部网络账号与 CPU/VM 资源管理。",
+            "service.3": "曾从事场景重建方向的科研实习，并担任 Skeleton-CutMix（IEEE TIP 2023）二作。",
 
-            "contact.eyebrow": "\u8054\u7cfb\u65b9\u5f0f",
-            "contact.title": "\u6b22\u8fce\u5c31\u5927\u6a21\u578b\u8bc4\u6d4b\u4e0e AIOps \u7cfb\u7edf\u8fdb\u884c\u7814\u7a76\u4ea4\u6d41\u3002",
-            "contact.desc": "\u6211\u5f88\u4e50\u610f\u804a\u804a\u57fa\u51c6\u8bbe\u8ba1\u3001\u9762\u5411\u9886\u57df\u6570\u636e\u7684 Agent \u6d41\u6c34\u7ebf\uff0c\u6216\u8005\u628a\u5927\u6a21\u578b\u771f\u6b63\u90e8\u7f72\u5230\u8fd0\u7ef4\u573a\u666f\u4e2d\u7684\u5b9e\u8df5\u7ecf\u9a8c\u3002\u7ed9\u6211\u53d1\u90ae\u4ef6\u5427 \u2014\u2014 \u6211\u901a\u5e38\u4f1a\u5728\u51e0\u5929\u5185\u56de\u590d\u3002",
-            "contact.cv": "\u4e0b\u8f7d\u7b80\u5386 (PDF)",
-            "contact.blog": "\u9605\u8bfb\u535a\u5ba2 \u2192",
+            "contact.eyebrow": "联系方式",
+            "contact.title": "欢迎就大模型评测与 AIOps 系统进行研究交流。",
+            "contact.desc": "我很乐意聊聊基准设计、面向领域数据的 Agent 流水线，或者把大模型真正部署到运维场景中的实践经验。给我发邮件吧 —— 我通常会在几天内回复。",
+            "contact.cv": "下载简历 (PDF)",
+            "contact.blog": "阅读博客 →",
 
-            "footer.copy": "\u00a9 2026 \u5218\u7389\u6cb3 \u00b7 \u4e8e\u6df1\u5733"
+            "footer.copy": "© 2026 Junetheriver · 于深圳"
           }
         };
 
         const STORE_KEY = "yl-lang";
+        const DEFAULT_LANG = "en";
         const supported = ["en", "zh"];
 
         const detectInitial = () => {
           const stored = localStorage.getItem(STORE_KEY);
           if (stored && supported.includes(stored)) return stored;
-          const nav = (navigator.language || "en").toLowerCase();
-          return nav.startsWith("zh") ? "zh" : "en";
+          return DEFAULT_LANG;
         };
 
         const applyLang = (lang) => {
@@ -1720,7 +1761,7 @@
             }
             btn.setAttribute(
               "aria-label",
-              lang === "zh" ? "Switch to English" : "\u5207\u6362\u4e3a\u4e2d\u6587"
+              lang === "zh" ? "Switch to English" : "切换为中文"
             );
             btn.title = lang === "zh" ? "Switch to English" : "Switch to Chinese";
           });
